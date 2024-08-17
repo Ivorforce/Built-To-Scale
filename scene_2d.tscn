@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://x8tw3ruhxxdr"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_xrgb2"]
+
+[sub_resource type="Gradient" id="Gradient_fs2qh"]
+offsets = PackedFloat32Array(0.00649351, 0.980519)
+colors = PackedColorArray(0.432633, 0.738991, 0.846862, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m0y6n"]
+gradient = SubResource("Gradient_fs2qh")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_og78d"]
+
+[sub_resource type="Gradient" id="Gradient_xb7k1"]
+offsets = PackedFloat32Array(0.00324675, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvanj"]
+gradient = SubResource("Gradient_xb7k1")
+width = 1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f80vo"]
+
+[node name="Scene" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="Noise" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(589.738, 315.957)
+rotation = 1.5708
+scale = Vector2(3.38721, 1495.97)
+texture = SubResource("GradientTexture1D_m0y6n")
+
+[node name="Floor" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_og78d")
+position = Vector2(513.5, 671.625)
+scale = Vector2(2215, 746.75)
+texture = SubResource("GradientTexture1D_rvanj")
+
+[node name="Me" type="Sprite2D" parent="."]
+position = Vector2(576, 398)
+scale = Vector2(54.125, 80.75)
+texture = SubResource("PlaceholderTexture2D_f80vo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 322)
+script = ExtResource("1_xrgb2")
