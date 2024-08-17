@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=17 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="1_82wya"]
 [ext_resource type="Script" path="res://camera.gd" id="1_xrgb2"]
 [ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="2_35m02"]
-[ext_resource type="Script" path="res://conversation_box.gd" id="3_3tspu"]
-[ext_resource type="Script" path="res://conversation_agent.gd" id="3_iyv4d"]
+[ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="3_3tspu"]
+[ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="3_iyv4d"]
+[ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="6_q8vrs"]
+[ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="6_rd28r"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="6_yl7c4"]
 
 [sub_resource type="Gradient" id="Gradient_fs2qh"]
 offsets = PackedFloat32Array(0.00649351, 0.980519)
@@ -43,8 +46,8 @@ texture = SubResource("GradientTexture1D_m0y6n")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_og78d")
-position = Vector2(513.5, 671.625)
-scale = Vector2(2215, 746.75)
+position = Vector2(594, 531.125)
+scale = Vector2(1516, 465.75)
 texture = SubResource("GradientTexture1D_rvanj")
 
 [node name="ParaFar" type="Parallax2D" parent="."]
@@ -57,16 +60,39 @@ texture = ExtResource("1_82wya")
 
 [node name="ParaNear" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 0.9)
+limit_begin = Vector2(-1e+07, 0)
 
 [node name="Mothertree" type="Sprite2D" parent="ParaNear"]
 position = Vector2(850, 199)
 scale = Vector2(0.220297, 0.220297)
 texture = ExtResource("2_35m02")
 
+[node name="ParaNearRain" type="Parallax2D" parent="."]
+visible = false
+scale = Vector2(0.35, 0.35)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(-547, -111)
+repeat_size = Vector2(2000, 1414)
+autoscroll = Vector2(500, 1000)
+repeat_times = 4
+
+[node name="Rain" type="Sprite2D" parent="ParaNearRain"]
+texture = ExtResource("6_rd28r")
+
 [node name="Me" type="Sprite2D" parent="."]
 position = Vector2(565.969, 412.688)
 scale = Vector2(34.0625, 51.375)
 texture = SubResource("PlaceholderTexture2D_f80vo")
+
+[node name="ParaHereRain" type="Parallax2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(2000, 1414)
+autoscroll = Vector2(450, 1200)
+repeat_times = 3
+
+[node name="Rain" type="Sprite2D" parent="ParaHereRain"]
+texture = ExtResource("6_rd28r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 322)
@@ -81,22 +107,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_3tspu")
+metadata/_edit_use_anchors_ = true
 
-[node name="ConversationBackground" type="ColorRect" parent="HUD/ConversationBox"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = 531.0
-offset_right = 1049.0
-offset_bottom = 597.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-color = Color(0.716296, 0.716296, 0.716296, 1)
+[node name="Textbox" type="Sprite2D" parent="HUD/ConversationBox"]
+position = Vector2(578, 584)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_q8vrs")
 
 [node name="ConversationLabel" type="RichTextLabel" parent="HUD/ConversationBox"]
 layout_mode = 1
@@ -105,15 +121,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = 541.0
-offset_right = 1033.0
-offset_bottom = 593.0
+offset_left = 171.0
+offset_top = 517.0
+offset_right = 944.0
+offset_bottom = 574.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_ysva5")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "This is a test text"
+script = ExtResource("6_yl7c4")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_edit_use_anchors_ = true
 
 [node name="ConversationAgent" type="Node" parent="."]
 script = ExtResource("3_iyv4d")
