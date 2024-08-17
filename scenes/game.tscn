@@ -1,17 +1,17 @@
 [gd_scene load_steps=23 format=3 uid="uid://x8tw3ruhxxdr"]
 
-[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="1_82wya"]
-[ext_resource type="Script" path="res://camera.gd" id="1_xrgb2"]
-[ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_xu4qr"]
-[ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="2_35m02"]
-[ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="3_3tspu"]
-[ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="3_iyv4d"]
-[ext_resource type="Script" path="res://scripts/conversation_button.gd" id="4_uhbtl"]
-[ext_resource type="Resource" uid="uid://bgpsn3gw6ootr" path="res://texts/test.dialogue" id="5_pampa"]
-[ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="5_ppvjg"]
-[ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="6_q8vrs"]
-[ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="6_rd28r"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="6_yl7c4"]
+[ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
+[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="2_3py5k"]
+[ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="3_wraqi"]
+[ext_resource type="Script" path="res://scripts/conversation_button.gd" id="4_ftkb2"]
+[ext_resource type="Resource" uid="uid://bgpsn3gw6ootr" path="res://texts/test.dialogue" id="5_hl4wv"]
+[ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="6_e77nc"]
+[ext_resource type="Script" path="res://camera.gd" id="7_8a6v3"]
+[ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
+[ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
+[ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
+[ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="12_ibt8c"]
 
 [sub_resource type="Gradient" id="Gradient_fs2qh"]
 offsets = PackedFloat32Array(0.00649351, 0.980519)
@@ -31,7 +31,7 @@ width = 1
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f80vo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cke6s"]
-shader = ExtResource("5_ppvjg")
+shader = ExtResource("8_73ca4")
 
 [sub_resource type="Gradient" id="Gradient_jjjns"]
 
@@ -39,10 +39,10 @@ shader = ExtResource("5_ppvjg")
 gradient = SubResource("Gradient_jjjns")
 width = 1
 
-[sub_resource type="SystemFont" id="SystemFont_cunmp"]
+[sub_resource type="SystemFont" id="SystemFont_wwyhq"]
 
 [sub_resource type="Theme" id="Theme_ysva5"]
-default_font = SubResource("SystemFont_cunmp")
+default_font = SubResource("SystemFont_wwyhq")
 
 [node name="Scene" type="Node2D"]
 
@@ -56,7 +56,7 @@ scale = Vector2(3.38721, 1495.97)
 texture = SubResource("GradientTexture1D_m0y6n")
 
 [node name="Floor" type="Sprite2D" parent="."]
-material = ExtResource("1_xu4qr")
+material = ExtResource("1_r7ga6")
 position = Vector2(594, 531.125)
 scale = Vector2(1516, 465.75)
 texture = SubResource("GradientTexture1D_rvanj")
@@ -65,19 +65,19 @@ texture = SubResource("GradientTexture1D_rvanj")
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Mountains" type="Sprite2D" parent="ParaFar"]
-material = ExtResource("1_xu4qr")
+material = ExtResource("1_r7ga6")
 position = Vector2(562, 276)
 scale = Vector2(0.187752, 0.187752)
-texture = ExtResource("1_82wya")
+texture = ExtResource("2_3py5k")
 
 [node name="ParaNear" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 0.9)
 
 [node name="Mothertree" type="Sprite2D" parent="ParaNear"]
-material = ExtResource("1_xu4qr")
+material = ExtResource("1_r7ga6")
 position = Vector2(850, 199)
 scale = Vector2(0.220297, 0.220297)
-texture = ExtResource("2_35m02")
+texture = ExtResource("3_wraqi")
 
 [node name="Button" type="Button" parent="ParaNear"]
 anchors_preset = 15
@@ -90,8 +90,8 @@ offset_bottom = 377.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Talk"
-script = ExtResource("4_uhbtl")
-resource = ExtResource("5_pampa")
+script = ExtResource("4_ftkb2")
+resource = ExtResource("5_hl4wv")
 start_line_id = "start"
 
 [node name="ParaNearRain" type="Parallax2D" parent="."]
@@ -104,7 +104,7 @@ autoscroll = Vector2(500, 1000)
 repeat_times = 4
 
 [node name="Rain" type="Sprite2D" parent="ParaNearRain"]
-texture = ExtResource("6_rd28r")
+texture = ExtResource("6_e77nc")
 
 [node name="Me" type="Sprite2D" parent="."]
 position = Vector2(565.969, 412.688)
@@ -119,11 +119,11 @@ autoscroll = Vector2(450, 1200)
 repeat_times = 3
 
 [node name="Rain" type="Sprite2D" parent="ParaHereRain"]
-texture = ExtResource("6_rd28r")
+texture = ExtResource("6_e77nc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 322)
-script = ExtResource("1_xrgb2")
+script = ExtResource("7_8a6v3")
 
 [node name="PostProcess" type="Sprite2D" parent="."]
 visible = false
@@ -140,14 +140,14 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_3tspu")
+script = ExtResource("9_w2mhu")
 metadata/_edit_use_anchors_ = true
 
 [node name="Textbox" type="Sprite2D" parent="HUD/ConversationBox"]
-material = ExtResource("1_xu4qr")
+material = ExtResource("1_r7ga6")
 position = Vector2(578, 584)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_q8vrs")
+texture = ExtResource("10_7iuwl")
 
 [node name="ConversationLabel" type="RichTextLabel" parent="HUD/ConversationBox"]
 layout_mode = 1
@@ -164,7 +164,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_ysva5")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-script = ExtResource("6_yl7c4")
+script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_edit_use_anchors_ = true
 
@@ -181,4 +181,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="ConversationAgent" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_iyv4d")
+script = ExtResource("12_ibt8c")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://7oexk3wicbe2"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_c2nkh"]
+[ext_resource type="Script" path="res://scripts/start_game_button.gd" id="2_y4yef"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 322)
+script = ExtResource("1_c2nkh")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="HUD"]
+offset_left = 508.0
+offset_top = 309.0
+offset_right = 645.0
+offset_bottom = 340.0
+text = "Start Game"
+script = ExtResource("2_y4yef")
