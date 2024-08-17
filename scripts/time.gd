@@ -5,14 +5,14 @@ signal on_day_start
 signal on_day_end
 
 @export
-var previous_time_h = 8
+var previous_time_h := 8.0
 @export
-var current_time_h = 8
+var current_time_h := 8.0
 
 @export
-var seconds_per_day = 60 * 2
+var seconds_per_day := 60.0 * 2.0
 @export
-var day_is_over = false
+var day_is_over := false
 
 func _ready() -> void:
 	start_day()
