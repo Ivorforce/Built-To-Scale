@@ -22,5 +22,5 @@ func _pressed() -> void:
 	if agent.current_dialogue:
 		return
 	
-	agent.show_line(resource, start_line_id)
+	agent.start_conversation(resource, start_line_id)
 	visible = false

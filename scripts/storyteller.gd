@@ -1,14 +1,14 @@
 class_name StoryTeller
 extends Node
 
-var planned_interaction_times = []
-var planned_interaction_callbacks = []
+# tuples [time, callback]
+var events_today = []
 
 @onready
 var time: GameTime = %Time
 
 func _ready() -> void:
-	plan_interactions(0)
+	plan_events(0)
 
 func conv_mother_tree():
 	(%Mothertree.get_node("Button") as ConversationButton).offer_conversation(
@@ -18,14 +18,14 @@ func conv_mother_tree():
 func conv_mother_tree_stop():
 	(%Mothertree.get_node("Button") as ConversationButton).dismiss_conversation()
 
-func plan_interactions(day: int):
-	planned_interaction_times = [8.5, 9]
-	planned_interaction_callbacks = [conv_mother_tree, conv_mother_tree_stop]
-	
+func plan_events(day: int):
+	events_today = [
+		[8.5, conv_mother_tree],
+		[9, conv_mother_tree_stop],
+	]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	while planned_interaction_times.size() > 0 and time.current_time_h > planned_interaction_times[0]:
-		planned_interaction_callbacks[0].call()
-		planned_interaction_callbacks.pop_front()
-		planned_interaction_times.pop_front()
+	while events_today.size() > 0 and time.current_time_h > events_today[0][0]:
+		events_today[0][1].call()
+		events_today.pop_front()
