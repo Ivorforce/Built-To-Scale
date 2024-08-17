@@ -2,10 +2,13 @@ class_name ConversationBox
 extends Control
 
 @onready
-var tween := get_tree().create_tween()
+var label: DialogueLabel = $ConversationLabel
 
 func set_line(line: DialogueLine):
-	var label: DialogueLabel = $ConversationLabel
+	if not line:
+		label.visible = false
+		return
 	
+	label.visible = true
 	label.dialogue_line = line
 	label.type_out()

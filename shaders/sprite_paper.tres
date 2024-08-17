@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bq50a162ysybs"]
+
+[ext_resource type="Shader" path="res://shaders/sprite_paper.gdshader" id="1_enbd6"]
+
+[resource]
+shader = ExtResource("1_enbd6")
