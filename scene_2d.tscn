@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=14 format=3 uid="uid://x8tw3ruhxxdr"]
 
+[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="1_82wya"]
 [ext_resource type="Script" path="res://camera.gd" id="1_xrgb2"]
+[ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="2_35m02"]
+[ext_resource type="Script" path="res://conversation_box.gd" id="3_3tspu"]
+[ext_resource type="Script" path="res://conversation_agent.gd" id="3_iyv4d"]
 
 [sub_resource type="Gradient" id="Gradient_fs2qh"]
 offsets = PackedFloat32Array(0.00649351, 0.980519)
@@ -12,7 +16,7 @@ gradient = SubResource("Gradient_fs2qh")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_og78d"]
 
 [sub_resource type="Gradient" id="Gradient_xb7k1"]
-offsets = PackedFloat32Array(0.00324675, 1)
+offsets = PackedFloat32Array(0.0240964, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_rvanj"]
@@ -20,6 +24,11 @@ gradient = SubResource("Gradient_xb7k1")
 width = 1
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f80vo"]
+
+[sub_resource type="SystemFont" id="SystemFont_cunmp"]
+
+[sub_resource type="Theme" id="Theme_ysva5"]
+default_font = SubResource("SystemFont_cunmp")
 
 [node name="Scene" type="Node2D"]
 
@@ -38,11 +47,73 @@ position = Vector2(513.5, 671.625)
 scale = Vector2(2215, 746.75)
 texture = SubResource("GradientTexture1D_rvanj")
 
+[node name="ParaFar" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Mountains" type="Sprite2D" parent="ParaFar"]
+position = Vector2(562, 276)
+scale = Vector2(0.187752, 0.187752)
+texture = ExtResource("1_82wya")
+
+[node name="ParaNear" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Mothertree" type="Sprite2D" parent="ParaNear"]
+position = Vector2(850, 199)
+scale = Vector2(0.220297, 0.220297)
+texture = ExtResource("2_35m02")
+
 [node name="Me" type="Sprite2D" parent="."]
-position = Vector2(576, 398)
-scale = Vector2(54.125, 80.75)
+position = Vector2(565.969, 412.688)
+scale = Vector2(34.0625, 51.375)
 texture = SubResource("PlaceholderTexture2D_f80vo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 322)
 script = ExtResource("1_xrgb2")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ConversationBox" type="Control" parent="HUD"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_3tspu")
+
+[node name="ConversationBackground" type="ColorRect" parent="HUD/ConversationBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 531.0
+offset_right = 1049.0
+offset_bottom = 597.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+color = Color(0.716296, 0.716296, 0.716296, 1)
+
+[node name="ConversationLabel" type="RichTextLabel" parent="HUD/ConversationBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 541.0
+offset_right = 1033.0
+offset_bottom = 593.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_ysva5")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "This is a test text"
+
+[node name="ConversationAgent" type="Node" parent="."]
+script = ExtResource("3_iyv4d")
