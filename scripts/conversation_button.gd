@@ -8,4 +8,9 @@ var resource: DialogueResource
 var start_line_id: String
 
 func _pressed() -> void:
-	%ConversationAgent.show_line(resource, start_line_id)
+	var agent: ConversationAgent = %ConversationAgent
+	
+	if agent.current_dialogue:
+		return
+	
+	agent.show_line(resource, start_line_id)
