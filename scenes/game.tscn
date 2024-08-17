@@ -1,9 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=27 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
 [ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="2_3py5k"]
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="2_5i5ef"]
+[ext_resource type="Texture2D" uid="uid://xtkhubqtdded" path="res://sprites/clouds/Cloud_1.png" id="3_m3cp0"]
 [ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="3_wraqi"]
+[ext_resource type="Texture2D" uid="uid://cuyxmko16rwvp" path="res://sprites/clouds/Cloud_2.png" id="4_6w5t2"]
 [ext_resource type="Script" path="res://scripts/conversation_button.gd" id="4_ftkb2"]
+[ext_resource type="Texture2D" uid="uid://b8rvp314fxf44" path="res://sprites/clouds/Cloud_3.png" id="5_2jbuk"]
 [ext_resource type="Resource" uid="uid://bgpsn3gw6ootr" path="res://texts/test.dialogue" id="5_hl4wv"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="6_e77nc"]
 [ext_resource type="Script" path="res://camera.gd" id="7_8a6v3"]
@@ -12,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="12_ibt8c"]
+[ext_resource type="Script" path="res://scripts/storyteller.gd" id="13_f2ov4"]
+[ext_resource type="Script" path="res://scripts/time.gd" id="14_blpt0"]
 
 [sub_resource type="Gradient" id="Gradient_fs2qh"]
 offsets = PackedFloat32Array(0.00649351, 0.980519)
@@ -19,14 +25,6 @@ colors = PackedColorArray(0.432633, 0.738991, 0.846862, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_m0y6n"]
 gradient = SubResource("Gradient_fs2qh")
-
-[sub_resource type="Gradient" id="Gradient_xb7k1"]
-offsets = PackedFloat32Array(0.0240964, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvanj"]
-gradient = SubResource("Gradient_xb7k1")
-width = 1
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f80vo"]
 
@@ -46,10 +44,7 @@ default_font = SubResource("SystemFont_wwyhq")
 
 [node name="Scene" type="Node2D"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.2, 0.2)
-
-[node name="Noise" type="Sprite2D" parent="Parallax2D"]
+[node name="Sky" type="Sprite2D" parent="."]
 position = Vector2(589.738, 315.957)
 rotation = 1.5708
 scale = Vector2(3.38721, 1495.97)
@@ -57,9 +52,9 @@ texture = SubResource("GradientTexture1D_m0y6n")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("1_r7ga6")
-position = Vector2(594, 531.125)
-scale = Vector2(1516, 465.75)
-texture = SubResource("GradientTexture1D_rvanj")
+position = Vector2(580, 1495)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("2_5i5ef")
 
 [node name="ParaFar" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
@@ -70,16 +65,95 @@ position = Vector2(562, 276)
 scale = Vector2(0.187752, 0.187752)
 texture = ExtResource("2_3py5k")
 
+[node name="ParaClouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.15, 0.15)
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(3, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(415, 43)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("3_m3cp0")
+
+[node name="Cloud4" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(68, 38)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_m3cp0")
+
+[node name="Cloud2" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(1019, 31)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud16" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(363, 72)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud18" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(63.0001, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud11" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(1446, 100)
+scale = Vector2(-0.2, 0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud12" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(1515, 136)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud13" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(1687, 146)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud15" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(2487, 102)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud3" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(1188, 36)
+scale = Vector2(-0.25, 0.25)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud7" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(1459, 122)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud8" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(2205, 44)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud10" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(3711, 119)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud14" type="Sprite2D" parent="ParaClouds"]
+position = Vector2(2180, 58)
+rotation = 3.14159
+scale = Vector2(0.2, -0.2)
+texture = ExtResource("4_6w5t2")
+
 [node name="ParaNear" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 0.9)
 
-[node name="Mothertree" type="Sprite2D" parent="ParaNear"]
+[node name="Mothertree" type="Node2D" parent="ParaNear"]
+unique_name_in_owner = true
+
+[node name="Sprite" type="Sprite2D" parent="ParaNear/Mothertree"]
 material = ExtResource("1_r7ga6")
 position = Vector2(850, 199)
 scale = Vector2(0.220297, 0.220297)
 texture = ExtResource("3_wraqi")
 
-[node name="Button" type="Button" parent="ParaNear"]
+[node name="Button" type="Button" parent="ParaNear/Mothertree"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,7 +166,6 @@ grow_vertical = 2
 text = "Talk"
 script = ExtResource("4_ftkb2")
 resource = ExtResource("5_hl4wv")
-start_line_id = "start"
 
 [node name="ParaNearRain" type="Parallax2D" parent="."]
 visible = false
@@ -182,3 +255,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 [node name="ConversationAgent" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("12_ibt8c")
+
+[node name="Storyteller" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("13_f2ov4")
+
+[node name="Time" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("14_blpt0")
