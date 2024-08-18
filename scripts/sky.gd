@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 	day_ratio = clampf(day_ratio, 0, 1)
 	
 	var zenith_ratio = (0.5 - abs(day_ratio - 0.5)) * 2
-	print(zenith_ratio)
 	
 	(texture as GradientTexture1D).gradient.colors[0] = sample_gradient(day_gradient, zenith_ratio)
 	(%PostProcess as PostProcess).set_tint_color(sample_gradient(day_gradient_tint, zenith_ratio))

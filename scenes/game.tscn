@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=35 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" path="res://scripts/storyteller.gd" id="13_f2ov4"]
 [ext_resource type="Script" path="res://scripts/time.gd" id="14_blpt0"]
 [ext_resource type="Script" path="res://scripts/post_process.gd" id="14_foru3"]
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
+[ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 
 [sub_resource type="Gradient" id="Gradient_fs2qh"]
 offsets = PackedFloat32Array(0.00649351, 0.980519)
@@ -29,12 +31,12 @@ colors = PackedColorArray(0.432633, 0.738991, 0.846862, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_fs2qh")
 
 [sub_resource type="Gradient" id="Gradient_d4fqn"]
-offsets = PackedFloat32Array(0, 0.16358, 1)
-colors = PackedColorArray(0.917835, 0.528446, 0.360484, 1, 0.737465, 0.720348, 0.820188, 1, 0.686735, 0.861535, 0.965362, 1)
+offsets = PackedFloat32Array(0, 0.234568, 0.354938, 1)
+colors = PackedColorArray(0.0624023, 0.317516, 0.554404, 1, 0.917835, 0.528446, 0.360484, 1, 0.737465, 0.720348, 0.820188, 1, 0.686735, 0.861535, 0.965362, 1)
 
 [sub_resource type="Gradient" id="Gradient_gi7kq"]
-offsets = PackedFloat32Array(0, 0.157407, 0.290123)
-colors = PackedColorArray(0.913906, 0.827398, 0.767846, 1, 0.909551, 0.913093, 0.91412, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.141975, 0.333333, 0.558642)
+colors = PackedColorArray(0.270677, 0.416397, 0.500951, 1, 0.913906, 0.827398, 0.767846, 1, 0.909551, 0.913093, 0.91412, 1, 1, 1, 1, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f80vo"]
 
@@ -48,10 +50,31 @@ shader_parameter/tint_color = Vector3(1, 1, 1)
 gradient = SubResource("Gradient_jjjns")
 width = 1
 
-[sub_resource type="SystemFont" id="SystemFont_wwyhq"]
+[sub_resource type="FontVariation" id="FontVariation_p0nbv"]
+base_font = ExtResource("17_87k6o")
+variation_opentype = {
+2003265652: 450
+}
 
-[sub_resource type="Theme" id="Theme_ysva5"]
-default_font = SubResource("SystemFont_wwyhq")
+[sub_resource type="FontVariation" id="FontVariation_uir3m"]
+base_font = ExtResource("17_87k6o")
+variation_opentype = {
+2003265652: 450
+}
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_xp6oe"]
+base_font = ExtResource("17_87k6o")
+variation_opentype = {
+2003265652: 800
+}
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_frg7b"]
+base_font = ExtResource("17_87k6o")
+variation_opentype = {
+2003265652: 800
+}
 
 [node name="Scene" type="Node2D"]
 
@@ -79,77 +102,161 @@ position = Vector2(562, 276)
 scale = Vector2(0.187752, 0.187752)
 texture = ExtResource("2_3py5k")
 
-[node name="ParaClouds" type="Parallax2D" parent="."]
+[node name="ParaCloudsCloudy" type="Parallax2D" parent="."]
+visible = false
 scroll_scale = Vector2(0.15, 0.15)
 repeat_size = Vector2(4000, 0)
 autoscroll = Vector2(3, 0)
 
-[node name="Cloud1" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud1" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(415, 43)
 scale = Vector2(-0.3, 0.3)
 texture = ExtResource("3_m3cp0")
 
-[node name="Cloud4" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud4" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(68, 38)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_m3cp0")
 
-[node name="Cloud2" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud2" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(1019, 31)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud16" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud16" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(363, 72)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud18" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud18" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(63.0001, 32)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud11" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud11" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(1446, 100)
 scale = Vector2(-0.2, 0.2)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud12" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud12" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(1515, 136)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud13" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud13" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(1687, 146)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud15" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud15" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(2487, 102)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_6w5t2")
 
-[node name="Cloud3" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud3" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(1188, 36)
 scale = Vector2(-0.25, 0.25)
 texture = ExtResource("5_2jbuk")
 
-[node name="Cloud7" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud7" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(1459, 122)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("5_2jbuk")
 
-[node name="Cloud8" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud8" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(2205, 44)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_2jbuk")
 
-[node name="Cloud10" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud10" type="Sprite2D" parent="ParaCloudsCloudy"]
 position = Vector2(3711, 119)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_2jbuk")
 
-[node name="Cloud14" type="Sprite2D" parent="ParaClouds"]
+[node name="Cloud14" type="Sprite2D" parent="ParaCloudsCloudy"]
+position = Vector2(2180, 58)
+rotation = 3.14159
+scale = Vector2(0.2, -0.2)
+texture = ExtResource("4_6w5t2")
+
+[node name="ParaCloudsRainy" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0.15, 0.15)
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(3, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="ParaCloudsRainy"]
+visible = false
+position = Vector2(445, 42)
+scale = Vector2(-0.474803, 0.474803)
+texture = ExtResource("3_m3cp0")
+
+[node name="Cloud4" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(146.071, 79.05)
+scale = Vector2(0.367894, 0.367894)
+texture = ExtResource("3_m3cp0")
+
+[node name="Cloud2" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(670, 36)
+scale = Vector2(0.469509, 0.469509)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud16" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(395.021, 98.65)
+scale = Vector2(0.337726, 0.337726)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud17" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(538, -60)
+scale = Vector2(-0.831, 0.831)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud18" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(32, 16)
+scale = Vector2(0.600388, 0.600388)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud11" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(1427, 46)
+scale = Vector2(-0.606876, 0.606876)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud12" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(1544, 5.00001)
+scale = Vector2(0.446253, 0.446253)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud13" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(1608, 68)
+scale = Vector2(0.740827, 0.740827)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud15" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(2487, 102)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_6w5t2")
+
+[node name="Cloud3" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(981, 5)
+scale = Vector2(-0.587603, 0.587603)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud7" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(1281, -16)
+scale = Vector2(0.428309, 0.428309)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud8" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(2205, 44)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud10" type="Sprite2D" parent="ParaCloudsRainy"]
+position = Vector2(3711, 119)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_2jbuk")
+
+[node name="Cloud14" type="Sprite2D" parent="ParaCloudsRainy"]
 position = Vector2(2180, 58)
 rotation = 3.14159
 scale = Vector2(0.2, -0.2)
@@ -177,6 +284,7 @@ offset_right = 875.0
 offset_bottom = 377.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("17_6wtrd")
 text = "Talk"
 script = ExtResource("4_ftkb2")
 resource = ExtResource("5_hl4wv")
@@ -228,6 +336,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("17_6wtrd")
 script = ExtResource("9_w2mhu")
 metadata/_edit_use_anchors_ = true
 
@@ -250,8 +359,13 @@ offset_right = 944.0
 offset_bottom = 574.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_ysva5")
+theme = ExtResource("17_6wtrd")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_p0nbv")
+theme_override_fonts/italics_font = SubResource("FontVariation_uir3m")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_xp6oe")
+theme_override_fonts/bold_font = SubResource("FontVariation_frg7b")
+bbcode_enabled = true
 script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_edit_use_anchors_ = true
