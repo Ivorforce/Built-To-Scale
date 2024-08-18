@@ -16,7 +16,6 @@ func _ready():
 
 func start_day(day: int):
 	current_day = day
-	print(day)
 	
 	time.previous_time_h = 7.5
 	time.current_time_h = 7.5
@@ -28,9 +27,11 @@ func start_day(day: int):
 	sky.day_start_h = 7
 	sky.day_duration_h = 14
 	
+	var level := %Level as DemoScene
+	
 	events_today = [
-		[8.5, func(): offer_conversation(get_node("%Level/%Mothertree/Button"), load("res://texts/test.dialogue"), "start")],
-		[9, func(): dismiss_conversation(get_node("%Level/%Mothertree/Button"))],
+		[8.5, level.offer_test_dialogue],
+		[9, level.dismiss_test_dialogue],
 		[20.5, end_day],
 	]
 	
@@ -61,17 +62,3 @@ func _process(delta: float) -> void:
 	while events_today.size() > 0 and time.current_time_h > events_today[0][0]:
 		events_today[0][1].call()
 		events_today.pop_front()
-
-func offer_conversation(button: Button, dialogue: DialogueResource, start_line_id: String):
-	button.pressed.connect(func(): start_conversation(button, dialogue, start_line_id))
-	button.visible = true
-
-func start_conversation(button: Button, dialogue: DialogueResource, start_line_id: String):
-	if conversation_agent.current_dialogue:
-		return
-	
-	button.visible = false
-	conversation_agent.start_conversation(dialogue, start_line_id)
-
-func dismiss_conversation(button: Button):
-	button.visible = false

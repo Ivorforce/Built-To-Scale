@@ -10,6 +10,13 @@ var time := %Time as GameTime
 @onready
 var conversation_box := %ConversationBox as ConversationBox
 
+func start_conversation_if_idle(dialogue: DialogueResource, line_id: String):
+	if current_dialogue:
+		return false
+	
+	start_conversation(dialogue, line_id)
+	return true
+
 func start_conversation(dialogue: DialogueResource, line_id: String):
 	show_line(dialogue, line_id)
 	time.speed_factor = 0.1
