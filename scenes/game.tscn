@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=30 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
+[ext_resource type="AudioStream" uid="uid://h11jo1k5uw1b" path="res://sounds/click.wav" id="10_5uvrh"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
 [ext_resource type="Texture2D" uid="uid://dv7xpdatbyxsk" path="res://sprites/seasons/Seasons_Circle.png" id="10_adqwj"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
@@ -152,6 +153,10 @@ offset_bottom = -23.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
+[node name="TalkSound" type="AudioStreamPlayer" parent="HUD/ConversationBox"]
+stream = ExtResource("10_5uvrh")
+pitch_scale = 0.2
+
 [node name="EndDayUI" type="Control" parent="HUD"]
 unique_name_in_owner = true
 visible = false
@@ -269,7 +274,10 @@ script = ExtResource("12_ibt8c")
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
+current_day = 2
 
 [node name="Time" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("14_blpt0")
+
+[connection signal="spoke" from="HUD/ConversationBox/ConversationLabel" to="HUD/ConversationBox" method="_on_conversation_label_spoke"]

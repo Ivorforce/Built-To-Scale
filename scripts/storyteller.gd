@@ -22,19 +22,20 @@ func _ready():
 	tween.play()
 
 func start():
-	current_day = 0
+	start_day(current_day)
 	time.previous_time_h = 7.5
 	time.current_time_h = 7.5
-	start_day(current_day)
 
 func start_day(day: int):
+	time.current_time_h = 0
+	
 	current_day = day
 	current_year = day / 4
 	current_season = day % 4
 	for i in season_icons.size():
 		season_icons[i].visible = current_season == i
 	
-	time.seconds_per_hour = 1.0 / 14 * 120
+	time.seconds_per_hour = 1.0 / 14 * 60
 	
 	var sky := %Sky as GameSky
 	sky.day_start_h = 7
@@ -50,7 +51,7 @@ func start_day(day: int):
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
-			[9, level.dismiss_test_dialogue],
+			[12.5, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
 	elif day == 1:
@@ -61,18 +62,18 @@ func start_day(day: int):
 		
 		events_today = [
 			[8, level.offer_test_dialogue],
-			[8.5, level.dismiss_test_dialogue],
+			[12.5, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
 	elif day == 2:
 		if not _level or _level is not Level1:
-			_level = change_level(load("res://scenes/levels/level1.tscn").instantiate())
+			_level = change_level(load("res://scenes/levels/level3.tscn").instantiate())
 		
 		var level := _level as Level3
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
-			[9, level.dismiss_test_dialogue],
+			[12, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
 	else:
@@ -118,6 +119,7 @@ func change_level(level: Node2D):
 	game.move_child(level, 1)
 	level.owner = game
 	level.unique_name_in_owner = true
+	
 	return level
 
 func _process(delta: float) -> void:

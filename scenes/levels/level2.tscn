@@ -60,6 +60,7 @@ script = ExtResource("11_fvufo")
 
 [node name="Snake" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(302.5, 325.23)
 scale = Vector2(0.33, 0.33)
 

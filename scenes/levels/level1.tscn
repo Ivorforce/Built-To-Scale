@@ -1,31 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=14 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
 [ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_w0hu8"]
+[ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://sprites/environment/Grass_2.png" id="4_s5fia"]
+[ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://sprites/environment/Grass_3.png" id="5_mm3du"]
+[ext_resource type="Texture2D" uid="uid://21uegeh8fkhq" path="res://sprites/environment/Dirt_8.png" id="6_k83ld"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="7_folfc"]
 [ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="8_7wira"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
 [ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="11_o8bqu"]
+[ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://sprites/environment/Grass_4.png" id="11_plnla"]
+[ext_resource type="Texture2D" uid="uid://btvxfwmdksnyp" path="res://sprites/environment/Dirt_7.png" id="13_j3s8o"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_d640p")
-position = Vector2(578, 1422)
-scale = Vector2(1.1875, 1.1875)
+position = Vector2(598.5, 638.153)
+scale = Vector2(0.573153, 0.573153)
 texture = ExtResource("3_w0hu8")
 
-[node name="ParaFar" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0.1)
+[node name="ParaBack" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.95, 0.95)
 
-[node name="ParaNear" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.9, 0.9)
+[node name="Grass2" type="Sprite2D" parent="ParaBack"]
+position = Vector2(501, 285)
+scale = Vector2(0.364271, 0.364271)
+texture = ExtResource("4_s5fia")
+
+[node name="Grass3" type="Sprite2D" parent="ParaBack"]
+position = Vector2(815, 258)
+scale = Vector2(0.552817, 0.552817)
+texture = ExtResource("5_mm3du")
 
 [node name="Me" type="Sprite2D" parent="."]
-position = Vector2(589.465, 406.204)
+position = Vector2(591.313, 396.922)
 scale = Vector2(0.113533, 0.113533)
 texture = ExtResource("11_o8bqu")
 
@@ -44,6 +56,11 @@ position = Vector2(594, 382)
 zoom = Vector2(3, 3)
 script = ExtResource("11_fvufo")
 
+[node name="Dirt8" type="Sprite2D" parent="."]
+position = Vector2(668, 359)
+scale = Vector2(0.261194, 0.261194)
+texture = ExtResource("6_k83ld")
+
 [node name="BushBig1" type="Sprite2D" parent="."]
 position = Vector2(305, 393)
 scale = Vector2(0.248555, 0.248555)
@@ -52,6 +69,19 @@ texture = ExtResource("8_7wira")
 [node name="Bug" type="Node2D" parent="."]
 
 [node name="BugBig1" type="Sprite2D" parent="Bug"]
-position = Vector2(697, 373)
+position = Vector2(698.848, 363.718)
 scale = Vector2(0.125452, 0.125452)
 texture = ExtResource("7_folfc")
+
+[node name="ParaFront" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.4, 1.4)
+
+[node name="Grass4" type="Sprite2D" parent="ParaFront"]
+position = Vector2(485, 486)
+scale = Vector2(0.342239, 0.342239)
+texture = ExtResource("11_plnla")
+
+[node name="Dirt7" type="Sprite2D" parent="ParaFront"]
+position = Vector2(703.166, 502.153)
+scale = Vector2(0.388889, 0.388889)
+texture = ExtResource("13_j3s8o")
