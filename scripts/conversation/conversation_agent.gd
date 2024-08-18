@@ -6,10 +6,10 @@ var next_line
 
 func start_conversation(dialogue: DialogueResource, line_id: String):
 	show_line(dialogue, line_id)
-	(%Time as GameTime).seconds_per_day = 60 * 2 * 10
+	(%Time as GameTime).speed_factor = 0.1
 
 func _on_conversation_end():
-	(%Time as GameTime).seconds_per_day = 60 * 2
+	(%Time as GameTime).speed_factor = 1
 
 func show_line(dialogue: DialogueResource, line_id):
 	var conversation: ConversationBox = %ConversationBox

@@ -1,31 +1,29 @@
 class_name GameTime
 extends Node
 
-signal on_day_start
-signal on_day_end
+@export
+var previous_time_h := 0.0
+@export
+var current_time_h := 0.0
+@export
+var current_day := 0
 
 @export
-var previous_time_h := 8.0
+var seconds_per_hour := 60.0
 @export
-var current_time_h := 8.0
-
+var paused := true
 @export
-var seconds_per_day := 60.0 * 2.0
-@export
-var day_is_over := false
-
-func _ready() -> void:
-	start_day()
-
-func start_day():
-	previous_time_h = 8
-	current_time_h = 8
-	on_day_start.emit()
+var speed_factor := 1.0
 
 func _process(delta: float) -> void:
-	previous_time_h = current_time_h
-	current_time_h += 12 * delta / seconds_per_day
+	if paused:
+		return
 	
-	if not day_is_over and current_time_h > 20:
-		day_is_over = true
-		on_day_end.emit()
+	var time_delta := delta / seconds_per_hour * speed_factor
+	
+	previous_time_h = current_time_h
+	current_time_h += time_delta
+	
+	if current_time_h >= 24:
+		current_day += int(current_time_h / 24)
+		current_time_h = fmod(current_time_h, 24)
