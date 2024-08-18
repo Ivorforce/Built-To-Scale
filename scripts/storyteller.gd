@@ -20,20 +20,29 @@ func start_day(day: int):
 	time.previous_time_h = 7.5
 	time.current_time_h = 7.5
 	time.seconds_per_hour = 1.0 / 14 * 120
-	if day == 0:
-		time.seconds_per_hour /= 20
 	
 	var sky := %Sky as GameSky
 	sky.day_start_h = 7
 	sky.day_duration_h = 14
 	
-	var level := %Level as DemoScene
-	
-	events_today = [
-		[8.5, level.offer_test_dialogue],
-		[9, level.dismiss_test_dialogue],
-		[20.5, end_day],
-	]
+	if day == 0:
+		var level := %Level as Level1
+		
+		events_today = [
+			[8.5, level.offer_test_dialogue],
+			[9, level.dismiss_test_dialogue],
+			[20.5, end_day],
+		]
+	elif day == 1:
+		var level := %Level as Level2
+		
+		events_today = [
+			[8.5, level.offer_test_dialogue],
+			[9, level.dismiss_test_dialogue],
+			[20.5, end_day],
+		]
+	else:
+		assert(false)
 	
 	time.paused = false
 
@@ -46,18 +55,44 @@ func end_day():
 
 func end_night():
 	var end_day_ui := get_node("%EndDayUI") as Control
+	var next_day := current_day + 1
 	
 	end_day_ui.visible = false
 	
 	var tween := create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(time, "current_time_h", 21, 2).set_ease(Tween.EASE_IN)
-	tween.tween_property(time, "current_time_h", 24+7, 2).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(time, "current_time_h", 24+7.5, 2).set_ease(Tween.EASE_OUT)
+	tween.tween_property(time, "current_time_h", 24, 0.5).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(func(): transition_to_day(next_day))
+	tween.tween_property(time, "current_time_h", 7, 0.5).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(time, "current_time_h", 7.5, 2).set_ease(Tween.EASE_OUT)
 	tween.play()
 	await tween.finished
-	start_day(current_day + 1)
+	start_day(next_day)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func transition_to_day(day: int):
+	time.current_time_h = 0
+	
+	if day == 0:
+		if %Level is not Level1:
+			change_level(load("res://scenes/levels/level1.tscn").instantiate())
+	elif day == 1:
+		if %Level is not Level2:
+			change_level(load("res://scenes/levels/level2.tscn").instantiate())
+
+func change_level(level: Node2D):
+	var game := get_node("..") as Node2D
+	var prev_level = %Level
+	
+	prev_level.unique_name_in_owner = false
+	prev_level.name = "PrevLevel"
+	prev_level.queue_free()
+	
+	level.name = "Level"
+	game.add_child(level)
+	game.move_child(level, 2)
+	level.owner = game
+	level.unique_name_in_owner = true
+
 func _process(delta: float) -> void:
 	while events_today.size() > 0 and time.current_time_h > events_today[0][0]:
 		events_today[0][1].call()

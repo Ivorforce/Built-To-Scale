@@ -1,5 +1,8 @@
-class_name DemoScene
+class_name Level1
 extends Node2D
+
+@onready
+var conversation_agent: ConversationAgent = get_node("/root/Game/%ConversationAgent")
 
 func offer_test_dialogue():
 	var button := %Mothertree/Button
@@ -9,7 +12,7 @@ func offer_test_dialogue():
 	button.visible = true
 
 func start_conversation(button: Button, dialogue: DialogueResource, start_line_id: String):
-	if get_node("/root/%ConversationAgent").start_conversation_if_idle(dialogue, start_line_id):
+	if conversation_agent.start_conversation_if_idle(dialogue, start_line_id):
 		button.visible = false
 
 func dismiss_test_dialogue():

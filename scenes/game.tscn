@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
-[ext_resource type="PackedScene" uid="uid://du3atg2babqy3" path="res://scenes/levels/demo_scene.tscn" id="1_y7qg4"]
+[ext_resource type="PackedScene" uid="uid://du3atg2babqy3" path="res://scenes/levels/level1.tscn" id="1_y7qg4"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
@@ -26,8 +26,8 @@ offsets = PackedFloat32Array(0, 0.0462963, 0.0802469, 0.141975, 0.299383, 0.3981
 colors = PackedColorArray(0, 0, 0, 1, 0.0108118, 0.122794, 0.236306, 1, 0.0624023, 0.317516, 0.554404, 1, 0.917835, 0.528446, 0.360484, 1, 0.737465, 0.720348, 0.820188, 1, 0.767952, 0.845568, 0.903503, 1, 0.734819, 0.818319, 0.884073, 1)
 
 [sub_resource type="Gradient" id="Gradient_ujufb"]
-offsets = PackedFloat32Array(0, 0.0648148, 0.141975, 0.333333, 0.558642)
-colors = PackedColorArray(0.0860073, 0.153872, 0.19302, 1, 0.270677, 0.416397, 0.500951, 1, 0.913906, 0.827398, 0.767846, 1, 0.909551, 0.913093, 0.91412, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.03125, 0.0648148, 0.141975, 0.333333, 0.558642)
+colors = PackedColorArray(0, 0, 0, 1, 0.0860073, 0.153872, 0.19302, 1, 0.270677, 0.416397, 0.500951, 1, 0.913906, 0.827398, 0.767846, 1, 0.909551, 0.913093, 0.91412, 1, 1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_04sif"]
 shader = ExtResource("8_73ca4")
