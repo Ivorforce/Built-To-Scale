@@ -41,6 +41,14 @@ func start_day(day: int):
 			[9, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
+	elif day == 2:
+		var level := %Level as Level3
+		
+		events_today = [
+			[8.5, level.offer_test_dialogue],
+			[9, level.dismiss_test_dialogue],
+			[20.5, end_day],
+		]
 	else:
 		assert(false)
 	
@@ -78,6 +86,9 @@ func transition_to_day(day: int):
 	elif day == 1:
 		if %Level is not Level2:
 			change_level(load("res://scenes/levels/level2.tscn").instantiate())
+	elif day == 2:
+		if %Level is not Level3:
+			change_level(load("res://scenes/levels/level3.tscn").instantiate())
 
 func change_level(level: Node2D):
 	var game := get_node("..") as Node2D

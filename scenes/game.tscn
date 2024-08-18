@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
-[ext_resource type="PackedScene" uid="uid://du3atg2babqy3" path="res://scenes/levels/level1.tscn" id="1_y7qg4"]
+[ext_resource type="PackedScene" uid="uid://dkn75kpirof5y" path="res://scenes/levels/level1.tscn" id="1_y7qg4"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]

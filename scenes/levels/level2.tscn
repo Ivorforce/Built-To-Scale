@@ -1,263 +1,46 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbowq8x5uoapr"]
+[gd_scene load_steps=12 format=3 uid="uid://du3atg2babqy3"]
 
-[ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_32ohe"]
-[ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_id8nr"]
-[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_moj67"]
-[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="4_r3wie"]
-[ext_resource type="Texture2D" uid="uid://xtkhubqtdded" path="res://sprites/clouds/Cloud_1.png" id="5_jq3ot"]
-[ext_resource type="Texture2D" uid="uid://cuyxmko16rwvp" path="res://sprites/clouds/Cloud_2.png" id="6_bgybv"]
-[ext_resource type="Texture2D" uid="uid://b8rvp314fxf44" path="res://sprites/clouds/Cloud_3.png" id="7_xv31p"]
-[ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="8_qvlch"]
-[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="9_tdteb"]
-[ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_4guwb"]
-[ext_resource type="Texture2D" uid="uid://dsenl008ao2e6" path="res://sprites/me/Plant_2Leaf.png" id="11_wr30j"]
-[ext_resource type="Script" path="res://camera.gd" id="12_aqrc6"]
+[ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_rqujc"]
+[ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_w0hu8"]
+[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="4_qps0l"]
+[ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="8_aowcj"]
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="9_2qthu"]
+[ext_resource type="Texture2D" uid="uid://cc76xyxr2232e" path="res://sprites/bush/Bush_1.png" id="9_uiqb8"]
+[ext_resource type="Texture2D" uid="uid://dsenl008ao2e6" path="res://sprites/me/Plant_2Leaf.png" id="10_1o1fq"]
+[ext_resource type="Texture2D" uid="uid://dbqe30mffc8d0" path="res://sprites/snake/Snake_1.png" id="10_qccq1"]
+[ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
+[ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
 
 [node name="Scene" type="Node2D"]
-script = ExtResource("1_32ohe")
+script = ExtResource("1_rqujc")
 
 [node name="Floor" type="Sprite2D" parent="."]
-material = ExtResource("2_id8nr")
+material = ExtResource("2_d640p")
 position = Vector2(580, 1495)
 scale = Vector2(1.1875, 1.1875)
-texture = ExtResource("3_moj67")
+texture = ExtResource("3_w0hu8")
 
 [node name="ParaFar" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Mountains" type="Sprite2D" parent="ParaFar"]
-material = ExtResource("2_id8nr")
+material = ExtResource("2_d640p")
 position = Vector2(562, 276)
 scale = Vector2(0.187752, 0.187752)
-texture = ExtResource("4_r3wie")
-
-[node name="ParaCloudsSparse" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.15, 0.15)
-repeat_size = Vector2(4000, 0)
-autoscroll = Vector2(3, 0)
-
-[node name="Cloud4" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(68, 38)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_jq3ot")
-
-[node name="Cloud2" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(1019, 31)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud18" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(63.0001, 32)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud11" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(1446, 100)
-scale = Vector2(-0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud12" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(1515, 136)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud13" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(1687, 146)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud15" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(2487, 102)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud7" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(1459, 122)
-scale = Vector2(0.18, 0.18)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud10" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(3397, 121)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud14" type="Sprite2D" parent="ParaCloudsSparse"]
-position = Vector2(2180, 58)
-rotation = 3.14159
-scale = Vector2(0.2, -0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="ParaCloudsCloudy" type="Parallax2D" parent="."]
-visible = false
-scroll_scale = Vector2(0.15, 0.15)
-repeat_size = Vector2(4000, 0)
-autoscroll = Vector2(3, 0)
-
-[node name="Cloud1" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(415, 43)
-scale = Vector2(-0.3, 0.3)
-texture = ExtResource("5_jq3ot")
-
-[node name="Cloud4" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(68, 38)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_jq3ot")
-
-[node name="Cloud2" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(1019, 31)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud16" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(363, 72)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud18" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(63.0001, 32)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud11" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(1446, 100)
-scale = Vector2(-0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud12" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(1515, 136)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud13" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(1687, 146)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud15" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(2487, 102)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud3" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(1188, 36)
-scale = Vector2(-0.25, 0.25)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud7" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(1459, 122)
-scale = Vector2(0.18, 0.18)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud8" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(2205, 44)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud10" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(3711, 119)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud14" type="Sprite2D" parent="ParaCloudsCloudy"]
-position = Vector2(2180, 58)
-rotation = 3.14159
-scale = Vector2(0.2, -0.2)
-texture = ExtResource("6_bgybv")
-
-[node name="ParaCloudsRainy" type="Parallax2D" parent="."]
-visible = false
-scroll_scale = Vector2(0.15, 0.15)
-repeat_size = Vector2(4000, 0)
-autoscroll = Vector2(3, 0)
-
-[node name="Cloud1" type="Sprite2D" parent="ParaCloudsRainy"]
-visible = false
-position = Vector2(445, 42)
-scale = Vector2(-0.474803, 0.474803)
-texture = ExtResource("5_jq3ot")
-
-[node name="Cloud4" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(146.071, 79.05)
-scale = Vector2(0.367894, 0.367894)
-texture = ExtResource("5_jq3ot")
-
-[node name="Cloud2" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(670, 36)
-scale = Vector2(0.469509, 0.469509)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud16" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(395.021, 98.65)
-scale = Vector2(0.337726, 0.337726)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud17" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(538, -60)
-scale = Vector2(-0.831, 0.831)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud18" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(32, 16)
-scale = Vector2(0.600388, 0.600388)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud11" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(1427, 46)
-scale = Vector2(-0.606876, 0.606876)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud12" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(1544, 5.00001)
-scale = Vector2(0.446253, 0.446253)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud13" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(1608, 68)
-scale = Vector2(0.740827, 0.740827)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud15" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(2487, 102)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_bgybv")
-
-[node name="Cloud3" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(981, 5)
-scale = Vector2(-0.587603, 0.587603)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud7" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(1281, -16)
-scale = Vector2(0.428309, 0.428309)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud8" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(2205, 44)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud10" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(3711, 119)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_xv31p")
-
-[node name="Cloud14" type="Sprite2D" parent="ParaCloudsRainy"]
-position = Vector2(2180, 58)
-rotation = 3.14159
-scale = Vector2(0.2, -0.2)
-texture = ExtResource("6_bgybv")
+texture = ExtResource("4_qps0l")
 
 [node name="ParaNear" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(0.3, 0.3)
 
 [node name="Mothertree" type="Node2D" parent="ParaNear"]
 unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="ParaNear/Mothertree"]
-material = ExtResource("2_id8nr")
+material = ExtResource("2_d640p")
 position = Vector2(1050.62, -84.7695)
 scale = Vector2(0.504066, 0.504066)
-texture = ExtResource("8_qvlch")
+texture = ExtResource("8_aowcj")
 
 [node name="Button" type="Button" parent="ParaNear/Mothertree"]
 visible = false
@@ -270,7 +53,7 @@ offset_right = 875.0
 offset_bottom = 377.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("9_tdteb")
+theme = ExtResource("9_2qthu")
 text = "Talk"
 
 [node name="ParaNearRain" type="Parallax2D" parent="."]
@@ -283,12 +66,22 @@ autoscroll = Vector2(500, 1000)
 repeat_times = 4
 
 [node name="Rain" type="Sprite2D" parent="ParaNearRain"]
-texture = ExtResource("10_4guwb")
+texture = ExtResource("10_yf582")
 
 [node name="Me" type="Sprite2D" parent="."]
 position = Vector2(576, 428)
 scale = Vector2(0.0820362, 0.0820362)
-texture = ExtResource("11_wr30j")
+texture = ExtResource("10_1o1fq")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(280.483, 401.594)
+scale = Vector2(0.447579, 0.447579)
+texture = ExtResource("9_uiqb8")
+
+[node name="Snake1" type="Sprite2D" parent="."]
+position = Vector2(390.483, 362.594)
+scale = Vector2(0.177414, 0.177414)
+texture = ExtResource("10_qccq1")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
@@ -298,8 +91,9 @@ autoscroll = Vector2(450, 1200)
 repeat_times = 3
 
 [node name="Rain" type="Sprite2D" parent="ParaHereRain"]
-texture = ExtResource("10_4guwb")
+texture = ExtResource("10_yf582")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, 370)
-script = ExtResource("12_aqrc6")
+position = Vector2(579, 394)
+zoom = Vector2(2, 2)
+script = ExtResource("11_fvufo")
