@@ -11,15 +11,18 @@ func _ready() -> void:
 	start_day(0)
 
 func start_day(day: int):
-	time.previous_time_h = 8.0
-	time.current_time_h = 8.0
-	time.seconds_per_hour = 1.0 / 12 * 120
-	time.current_day = 0
+	time.previous_time_h = 7.5
+	time.current_time_h = 7.5
+	time.seconds_per_hour = 1.0 / 14 * 120
+	
+	var sky := %Sky as GameSky
+	sky.day_start_h = 7
+	sky.day_duration_h = 14
 	
 	events_today = [
 		[8.5, func(): offer_conversation(%Mothertree.get_node("Button"), load("res://texts/test.dialogue"), "start")],
 		[9, func(): dismiss_conversation(%Mothertree.get_node("Button"))],
-		[20, end_day],
+		[20.5, end_day],
 	]
 	
 	time.paused = false
@@ -30,8 +33,12 @@ func end_day():
 	(%EndDayUI as Control).visible = true
 
 func end_night():
-	start_day(0)
 	(%EndDayUI as Control).visible = false
+	var tween := create_tween()
+	tween.tween_property(%Time, "current_time_h", 24 + 8, 2)
+	tween.play()
+	await tween.finished
+	time.paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
