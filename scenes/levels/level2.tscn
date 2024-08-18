@@ -34,13 +34,13 @@ repeat_times = 4
 texture = ExtResource("10_yf582")
 
 [node name="Me" type="Sprite2D" parent="."]
-position = Vector2(576, 428)
-scale = Vector2(0.0820362, 0.0820362)
+position = Vector2(611, 387)
+scale = Vector2(0.24, 0.24)
 texture = ExtResource("10_1o1fq")
 
 [node name="Bush1" type="Sprite2D" parent="."]
-position = Vector2(348, 401)
-scale = Vector2(0.234299, 0.234299)
+position = Vector2(254.5, 404.23)
+scale = Vector2(0.370906, 0.370906)
 texture = ExtResource("9_6ao2t")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
@@ -55,14 +55,13 @@ texture = ExtResource("10_yf582")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 394)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.4, 1.4)
 script = ExtResource("11_fvufo")
 
 [node name="Snake" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(407, 325)
-scale = Vector2(0.13, 0.13)
+position = Vector2(302.5, 325.23)
+scale = Vector2(0.33, 0.33)
 
 [node name="Sprite" type="Sprite2D" parent="Snake"]
 texture = ExtResource("10_qccq1")

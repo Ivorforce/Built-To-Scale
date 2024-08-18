@@ -17,7 +17,7 @@ func _ready():
 	tween.play()
 
 func start():
-	current_day = 1
+	current_day = 0
 	transition_to_day(current_day)
 	start_day(current_day)
 
@@ -63,9 +63,12 @@ func start_day(day: int):
 	time.paused = false
 
 func end_day():
+	if current_day == 2:
+		get_tree().change_scene_to_file("res://scenes/credits.tscn")
+
 	time.paused = true
 	var end_day_ui := get_node("%EndDayUI") as Control
-	
+		
 	(end_day_ui.get_node("Button") as Button).pressed.connect(end_night)
 	end_day_ui.visible = true
 

@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://7oexk3wicbe2"]
+[gd_scene load_steps=5 format=3 uid="uid://7oexk3wicbe2"]
 
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="1_b6du1"]
 [ext_resource type="Script" path="res://camera.gd" id="1_c2nkh"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="2_xp8yy"]
 [ext_resource type="Script" path="res://scripts/start_game_button.gd" id="2_y4yef"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Blanco" type="Sprite2D" parent="."]
+position = Vector2(565, 328)
+texture = ExtResource("1_b6du1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 322)
