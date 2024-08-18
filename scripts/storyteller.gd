@@ -4,12 +4,17 @@ extends Node
 # tuples [time, callback]
 var events_today = []
 
+@export
+var season_icons: Array[CanvasItem] = []
+
 @onready
 var time: GameTime = %Time
 @onready
 var conversation_agent: ConversationAgent = %ConversationAgent
 @export
 var current_day := 0
+var current_year := 0
+var current_season := 0
 
 func _ready():
 	var tween = create_tween()
@@ -18,22 +23,30 @@ func _ready():
 
 func start():
 	current_day = 0
-	transition_to_day(current_day)
+	time.previous_time_h = 7.5
+	time.current_time_h = 7.5
 	start_day(current_day)
 
 func start_day(day: int):
 	current_day = day
+	current_year = day / 4
+	current_season = day % 4
+	for i in season_icons.size():
+		season_icons[i].visible = current_season == i
 	
-	time.previous_time_h = 7.5
-	time.current_time_h = 7.5
 	time.seconds_per_hour = 1.0 / 14 * 120
 	
 	var sky := %Sky as GameSky
 	sky.day_start_h = 7
 	sky.day_duration_h = 14
 	
+	var _level := get_node_or_null("%Level")
+	
 	if day == 0:
-		var level := %Level as Level1
+		if not _level or _level is not Level1:
+			_level = change_level(load("res://scenes/levels/level1.tscn").instantiate())
+
+		var level := _level as Level1
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
@@ -41,8 +54,10 @@ func start_day(day: int):
 			[20.5, end_day],
 		]
 	elif day == 1:
-		var level := %Level as Level2
-		print(%Level)
+		if not _level or _level is not Level2:
+			_level = change_level(load("res://scenes/levels/level2.tscn").instantiate())
+		
+		var level := _level as Level2
 		
 		events_today = [
 			[8, level.offer_test_dialogue],
@@ -50,7 +65,10 @@ func start_day(day: int):
 			[20.5, end_day],
 		]
 	elif day == 2:
-		var level := %Level as Level3
+		if not _level or _level is not Level1:
+			_level = change_level(load("res://scenes/levels/level1.tscn").instantiate())
+		
+		var level := _level as Level3
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
@@ -81,26 +99,10 @@ func end_night():
 	var tween := create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(time, "current_time_h", 21, 2).set_ease(Tween.EASE_IN)
 	tween.tween_property(time, "current_time_h", 24, 0.5).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_callback(func(): transition_to_day(next_day))
+	tween.tween_callback(func(): start_day(next_day))
 	tween.tween_property(time, "current_time_h", 7, 0.5).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(time, "current_time_h", 7.5, 2).set_ease(Tween.EASE_OUT)
 	tween.play()
-	await tween.finished
-	start_day(next_day)
-
-func transition_to_day(day: int):
-	time.current_time_h = 0
-	var level := get_node_or_null("%Level")
-	
-	if day == 0:
-		if not level or level is not Level1:
-			change_level(load("res://scenes/levels/level1.tscn").instantiate())
-	elif day == 1:
-		if not level or level is not Level2:
-			change_level(load("res://scenes/levels/level2.tscn").instantiate())
-	elif day == 2:
-		if not level or level is not Level3:
-			change_level(load("res://scenes/levels/level3.tscn").instantiate())
 
 func change_level(level: Node2D):
 	var game := get_node("..") as Node2D
@@ -116,6 +118,7 @@ func change_level(level: Node2D):
 	game.move_child(level, 1)
 	level.owner = game
 	level.unique_name_in_owner = true
+	return level
 
 func _process(delta: float) -> void:
 	while events_today.size() > 0 and time.current_time_h > events_today[0][0]:

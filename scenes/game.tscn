@@ -1,14 +1,19 @@
-[gd_scene load_steps=24 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=29 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
+[ext_resource type="Texture2D" uid="uid://dv7xpdatbyxsk" path="res://sprites/seasons/Seasons_Circle.png" id="10_adqwj"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
+[ext_resource type="Texture2D" uid="uid://d3it58jh0eseh" path="res://sprites/seasons/Seasons_Autumn1.png" id="11_qus42"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="12_ibt8c"]
+[ext_resource type="Texture2D" uid="uid://flxr5rwd8yo" path="res://sprites/seasons/Seasons_Spring1.png" id="12_swd05"]
 [ext_resource type="Script" path="res://scripts/storyteller.gd" id="13_f2ov4"]
+[ext_resource type="Texture2D" uid="uid://pm70t6akno0t" path="res://sprites/seasons/Seasons_Summer1.png" id="13_fssvu"]
 [ext_resource type="Script" path="res://scripts/time.gd" id="14_blpt0"]
+[ext_resource type="Texture2D" uid="uid://bh3qva76jrekb" path="res://sprites/seasons/Seasons_Winter1.png" id="14_emfl6"]
 [ext_resource type="Script" path="res://scripts/post_process.gd" id="14_foru3"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
@@ -174,13 +179,96 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "End Day"
 
+[node name="SeasonsIcon" type="TextureRect" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -130.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("10_adqwj")
+expand_mode = 1
+
+[node name="Spring" type="TextureRect" parent="HUD/SeasonsIcon"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -91.0
+offset_right = -21.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("12_swd05")
+expand_mode = 1
+
+[node name="Summer" type="TextureRect" parent="HUD/SeasonsIcon"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -91.0
+offset_right = -28.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("13_fssvu")
+expand_mode = 1
+
+[node name="Autumn" type="TextureRect" parent="HUD/SeasonsIcon"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -96.0
+offset_right = -23.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("11_qus42")
+expand_mode = 1
+
+[node name="Winter" type="TextureRect" parent="HUD/SeasonsIcon"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -91.0
+offset_right = -28.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("14_emfl6")
+expand_mode = 1
+
 [node name="ConversationAgent" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("12_ibt8c")
 
-[node name="Storyteller" type="Node" parent="."]
+[node name="Storyteller" type="Node" parent="." node_paths=PackedStringArray("season_icons")]
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
+season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
 
 [node name="Time" type="Node" parent="."]
 unique_name_in_owner = true
