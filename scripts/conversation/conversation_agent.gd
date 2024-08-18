@@ -4,18 +4,22 @@ extends Node
 var current_dialogue: DialogueResource
 var next_line
 
+@onready
+var time := %Time as GameTime
+
+@onready
+var conversation_box := %ConversationBox as ConversationBox
+
 func start_conversation(dialogue: DialogueResource, line_id: String):
 	show_line(dialogue, line_id)
-	(%Time as GameTime).speed_factor = 0.1
+	time.speed_factor = 0.1
 
 func _on_conversation_end():
-	(%Time as GameTime).speed_factor = 1
+	time.speed_factor = 1
 
-func show_line(dialogue: DialogueResource, line_id):
-	var conversation: ConversationBox = %ConversationBox
-	
+func show_line(dialogue: DialogueResource, line_id):	
 	if not line_id or not dialogue:
-		conversation.set_line(null)
+		conversation_box.set_line(null)
 		
 		current_dialogue = null
 		next_line = null
@@ -26,7 +30,7 @@ func show_line(dialogue: DialogueResource, line_id):
 
 	var line := await dialogue.get_next_dialogue_line(line_id)
 	
-	conversation.set_line(line)
+	conversation_box.set_line(line)
 	current_dialogue = dialogue
 	
 	if line:
@@ -38,10 +42,8 @@ func end_line():
 	show_line(current_dialogue, next_line)
 
 func proceed():
-	var conversation: ConversationBox = %ConversationBox
-	
-	if conversation.label.is_typing:
-		conversation.label.skip_typing()
+	if conversation_box.label.is_typing:
+		conversation_box.label.skip_typing()
 	else:
 		end_line()
 
