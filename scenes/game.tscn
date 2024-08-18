@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=32 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
+[ext_resource type="Texture2D" uid="uid://c13k4i0shqqog" path="res://sprites/me/Plant_4Leaf.png" id="6_iich0"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="AudioStream" uid="uid://h11jo1k5uw1b" path="res://sounds/click.wav" id="10_5uvrh"]
@@ -18,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/post_process.gd" id="14_foru3"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
+[ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
 
 [sub_resource type="Gradient" id="Gradient_fs2qh"]
 offsets = PackedFloat32Array(0.00649351, 0.980519)
@@ -105,6 +107,21 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_w2mhu")
 
+[node name="Avatar" type="Node2D" parent="HUD/ConversationBox"]
+
+[node name="Mother" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(105, -49)
+rotation = 3.14159
+scale = Vector2(0.145255, -0.145255)
+texture = ExtResource("19_q0yf1")
+
+[node name="Me2" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(107, -62.1316)
+scale = Vector2(0.128655, 0.128655)
+texture = ExtResource("6_iich0")
+
 [node name="Textbox" type="TextureRect" parent="HUD/ConversationBox"]
 material = ExtResource("1_r7ga6")
 layout_mode = 1
@@ -112,9 +129,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 135.0
+offset_left = -1.0
 offset_top = -153.0
-offset_right = 755.0
+offset_right = 891.0
 offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -126,9 +143,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 195.0
-offset_top = 34.0
-offset_right = -83.0
+offset_left = 69.0
+offset_top = 32.0
+offset_right = -201.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_6wtrd")
@@ -140,18 +158,6 @@ theme_override_fonts/bold_font = SubResource("FontVariation_frg7b")
 bbcode_enabled = true
 script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
-
-[node name="TalkerLabel" type="Label" parent="HUD/ConversationBox"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -110.0
-offset_right = 129.0
-offset_bottom = -23.0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="HUD/ConversationBox"]
 stream = ExtResource("10_5uvrh")
@@ -200,6 +206,7 @@ texture = ExtResource("10_adqwj")
 expand_mode = 1
 
 [node name="Spring" type="TextureRect" parent="HUD/SeasonsIcon"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -233,7 +240,6 @@ texture = ExtResource("13_fssvu")
 expand_mode = 1
 
 [node name="Autumn" type="TextureRect" parent="HUD/SeasonsIcon"]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -257,10 +263,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -91.0
-offset_right = -28.0
-offset_bottom = -30.0
+offset_left = -89.0
+offset_top = -88.0
+offset_right = -26.0
+offset_bottom = -27.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("14_emfl6")
