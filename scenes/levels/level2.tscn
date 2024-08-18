@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=9 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
 [ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_w0hu8"]
-[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="4_qps0l"]
-[ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="8_aowcj"]
-[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="9_2qthu"]
-[ext_resource type="Texture2D" uid="uid://cc76xyxr2232e" path="res://sprites/bush/Bush_1.png" id="9_uiqb8"]
+[ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="9_6ao2t"]
 [ext_resource type="Texture2D" uid="uid://dsenl008ao2e6" path="res://sprites/me/Plant_2Leaf.png" id="10_1o1fq"]
 [ext_resource type="Texture2D" uid="uid://dbqe30mffc8d0" path="res://sprites/snake/Snake_1.png" id="10_qccq1"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
@@ -17,44 +14,12 @@ script = ExtResource("1_rqujc")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_d640p")
-position = Vector2(580, 1495)
+position = Vector2(579, 1307)
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("3_w0hu8")
 
-[node name="ParaFar" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0.1)
-
-[node name="Mountains" type="Sprite2D" parent="ParaFar"]
-material = ExtResource("2_d640p")
-position = Vector2(562, 276)
-scale = Vector2(0.187752, 0.187752)
-texture = ExtResource("4_qps0l")
-
 [node name="ParaNear" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.3, 0.3)
-
-[node name="Mothertree" type="Node2D" parent="ParaNear"]
-unique_name_in_owner = true
-
-[node name="Sprite" type="Sprite2D" parent="ParaNear/Mothertree"]
-material = ExtResource("2_d640p")
-position = Vector2(1050.62, -84.7695)
-scale = Vector2(0.504066, 0.504066)
-texture = ExtResource("8_aowcj")
-
-[node name="Button" type="Button" parent="ParaNear/Mothertree"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 783.0
-offset_top = 346.0
-offset_right = 875.0
-offset_bottom = 377.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("9_2qthu")
-text = "Talk"
 
 [node name="ParaNearRain" type="Parallax2D" parent="."]
 visible = false
@@ -74,14 +39,9 @@ scale = Vector2(0.0820362, 0.0820362)
 texture = ExtResource("10_1o1fq")
 
 [node name="Bush1" type="Sprite2D" parent="."]
-position = Vector2(280.483, 401.594)
-scale = Vector2(0.447579, 0.447579)
-texture = ExtResource("9_uiqb8")
-
-[node name="Snake1" type="Sprite2D" parent="."]
-position = Vector2(390.483, 362.594)
-scale = Vector2(0.177414, 0.177414)
-texture = ExtResource("10_qccq1")
+position = Vector2(348, 401)
+scale = Vector2(0.234299, 0.234299)
+texture = ExtResource("9_6ao2t")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
@@ -97,3 +57,13 @@ texture = ExtResource("10_yf582")
 position = Vector2(579, 394)
 zoom = Vector2(2, 2)
 script = ExtResource("11_fvufo")
+
+[node name="Snake" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(407, 325)
+scale = Vector2(0.13, 0.13)
+
+[node name="Sprite" type="Sprite2D" parent="Snake"]
+texture = ExtResource("10_qccq1")
+metadata/_edit_lock_ = true

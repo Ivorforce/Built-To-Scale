@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=24 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
-[ext_resource type="PackedScene" uid="uid://dkn75kpirof5y" path="res://scenes/levels/level1.tscn" id="1_y7qg4"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
@@ -76,9 +75,6 @@ texture = SubResource("GradientTexture1D_nj604")
 script = ExtResource("1_2wf5j")
 day_gradient = SubResource("Gradient_gdy4v")
 day_gradient_tint = SubResource("Gradient_ujufb")
-
-[node name="Level" parent="." instance=ExtResource("1_y7qg4")]
-unique_name_in_owner = true
 
 [node name="PostProcess" type="Sprite2D" parent="."]
 unique_name_in_owner = true

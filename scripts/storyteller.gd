@@ -12,7 +12,14 @@ var conversation_agent: ConversationAgent = %ConversationAgent
 var current_day := 0
 
 func _ready():
-	start_day(0)
+	var tween = create_tween()
+	tween.tween_callback(start).set_delay(0.1)
+	tween.play()
+
+func start():
+	current_day = 1
+	transition_to_day(current_day)
+	start_day(current_day)
 
 func start_day(day: int):
 	current_day = day
@@ -35,10 +42,11 @@ func start_day(day: int):
 		]
 	elif day == 1:
 		var level := %Level as Level2
+		print(%Level)
 		
 		events_today = [
-			[8.5, level.offer_test_dialogue],
-			[9, level.dismiss_test_dialogue],
+			[8, level.offer_test_dialogue],
+			[8.5, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
 	elif day == 2:
@@ -79,28 +87,30 @@ func end_night():
 
 func transition_to_day(day: int):
 	time.current_time_h = 0
+	var level := get_node_or_null("%Level")
 	
 	if day == 0:
-		if %Level is not Level1:
+		if not level or level is not Level1:
 			change_level(load("res://scenes/levels/level1.tscn").instantiate())
 	elif day == 1:
-		if %Level is not Level2:
+		if not level or level is not Level2:
 			change_level(load("res://scenes/levels/level2.tscn").instantiate())
 	elif day == 2:
-		if %Level is not Level3:
+		if not level or level is not Level3:
 			change_level(load("res://scenes/levels/level3.tscn").instantiate())
 
 func change_level(level: Node2D):
 	var game := get_node("..") as Node2D
-	var prev_level = %Level
 	
-	prev_level.unique_name_in_owner = false
-	prev_level.name = "PrevLevel"
-	prev_level.queue_free()
+	var prev_level := get_node_or_null("%Level")
+	if prev_level:
+		prev_level.unique_name_in_owner = false
+		prev_level.name = "PrevLevel"
+		prev_level.queue_free()
 	
 	level.name = "Level"
 	game.add_child(level)
-	game.move_child(level, 2)
+	game.move_child(level, 1)
 	level.owner = game
 	level.unique_name_in_owner = true
 

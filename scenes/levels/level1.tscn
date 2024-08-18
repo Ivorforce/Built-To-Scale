@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=9 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
 [ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_w0hu8"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="7_folfc"]
+[ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="8_7wira"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
 [ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="11_o8bqu"]
@@ -39,11 +40,18 @@ repeat_times = 3
 texture = ExtResource("10_yf582")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(594, 388)
+position = Vector2(594, 382)
 zoom = Vector2(3, 3)
 script = ExtResource("11_fvufo")
 
-[node name="BugBig1" type="Sprite2D" parent="."]
+[node name="BushBig1" type="Sprite2D" parent="."]
+position = Vector2(305, 393)
+scale = Vector2(0.248555, 0.248555)
+texture = ExtResource("8_7wira")
+
+[node name="Bug" type="Node2D" parent="."]
+
+[node name="BugBig1" type="Sprite2D" parent="Bug"]
 position = Vector2(697, 373)
 scale = Vector2(0.125452, 0.125452)
 texture = ExtResource("7_folfc")

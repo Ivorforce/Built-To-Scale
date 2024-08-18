@@ -18,7 +18,7 @@ script = ExtResource("1_32ohe")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_id8nr")
-position = Vector2(580, 1495)
+position = Vector2(563, 1327)
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("3_moj67")
 
@@ -27,7 +27,7 @@ scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Mountains" type="Sprite2D" parent="ParaFar"]
 material = ExtResource("2_id8nr")
-position = Vector2(562, 276)
+position = Vector2(579, 118)
 scale = Vector2(0.187752, 0.187752)
 texture = ExtResource("4_r3wie")
 
@@ -252,6 +252,7 @@ scroll_scale = Vector2(0.9, 0.9)
 
 [node name="Mothertree" type="Node2D" parent="ParaNear"]
 unique_name_in_owner = true
+position = Vector2(200, 0)
 
 [node name="Sprite" type="Sprite2D" parent="ParaNear/Mothertree"]
 material = ExtResource("2_id8nr")
