@@ -3,14 +3,14 @@ extends Node2D
 
 func sample_multispline(p: float) -> Vector2:
 	if p <= 0:
-		return Vector2.ZERO
+		return global_transform.origin
 		
 	var length = get_length()
 	if length == 0:
-		return Vector2.ZERO
+		return global_transform.origin
 	
 	if p >= length:
-		return (get_child(get_child_count() - 2) as Node2D).transform.origin
+		return (get_child(get_child_count() - 2) as Node2D).global_transform.origin
 	
 	var start_idx := int(p)
 	return _cubic_bezier(
@@ -35,7 +35,7 @@ func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float)
 
 func get_control_point(idx: int) -> Vector2:
 	if idx == 0:
-		return Vector2.ZERO
+		return global_transform.origin
 	
 	return (get_child(idx - 1) as Node2D).global_transform.origin
 
