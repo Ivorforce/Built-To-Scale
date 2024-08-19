@@ -14,7 +14,7 @@ var is_wobbling := false:
 var time = 0
 
 @export
-var wobble_rotation_deg := 5
+var wobble_rotation_deg := 3
 @export
 var wobble_center_deg := 0
 @export
