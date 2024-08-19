@@ -1,8 +1,7 @@
 class_name Level2
 extends Node2D
 
-@onready
-var conversation_agent: ConversationAgent = get_node("/root/Game/%ConversationAgent")
+var conversation_agent: ConversationAgent
 
 func offer_test_dialogue():
 	var snake := %Snake as Node2D

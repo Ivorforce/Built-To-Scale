@@ -24,7 +24,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_urs80"]
 shader = ExtResource("1_2abxd")
-shader_parameter/tint_color = Vector3(1, 1, 1)
+shader_parameter/tint_color = Vector3(0.8, 0.85, 1)
 
 [sub_resource type="Gradient" id="Gradient_gdy4v"]
 offsets = PackedFloat32Array(0, 0.0462963, 0.0802469, 0.141975, 0.299383, 0.398148, 1)
@@ -160,8 +160,6 @@ theme_override_fonts/bold_italics_font = SubResource("FontVariation_xp6oe")
 theme_override_fonts/bold_font = SubResource("FontVariation_frg7b")
 theme_override_font_sizes/normal_font_size = 23
 bbcode_enabled = true
-text = "This is a text
-This is line 2"
 script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
@@ -285,7 +283,6 @@ script = ExtResource("12_ibt8c")
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
-current_day = 1
 
 [node name="Time" type="Node" parent="."]
 unique_name_in_owner = true

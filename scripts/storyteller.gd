@@ -48,10 +48,11 @@ func start_day(day: int):
 			_level = change_level(load("res://scenes/levels/level1.tscn").instantiate())
 
 		var level := _level as Level1
+		level.conversation_agent = conversation_agent
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
-			[12.5, level.dismiss_test_dialogue],
+			[10.0, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
 	elif day == 1:
@@ -59,7 +60,8 @@ func start_day(day: int):
 			_level = change_level(load("res://scenes/levels/level2.tscn").instantiate())
 		
 		var level := _level as Level2
-		
+		level.conversation_agent = conversation_agent
+
 		events_today = [
 			[8, level.offer_test_dialogue],
 			[12.5, level.dismiss_test_dialogue],
@@ -70,7 +72,8 @@ func start_day(day: int):
 			_level = change_level(load("res://scenes/levels/level3.tscn").instantiate())
 		
 		var level := _level as Level3
-		
+		level.conversation_agent = conversation_agent
+
 		events_today = [
 			[8.5, level.offer_test_dialogue],
 			[12, level.dismiss_test_dialogue],

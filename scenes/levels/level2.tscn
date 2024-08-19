@@ -84,16 +84,6 @@ position = Vector2(254.5, 404.23)
 scale = Vector2(0.370906, 0.370906)
 texture = ExtResource("9_6ao2t")
 
-[node name="Berry" type="Sprite2D" parent="."]
-position = Vector2(884.498, 503.137)
-scale = Vector2(0.419116, 0.419115)
-texture = ExtResource("11_4gkva")
-
-[node name="Bird" type="Sprite2D" parent="."]
-position = Vector2(986.498, 315.137)
-scale = Vector2(0.411117, 0.411116)
-texture = ExtResource("12_7gu5x")
-
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
 scale = Vector2(0.5, 0.5)
@@ -137,6 +127,21 @@ texture = ExtResource("14_xdd0p")
 position = Vector2(515, 496)
 scale = Vector2(0.105621, 0.105621)
 texture = ExtResource("15_iith1")
+
+[node name="Parallax2D7" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.1, 1.1)
+
+[node name="Berry" type="Sprite2D" parent="Parallax2D7"]
+visible = false
+position = Vector2(884.498, 503.137)
+scale = Vector2(0.419116, 0.419115)
+texture = ExtResource("11_4gkva")
+
+[node name="Bird" type="Sprite2D" parent="Parallax2D7"]
+visible = false
+position = Vector2(986.498, 315.137)
+scale = Vector2(0.411117, 0.411116)
+texture = ExtResource("12_7gu5x")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.15, 1.15)
