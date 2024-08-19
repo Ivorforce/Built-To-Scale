@@ -71,8 +71,8 @@ scale = Vector2(0.261194, 0.261194)
 texture = ExtResource("9_bue1i")
 
 [node name="BushBig1" type="Sprite2D" parent="."]
-position = Vector2(233, 348)
-scale = Vector2(0.395472, 0.395472)
+position = Vector2(365, 405)
+scale = Vector2(0.157744, 0.157744)
 texture = ExtResource("8_7wira")
 
 [node name="BugPath" type="Node2D" parent="."]

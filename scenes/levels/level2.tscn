@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=25 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://sprites/environment/Stone_5.png" id="14_xdd0p"]
 [ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://sprites/environment/Stone_7.png" id="15_iith1"]
 [ext_resource type="Texture2D" uid="uid://lijsdli2v8su" path="res://sprites/environment/Grass_6.png" id="18_spjtd"]
+[ext_resource type="Texture2D" uid="uid://brj1fwctr56pa" path="res://sprites/environment/Dirt_3.png" id="20_a1ip4"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -50,6 +51,11 @@ texture = ExtResource("10_yf582")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.86, 0.86)
+
+[node name="Dirt9" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(410.231, 247.089)
+scale = Vector2(0.17109, 0.17109)
+texture = ExtResource("20_a1ip4")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(842.75, 147.35)
@@ -131,8 +137,8 @@ metadata/_edit_lock_ = true
 script = ExtResource("13_51obf")
 
 [node name="Bush1" type="Sprite2D" parent="."]
-position = Vector2(254.5, 404.23)
-scale = Vector2(0.370906, 0.370906)
+position = Vector2(299, 437)
+scale = Vector2(0.230974, 0.230974)
 texture = ExtResource("9_6ao2t")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
