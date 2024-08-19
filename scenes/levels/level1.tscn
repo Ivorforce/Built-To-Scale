@@ -79,6 +79,8 @@ texture = ExtResource("8_7wira")
 position = Vector2(895, 420)
 script = ExtResource("12_42a6c")
 
+[node name="Node2D" type="Node2D" parent="BugPath"]
+
 [node name="BugPath" type="Node2D" parent="BugPath"]
 position = Vector2(-203, 0)
 

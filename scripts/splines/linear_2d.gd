@@ -2,29 +2,25 @@ class_name LinearMultiSpline2D
 extends Node2D
 
 func sample_multispline(p: float) -> Vector2:
-	if p <= 0:
-		return global_transform.origin
-		
 	var length := get_length()
-	if length == 0:
-		return global_transform.origin
+	assert(length > 0)
 	
+	if p <= 0:
+		return (get_child(0) as Node2D).global_transform.origin
+		
 	if p >= length:
 		return (get_child(get_child_count() - 1) as Node2D).global_transform.origin
 	
 	var start_idx := int(p)
 	return lerp(
-		get_control_point(start_idx),
-		get_control_point(start_idx + 1),
+		(get_child(start_idx) as Node2D).global_transform.origin,
+		(get_child(start_idx + 1) as Node2D).global_transform.origin,
 		fmod(p, 1)
 	)
 	self.rotation_degrees
 
 func get_control_point(idx: int) -> Vector2:
-	if idx == 0:
-		return global_transform.origin
-	
-	return (get_child(idx - 1) as Node2D).global_transform.origin
+	return (get_child(idx) as Node2D).global_transform.origin
 
 func get_length() -> int:
-	return get_child_count()
+	return get_child_count() - 1
