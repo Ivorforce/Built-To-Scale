@@ -12,17 +12,15 @@ var avatar: Node2D = $Avatar
 
 func set_line(line: DialogueLine):
 	if not line:
-		avatar.visible = false
-		label.visible = false
+		self.visible = false
 		return
 	
 	label.dialogue_line = line
 	label.type_out()
-	label.visible = true
 	
 	for node in avatar.get_children():
 		node.visible = node.name == line.character
-	avatar.visible = true
+	self.visible = true
 
 func _on_conversation_label_spoke(letter: String, letter_index: int, speed: float) -> void:
 	if letter in " .!:?,\t\n":

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s5dof464rg4f"
-path="res://.godot/imported/textbox.png-348d67b429a5e2e7d9e59c880794e6e9.ctex"
+uid="uid://bw51iowkyl8r8"
+path="res://.godot/imported/Seasons_Circle.png-c35feddcb0fdace76f0ed2419d0892c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/textbox.png"
-dest_files=["res://.godot/imported/textbox.png-348d67b429a5e2e7d9e59c880794e6e9.ctex"]
+source_file="res://sprites/ui/Seasons_Circle.png"
+dest_files=["res://.godot/imported/Seasons_Circle.png-c35feddcb0fdace76f0ed2419d0892c5.ctex"]
 
 [params]
 

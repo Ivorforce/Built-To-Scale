@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=34 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_2abxd"]
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
@@ -8,7 +8,7 @@
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="AudioStream" uid="uid://h11jo1k5uw1b" path="res://sounds/click.wav" id="10_5uvrh"]
-[ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
+[ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/ui/textbox.png" id="10_7iuwl"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
 [ext_resource type="Texture2D" uid="uid://d3it58jh0eseh" path="res://sprites/seasons/Seasons_Autumn1.png" id="11_qus42"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="12_ibt8c"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/time.gd" id="14_blpt0"]
 [ext_resource type="Texture2D" uid="uid://bh3qva76jrekb" path="res://sprites/seasons/Seasons_Winter1.png" id="14_emfl6"]
 [ext_resource type="Script" path="res://scripts/post_process.gd" id="14_foru3"]
+[ext_resource type="Texture2D" uid="uid://bw51iowkyl8r8" path="res://sprites/ui/Seasons_Circle.png" id="15_5drdt"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
@@ -99,6 +100,7 @@ metadata/_edit_lock_ = true
 
 [node name="ConversationBox" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,7 +112,6 @@ mouse_filter = 2
 script = ExtResource("9_w2mhu")
 
 [node name="Avatar" type="Node2D" parent="HUD/ConversationBox"]
-visible = false
 position = Vector2(161, -4)
 
 [node name="Mother" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
@@ -133,10 +134,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 168.0
-offset_top = -137.0
-offset_right = 690.0
-offset_bottom = 139.0
+offset_left = 119.0
+offset_top = -151.0
+offset_right = 739.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -147,10 +148,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 224.0
-offset_top = 21.0
-offset_right = -278.0
-offset_bottom = -28.0
+offset_left = 177.0
+offset_top = 24.0
+offset_right = -205.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_6wtrd")
@@ -159,7 +160,11 @@ theme_override_fonts/normal_font = SubResource("FontVariation_p0nbv")
 theme_override_fonts/italics_font = SubResource("FontVariation_uir3m")
 theme_override_fonts/bold_italics_font = SubResource("FontVariation_xp6oe")
 theme_override_fonts/bold_font = SubResource("FontVariation_frg7b")
+theme_override_font_sizes/bold_italics_font_size = 23
+theme_override_font_sizes/italics_font_size = 23
+theme_override_font_sizes/mono_font_size = 23
 theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 23
 bbcode_enabled = true
 script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
@@ -195,6 +200,11 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "End Day"
 
+[node name="SeasonsCircle" type="Sprite2D" parent="HUD"]
+position = Vector2(1073, 588)
+scale = Vector2(0.128358, 0.128358)
+texture = ExtResource("15_5drdt")
+
 [node name="SeasonsIcon" type="Control" parent="HUD"]
 layout_mode = 3
 anchors_preset = 3
@@ -202,10 +212,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -272.0
-offset_top = -133.0
-offset_right = -144.0
-offset_bottom = -11.0
+offset_left = -140.0
+offset_top = -124.0
+offset_right = -12.0
+offset_bottom = -2.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -224,6 +234,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("12_swd05")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Summer" type="TextureRect" parent="HUD/SeasonsIcon"]
 visible = false
@@ -241,6 +252,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("13_fssvu")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Autumn" type="TextureRect" parent="HUD/SeasonsIcon"]
 visible = false
@@ -258,6 +270,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("11_qus42")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Winter" type="TextureRect" parent="HUD/SeasonsIcon"]
 visible = false
@@ -275,6 +288,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("14_emfl6")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="ConversationAgent" type="Node" parent="."]
 unique_name_in_owner = true
@@ -284,7 +298,6 @@ script = ExtResource("12_ibt8c")
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
-current_day = 1
 
 [node name="Music" type="Node" parent="."]
 
