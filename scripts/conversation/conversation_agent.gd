@@ -19,10 +19,10 @@ func start_conversation_if_idle(dialogue: DialogueResource, line_id: String):
 
 func start_conversation(dialogue: DialogueResource, line_id: String):
 	show_line(dialogue, line_id)
-	time.speed_factor = 0.1
+	time.is_talking = true
 
 func _on_conversation_end():
-	time.speed_factor = 1
+	time.is_talking = false
 
 func show_line(dialogue: DialogueResource, line_id):	
 	if not line_id or not dialogue:

@@ -13,13 +13,20 @@ var seconds_per_hour := 60.0
 @export
 var paused := true
 @export
-var speed_factor := 1.0
+var is_talking := false
+@export
+var potential_talkmate_count := 0
 
 func _process(delta: float) -> void:
 	if paused:
 		return
 	
-	var time_delta := delta / seconds_per_hour * speed_factor
+	var time_delta := delta / seconds_per_hour
+	
+	if is_talking:
+		time_delta = time_delta * 0.05
+	elif potential_talkmate_count > 0:
+		time_delta = time_delta * 0.15
 	
 	previous_time_h = current_time_h
 	current_time_h = current_time_h + time_delta

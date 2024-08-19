@@ -2,6 +2,7 @@ class_name Level1
 extends Node2D
 
 var conversation_agent: ConversationAgent
+var time: GameTime
 
 func offer_test_dialogue():
 	var bug := %Bug as Node2D

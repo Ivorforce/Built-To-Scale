@@ -298,6 +298,7 @@ script = ExtResource("12_ibt8c")
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
+current_day = 2
 
 [node name="Music" type="Node" parent="."]
 

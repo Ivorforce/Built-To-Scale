@@ -48,7 +48,6 @@ func start_day(day: int):
 			_level = change_level(load("res://scenes/levels/level1.tscn").instantiate())
 
 		var level := _level as Level1
-		level.conversation_agent = conversation_agent
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
@@ -64,7 +63,6 @@ func start_day(day: int):
 			_level = change_level(load("res://scenes/levels/level2.tscn").instantiate())
 		
 		var level := _level as Level2
-		level.conversation_agent = conversation_agent
 
 		events_today = [
 			[8.5, level.offer_test_dialogue],
@@ -76,7 +74,6 @@ func start_day(day: int):
 			_level = change_level(load("res://scenes/levels/level3.tscn").instantiate())
 		
 		var level := _level as Level3
-		level.conversation_agent = conversation_agent
 
 		events_today = [
 			[8.5, level.offer_test_dialogue],
@@ -130,6 +127,9 @@ func change_level(level: Node2D):
 	level.owner = game
 	level.unique_name_in_owner = true
 	
+	level.conversation_agent = conversation_agent
+	level.time = time
+
 	return level
 
 func _process(delta: float) -> void:
