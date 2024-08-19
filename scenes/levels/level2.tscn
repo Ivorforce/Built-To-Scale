@@ -1,13 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=19 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
-[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_w0hu8"]
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/background/Blanco.png" id="3_w0hu8"]
+[ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://sprites/environment/Grass_3.png" id="4_14nt0"]
+[ext_resource type="Texture2D" uid="uid://baboueiva8kko" path="res://sprites/bug/BugSmol_1.png" id="6_5qfn3"]
+[ext_resource type="Texture2D" uid="uid://04ikerytogdu" path="res://sprites/environment/Grass_5.png" id="6_8v5p1"]
+[ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://sprites/environment/Grass_2.png" id="6_yf6lp"]
+[ext_resource type="Texture2D" uid="uid://bq0wov1rfffu6" path="res://sprites/environment/Stone_9.png" id="7_538dw"]
+[ext_resource type="Texture2D" uid="uid://ch1atjciuudwp" path="res://sprites/environment/Stone_12.png" id="8_8oqqo"]
 [ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="9_6ao2t"]
+[ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://sprites/environment/Grass_4.png" id="9_wn5ch"]
 [ext_resource type="Texture2D" uid="uid://dsenl008ao2e6" path="res://sprites/me/Plant_2Leaf.png" id="10_1o1fq"]
 [ext_resource type="Texture2D" uid="uid://dbqe30mffc8d0" path="res://sprites/snake/Snake_1.png" id="10_qccq1"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
 [ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
+[ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://sprites/environment/Stone_5.png" id="14_xdd0p"]
+[ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://sprites/environment/Stone_7.png" id="15_iith1"]
+[ext_resource type="Texture2D" uid="uid://lijsdli2v8su" path="res://sprites/environment/Grass_6.png" id="18_spjtd"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -33,15 +43,50 @@ repeat_times = 4
 [node name="Rain" type="Sprite2D" parent="ParaNearRain"]
 texture = ExtResource("10_yf582")
 
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.86, 0.86)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(842.75, 147.35)
+scale = Vector2(0.665638, 0.665638)
+texture = ExtResource("6_8v5p1")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.93, 0.93)
+
+[node name="Grass3" type="Sprite2D" parent="Parallax2D3"]
+position = Vector2(754, 380)
+scale = Vector2(0.192195, 0.192195)
+texture = ExtResource("4_14nt0")
+
+[node name="Parallax2D5" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.96, 0.96)
+
+[node name="Grass2" type="Sprite2D" parent="Parallax2D5"]
+position = Vector2(526, 423)
+scale = Vector2(0.12999, 0.12999)
+texture = ExtResource("6_yf6lp")
+
 [node name="Me" type="Sprite2D" parent="."]
 position = Vector2(611, 387)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("10_1o1fq")
 
+[node name="Bug" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(662, 314)
+scale = Vector2(0.208955, 0.208955)
+texture = ExtResource("6_5qfn3")
+
 [node name="Bush1" type="Sprite2D" parent="."]
 position = Vector2(254.5, 404.23)
 scale = Vector2(0.370906, 0.370906)
 texture = ExtResource("9_6ao2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(865, 464)
+scale = Vector2(0.875447, 0.875446)
+texture = ExtResource("8_8oqqo")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
@@ -54,7 +99,7 @@ repeat_times = 3
 texture = ExtResource("10_yf582")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(579, 394)
+position = Vector2(602, 394)
 zoom = Vector2(1.4, 1.4)
 script = ExtResource("11_fvufo")
 
@@ -67,3 +112,38 @@ scale = Vector2(0.33, 0.33)
 [node name="Sprite" type="Sprite2D" parent="Snake"]
 texture = ExtResource("10_qccq1")
 metadata/_edit_lock_ = true
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.05, 1.05)
+
+[node name="Flower" type="Sprite2D" parent="Parallax2D4"]
+position = Vector2(734, 508)
+rotation = 3.14159
+scale = Vector2(0.245053, -0.245053)
+texture = ExtResource("9_wn5ch")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(652.101, 450.438)
+scale = Vector2(0.062198, 0.062198)
+texture = ExtResource("14_xdd0p")
+
+[node name="Dirt8" type="Sprite2D" parent="."]
+position = Vector2(515, 496)
+scale = Vector2(0.105621, 0.105621)
+texture = ExtResource("15_iith1")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.15, 1.15)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(461, 565)
+scale = Vector2(0.468045, 0.468045)
+texture = ExtResource("7_538dw")
+
+[node name="Parallax2D6" type="Parallax2D" parent="."]
+scale = Vector2(-0.9, 0.9)
+scroll_scale = Vector2(1.25, 1.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D6"]
+position = Vector2(-232.222, 717.778)
+texture = ExtResource("18_spjtd")

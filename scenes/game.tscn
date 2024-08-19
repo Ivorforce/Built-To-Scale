@@ -1,13 +1,14 @@
 [gd_scene load_steps=32 format=3 uid="uid://x8tw3ruhxxdr"]
 
+[ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_2abxd"]
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
+[ext_resource type="Texture2D" uid="uid://3fav5bc4h3j6" path="res://sprites/background/Sky_1.png" id="2_g85yo"]
 [ext_resource type="Texture2D" uid="uid://c13k4i0shqqog" path="res://sprites/me/Plant_4Leaf.png" id="6_iich0"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="AudioStream" uid="uid://h11jo1k5uw1b" path="res://sounds/click.wav" id="10_5uvrh"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/textbox.png" id="10_7iuwl"]
-[ext_resource type="Texture2D" uid="uid://dv7xpdatbyxsk" path="res://sprites/seasons/Seasons_Circle.png" id="10_adqwj"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
 [ext_resource type="Texture2D" uid="uid://d3it58jh0eseh" path="res://sprites/seasons/Seasons_Autumn1.png" id="11_qus42"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="12_ibt8c"]
@@ -21,16 +22,13 @@
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
 
-[sub_resource type="Gradient" id="Gradient_fs2qh"]
-offsets = PackedFloat32Array(0.00649351, 0.980519)
-colors = PackedColorArray(0.432633, 0.738991, 0.846862, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nj604"]
-gradient = SubResource("Gradient_fs2qh")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urs80"]
+shader = ExtResource("1_2abxd")
+shader_parameter/tint_color = Vector3(1, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_gdy4v"]
 offsets = PackedFloat32Array(0, 0.0462963, 0.0802469, 0.141975, 0.299383, 0.398148, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.0108118, 0.122794, 0.236306, 1, 0.0624023, 0.317516, 0.554404, 1, 0.917835, 0.528446, 0.360484, 1, 0.737465, 0.720348, 0.820188, 1, 0.767952, 0.845568, 0.903503, 1, 0.734819, 0.818319, 0.884073, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0108118, 0.122794, 0.236306, 1, 0.0624023, 0.317516, 0.554404, 1, 0.917835, 0.528446, 0.360484, 1, 0.806853, 0.677167, 0.886398, 1, 0.559854, 0.764818, 0.887505, 1, 0.633945, 0.823602, 0.90964, 1)
 
 [sub_resource type="Gradient" id="Gradient_ujufb"]
 offsets = PackedFloat32Array(0, 0.03125, 0.0648148, 0.141975, 0.333333, 0.558642)
@@ -74,12 +72,15 @@ variation_opentype = {
 
 [node name="Game" type="Node2D"]
 
-[node name="Sky" type="Sprite2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sky" type="Sprite2D" parent="Parallax2D"]
 unique_name_in_owner = true
-position = Vector2(589.738, 315.957)
-rotation = 1.5708
-scale = Vector2(3.38721, 1495.97)
-texture = SubResource("GradientTexture1D_nj604")
+material = SubResource("ShaderMaterial_urs80")
+position = Vector2(576, 408)
+scale = Vector2(0.411765, 0.411765)
+texture = ExtResource("2_g85yo")
 script = ExtResource("1_2wf5j")
 day_gradient = SubResource("Gradient_gdy4v")
 day_gradient_tint = SubResource("Gradient_ujufb")
@@ -108,6 +109,8 @@ mouse_filter = 2
 script = ExtResource("9_w2mhu")
 
 [node name="Avatar" type="Node2D" parent="HUD/ConversationBox"]
+visible = false
+position = Vector2(161, -4)
 
 [node name="Mother" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
@@ -129,10 +132,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -153.0
-offset_right = 891.0
-offset_bottom = 199.0
+offset_left = 168.0
+offset_top = -137.0
+offset_right = 690.0
+offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -143,10 +146,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 69.0
-offset_top = 32.0
-offset_right = -201.0
-offset_bottom = -36.0
+offset_left = 224.0
+offset_top = 21.0
+offset_right = -278.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_6wtrd")
@@ -155,7 +158,10 @@ theme_override_fonts/normal_font = SubResource("FontVariation_p0nbv")
 theme_override_fonts/italics_font = SubResource("FontVariation_uir3m")
 theme_override_fonts/bold_italics_font = SubResource("FontVariation_xp6oe")
 theme_override_fonts/bold_font = SubResource("FontVariation_frg7b")
+theme_override_font_sizes/normal_font_size = 23
 bbcode_enabled = true
+text = "This is a text
+This is line 2"
 script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
@@ -190,32 +196,30 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "End Day"
 
-[node name="SeasonsIcon" type="TextureRect" parent="HUD"]
+[node name="SeasonsIcon" type="Control" parent="HUD"]
+layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -136.0
-offset_top = -130.0
-offset_right = -8.0
-offset_bottom = -8.0
+offset_left = -272.0
+offset_top = -133.0
+offset_right = -144.0
+offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("10_adqwj")
-expand_mode = 1
 
 [node name="Spring" type="TextureRect" parent="HUD/SeasonsIcon"]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -91.0
-offset_right = -21.0
+offset_left = -102.0
+offset_top = -96.0
+offset_right = -27.0
 offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -230,26 +234,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
+offset_left = -98.0
 offset_top = -91.0
-offset_right = -28.0
-offset_bottom = -30.0
+offset_right = -26.0
+offset_bottom = -21.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("13_fssvu")
 expand_mode = 1
 
 [node name="Autumn" type="TextureRect" parent="HUD/SeasonsIcon"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -96.0
-offset_right = -23.0
-offset_bottom = -25.0
+offset_left = -106.0
+offset_top = -101.0
+offset_right = -22.0
+offset_bottom = -19.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("11_qus42")
@@ -263,10 +268,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -89.0
-offset_top = -88.0
-offset_right = -26.0
-offset_bottom = -27.0
+offset_left = -105.0
+offset_top = -97.0
+offset_right = -32.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("14_emfl6")
@@ -280,7 +285,7 @@ script = ExtResource("12_ibt8c")
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
-current_day = 2
+current_day = 1
 
 [node name="Time" type="Node" parent="."]
 unique_name_in_owner = true

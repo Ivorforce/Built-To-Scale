@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbowq8x5uoapr"]
+[gd_scene load_steps=14 format=3 uid="uid://dbowq8x5uoapr"]
 
 [ext_resource type="Script" path="res://scenes/levels/level3.gd" id="1_32ohe"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_id8nr"]
-[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_moj67"]
-[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/mountains.png" id="4_r3wie"]
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/background/Blanco.png" id="3_moj67"]
+[ext_resource type="Texture2D" uid="uid://w3aur0t1mpd0" path="res://sprites/background/mountains.png" id="4_r3wie"]
 [ext_resource type="Texture2D" uid="uid://xtkhubqtdded" path="res://sprites/clouds/Cloud_1.png" id="5_jq3ot"]
 [ext_resource type="Texture2D" uid="uid://cuyxmko16rwvp" path="res://sprites/clouds/Cloud_2.png" id="6_bgybv"]
 [ext_resource type="Texture2D" uid="uid://b8rvp314fxf44" path="res://sprites/clouds/Cloud_3.png" id="7_xv31p"]
+[ext_resource type="Texture2D" uid="uid://cp05l8a4cbkpb" path="res://sprites/background/Hills_1.png" id="8_0dbif"]
 [ext_resource type="Texture2D" uid="uid://drytw5qnrk85b" path="res://sprites/mothertree.png" id="8_qvlch"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="9_tdteb"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_4guwb"]
@@ -16,20 +17,20 @@
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_32ohe")
 
-[node name="Floor" type="Sprite2D" parent="."]
-material = ExtResource("2_id8nr")
-position = Vector2(563, 1327)
-scale = Vector2(1.1875, 1.1875)
-texture = ExtResource("3_moj67")
-
 [node name="ParaFar" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Mountains" type="Sprite2D" parent="ParaFar"]
 material = ExtResource("2_id8nr")
-position = Vector2(579, 118)
-scale = Vector2(0.187752, 0.187752)
+position = Vector2(534.406, 265)
+scale = Vector2(0.676733, 0.676733)
 texture = ExtResource("4_r3wie")
+
+[node name="Floor" type="Sprite2D" parent="."]
+material = ExtResource("2_id8nr")
+position = Vector2(564.406, 2111)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_moj67")
 
 [node name="ParaCloudsSparse" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.15, 0.15)
@@ -247,6 +248,11 @@ rotation = 3.14159
 scale = Vector2(0.2, -0.2)
 texture = ExtResource("6_bgybv")
 
+[node name="Hills1" type="Sprite2D" parent="."]
+position = Vector2(586, 386)
+scale = Vector2(0.693336, 0.693336)
+texture = ExtResource("8_0dbif")
+
 [node name="ParaNear" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 0.9)
 
@@ -256,7 +262,7 @@ position = Vector2(200, 0)
 
 [node name="Sprite" type="Sprite2D" parent="ParaNear/Mothertree"]
 material = ExtResource("2_id8nr")
-position = Vector2(1050.62, -84.7695)
+position = Vector2(1051, -26)
 scale = Vector2(0.504066, 0.504066)
 texture = ExtResource("8_qvlch")
 
@@ -287,7 +293,7 @@ repeat_times = 4
 texture = ExtResource("10_4guwb")
 
 [node name="Me" type="Sprite2D" parent="."]
-position = Vector2(589.465, 406.204)
+position = Vector2(588, 503)
 scale = Vector2(0.113533, 0.113533)
 texture = ExtResource("11_ep41v")
 

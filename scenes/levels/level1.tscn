@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
-[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/Blanco.png" id="3_w0hu8"]
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/background/Blanco.png" id="3_w0hu8"]
 [ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://sprites/environment/Grass_2.png" id="4_s5fia"]
 [ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://sprites/environment/Grass_3.png" id="5_mm3du"]
-[ext_resource type="Texture2D" uid="uid://21uegeh8fkhq" path="res://sprites/environment/Dirt_8.png" id="6_k83ld"]
+[ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://sprites/environment/Stone_5.png" id="7_8tdyu"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="7_folfc"]
 [ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="8_7wira"]
+[ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://sprites/environment/Stone_7.png" id="9_bue1i"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
 [ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="11_o8bqu"]
 [ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://sprites/environment/Grass_4.png" id="11_plnla"]
-[ext_resource type="Texture2D" uid="uid://btvxfwmdksnyp" path="res://sprites/environment/Dirt_7.png" id="13_j3s8o"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -37,9 +37,14 @@ scale = Vector2(0.552817, 0.552817)
 texture = ExtResource("5_mm3du")
 
 [node name="Me" type="Sprite2D" parent="."]
-position = Vector2(591.313, 396.922)
+position = Vector2(583.313, 396.922)
 scale = Vector2(0.113533, 0.113533)
 texture = ExtResource("11_o8bqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(690, 382)
+scale = Vector2(0.153382, 0.153382)
+texture = ExtResource("7_8tdyu")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
@@ -57,31 +62,29 @@ zoom = Vector2(3, 3)
 script = ExtResource("11_fvufo")
 
 [node name="Dirt8" type="Sprite2D" parent="."]
-position = Vector2(668, 359)
+position = Vector2(493, 445)
 scale = Vector2(0.261194, 0.261194)
-texture = ExtResource("6_k83ld")
+texture = ExtResource("9_bue1i")
 
 [node name="BushBig1" type="Sprite2D" parent="."]
-position = Vector2(305, 393)
-scale = Vector2(0.248555, 0.248555)
+position = Vector2(233, 348)
+scale = Vector2(0.395472, 0.395472)
 texture = ExtResource("8_7wira")
 
 [node name="Bug" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(692, 363)
+scale = Vector2(0.125, 0.125)
 
 [node name="BugBig1" type="Sprite2D" parent="Bug"]
-position = Vector2(698.848, 363.718)
-scale = Vector2(0.125452, 0.125452)
 texture = ExtResource("7_folfc")
+metadata/_edit_lock_ = true
 
 [node name="ParaFront" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.4, 1.4)
 
 [node name="Grass4" type="Sprite2D" parent="ParaFront"]
-position = Vector2(485, 486)
-scale = Vector2(0.342239, 0.342239)
+position = Vector2(794, 486)
+scale = Vector2(-0.342, 0.342)
 texture = ExtResource("11_plnla")
-
-[node name="Dirt7" type="Sprite2D" parent="ParaFront"]
-position = Vector2(703.166, 502.153)
-scale = Vector2(0.388889, 0.388889)
-texture = ExtResource("13_j3s8o")
