@@ -5,7 +5,7 @@ func sample_multispline(p: float) -> Vector2:
 	if p <= 0:
 		return global_transform.origin
 		
-	var length = get_length()
+	var length := get_length()
 	if length == 0:
 		return global_transform.origin
 	

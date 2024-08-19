@@ -5,19 +5,21 @@ func sample_multispline(p: float) -> Vector2:
 	if p <= 0:
 		return global_transform.origin
 		
-	var length = get_length()
+	var length := get_length()
+	print(length)
 	if length == 0:
 		return global_transform.origin
 	
 	if p >= length:
 		return (get_child(get_child_count() - 2) as Node2D).global_transform.origin
 	
-	var start_idx := int(p)
+	var start_idx := int(p) * 2
+	print(start_idx)
 	return _cubic_bezier(
-		get_control_point(start_idx * 2),
-		get_control_point(start_idx * 2 + 1),
-		get_control_point(start_idx * 2 + 2),
-		get_control_point(start_idx * 2 + 3),
+		get_control_point(start_idx),
+		get_control_point(start_idx + 1),
+		get_control_point(start_idx + 3),
+		get_control_point(start_idx + 2),
 		fmod(p, 1)
 	)
 

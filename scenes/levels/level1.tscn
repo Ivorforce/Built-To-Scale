@@ -93,6 +93,7 @@ script = ExtResource("13_h8q8a")
 path = NodePath("../../BugPath")
 
 [node name="Model" type="Node2D" parent="Bug"]
+metadata/_edit_lock_ = true
 
 [node name="BugBig1" type="Sprite2D" parent="Bug/Model"]
 position = Vector2(88, -504)

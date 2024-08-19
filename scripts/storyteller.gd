@@ -63,7 +63,7 @@ func start_day(day: int):
 		level.conversation_agent = conversation_agent
 
 		events_today = [
-			[8, level.offer_test_dialogue],
+			[8.5, level.offer_test_dialogue],
 			[12.5, level.dismiss_test_dialogue],
 			[20.5, end_day],
 		]
