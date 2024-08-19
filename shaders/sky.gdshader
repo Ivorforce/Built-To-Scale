@@ -105,7 +105,7 @@ float compute_max_saturation(float a, float b)
 
 	// Do one step Halley's method to get closer
 	// this gives an error less than 10e6, except for some blue hues where the dS/dh is close to infinite
-	// this should be sufficient for most applications, otherwise do two/three steps 
+	// this should be sufficient for most applications, otherwise do two/three steps
 
 	float k_l = +0.3963377774f * a + 0.2158037573f * b;
 	float k_m = -0.1055613458f * a - 0.0638541728f * b;
@@ -153,7 +153,7 @@ vec2 find_cusp(float a, float b)
 	return vec2( L_cusp , C_cusp );
 }
 
-// Finds intersection of the line defined by 
+// Finds intersection of the line defined by
 // L = L0 * (1 - t) + t * L1;
 // C = t * C1;
 // a and b must be normalized so a^2 + b^2 == 1
@@ -426,7 +426,7 @@ vec3 get_Cs(float L, float a_, float b_)
 
 	float C_max = find_gamut_intersection(a_, b_, L, 1.f, L, cusp);
 	vec2 ST_max = to_ST(cusp);
-	
+
 	// Scale factor to compensate for the curved part of gamut shape:
 	float k = C_max / min((L * ST_max.x), (1.f - L) * ST_max.y);
 
@@ -568,7 +568,7 @@ vec3 okhsv_to_srgb(vec3 hsv)
 
 	float a_ = cos(2.f * M_PI * h);
 	float b_ = sin(2.f * M_PI * h);
-	
+
 	vec2 cusp = find_cusp(a_, b_);
 	vec2 ST_max = to_ST(cusp);
 	float S_max = ST_max.x;
@@ -659,10 +659,10 @@ vec3 srgb_to_okhsv(vec3 rgb)
 void fragment() {
 	vec3 texture_color_hsv = srgb_to_okhsv(texture(TEXTURE, UV).rgb);
 	vec3 tint_color_hsv = srgb_to_okhsv(tint_color);
-	
+
 	texture_color_hsv.x = tint_color_hsv.x;
 	texture_color_hsv.yz = sqrt(texture_color_hsv.yz) * tint_color_hsv.yz;
-	
+
 	COLOR.rgb = okhsv_to_srgb(texture_color_hsv);
 	//COLOR.rgb = texture(TEXTURE, UV).rgb;
 	COLOR.a = 1.0;

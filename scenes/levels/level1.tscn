@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=15 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -13,14 +13,15 @@
 [ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="11_o8bqu"]
 [ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://sprites/environment/Grass_4.png" id="11_plnla"]
+[ext_resource type="Script" path="res://scripts/gaussian.gd" id="14_mgy0d"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_d640p")
-position = Vector2(598.5, 638.153)
-scale = Vector2(0.573153, 0.573153)
+position = Vector2(600.5, 569.772)
+scale = Vector2(0.248613, 0.248613)
 texture = ExtResource("3_w0hu8")
 
 [node name="ParaBack" type="Parallax2D" parent="."]
@@ -43,6 +44,11 @@ texture = ExtResource("11_o8bqu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(690, 382)
+scale = Vector2(0.153382, 0.153382)
+texture = ExtResource("7_8tdyu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(654, 341)
 scale = Vector2(0.153382, 0.153382)
 texture = ExtResource("7_8tdyu")
 
@@ -71,9 +77,14 @@ position = Vector2(233, 348)
 scale = Vector2(0.395472, 0.395472)
 texture = ExtResource("8_7wira")
 
+[node name="BugPath" type="Node2D" parent="."]
+position = Vector2(895, 363)
+
+[node name="BugPath" type="Node2D" parent="BugPath"]
+position = Vector2(-203, 0)
+
 [node name="Bug" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(692, 363)
 scale = Vector2(0.125, 0.125)
 
@@ -88,3 +99,17 @@ scroll_scale = Vector2(1.4, 1.4)
 position = Vector2(794, 486)
 scale = Vector2(-0.342, 0.342)
 texture = ExtResource("11_plnla")
+
+[node name="Bezier" type="Node2D" parent="."]
+visible = false
+position = Vector2(656, 346)
+script = ExtResource("14_mgy0d")
+
+[node name="Node2D2" type="Node2D" parent="Bezier"]
+position = Vector2(23, -6)
+
+[node name="Node2D4" type="Node2D" parent="Bezier"]
+position = Vector2(-3, -60)
+
+[node name="Node2D3" type="Node2D" parent="Bezier"]
+position = Vector2(17, -58)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=20 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://04ikerytogdu" path="res://sprites/environment/Grass_5.png" id="6_8v5p1"]
 [ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://sprites/environment/Grass_2.png" id="6_yf6lp"]
 [ext_resource type="Texture2D" uid="uid://bq0wov1rfffu6" path="res://sprites/environment/Stone_9.png" id="7_538dw"]
-[ext_resource type="Texture2D" uid="uid://ch1atjciuudwp" path="res://sprites/environment/Stone_12.png" id="8_8oqqo"]
 [ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="9_6ao2t"]
 [ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://sprites/environment/Grass_4.png" id="9_wn5ch"]
 [ext_resource type="Texture2D" uid="uid://dsenl008ao2e6" path="res://sprites/me/Plant_2Leaf.png" id="10_1o1fq"]
 [ext_resource type="Texture2D" uid="uid://dbqe30mffc8d0" path="res://sprites/snake/Snake_1.png" id="10_qccq1"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
+[ext_resource type="Texture2D" uid="uid://hyrltc3vj2m3" path="res://sprites/bird/Berry_2.png" id="11_4gkva"]
 [ext_resource type="Script" path="res://camera.gd" id="11_fvufo"]
+[ext_resource type="Texture2D" uid="uid://g4qhe63lgr0d" path="res://sprites/bird/BirdBig_1.png" id="12_7gu5x"]
 [ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://sprites/environment/Stone_5.png" id="14_xdd0p"]
 [ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://sprites/environment/Stone_7.png" id="15_iith1"]
 [ext_resource type="Texture2D" uid="uid://lijsdli2v8su" path="res://sprites/environment/Grass_6.png" id="18_spjtd"]
@@ -24,8 +25,8 @@ script = ExtResource("1_rqujc")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_d640p")
-position = Vector2(579, 1307)
-scale = Vector2(1.1875, 1.1875)
+position = Vector2(568, 808)
+scale = Vector2(0.537999, 0.537999)
 texture = ExtResource("3_w0hu8")
 
 [node name="ParaNear" type="Parallax2D" parent="."]
@@ -83,10 +84,15 @@ position = Vector2(254.5, 404.23)
 scale = Vector2(0.370906, 0.370906)
 texture = ExtResource("9_6ao2t")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(865, 464)
-scale = Vector2(0.875447, 0.875446)
-texture = ExtResource("8_8oqqo")
+[node name="Berry" type="Sprite2D" parent="."]
+position = Vector2(884.498, 503.137)
+scale = Vector2(0.419116, 0.419115)
+texture = ExtResource("11_4gkva")
+
+[node name="Bird" type="Sprite2D" parent="."]
+position = Vector2(986.498, 315.137)
+scale = Vector2(0.411117, 0.411116)
+texture = ExtResource("12_7gu5x")
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false

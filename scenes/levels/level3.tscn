@@ -28,8 +28,8 @@ texture = ExtResource("4_r3wie")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_id8nr")
-position = Vector2(564.406, 2111)
-scale = Vector2(1.1875, 1.1875)
+position = Vector2(581.5, 1344.69)
+scale = Vector2(0.644982, 0.644982)
 texture = ExtResource("3_moj67")
 
 [node name="ParaCloudsSparse" type="Parallax2D" parent="."]
@@ -87,6 +87,38 @@ position = Vector2(2180, 58)
 rotation = 3.14159
 scale = Vector2(0.2, -0.2)
 texture = ExtResource("6_bgybv")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="Hills1" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(586, 386)
+scale = Vector2(0.693336, 0.693336)
+texture = ExtResource("8_0dbif")
+
+[node name="Mothertree" type="Node2D" parent="Parallax2D"]
+unique_name_in_owner = true
+position = Vector2(200, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Parallax2D/Mothertree"]
+material = ExtResource("2_id8nr")
+position = Vector2(1054, 65)
+scale = Vector2(0.504066, 0.504066)
+texture = ExtResource("8_qvlch")
+
+[node name="Button" type="Button" parent="Parallax2D/Mothertree"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 783.0
+offset_top = 346.0
+offset_right = 875.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_tdteb")
+text = "Talk"
 
 [node name="ParaCloudsCloudy" type="Parallax2D" parent="."]
 visible = false
@@ -247,38 +279,6 @@ position = Vector2(2180, 58)
 rotation = 3.14159
 scale = Vector2(0.2, -0.2)
 texture = ExtResource("6_bgybv")
-
-[node name="Hills1" type="Sprite2D" parent="."]
-position = Vector2(586, 386)
-scale = Vector2(0.693336, 0.693336)
-texture = ExtResource("8_0dbif")
-
-[node name="ParaNear" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.9, 0.9)
-
-[node name="Mothertree" type="Node2D" parent="ParaNear"]
-unique_name_in_owner = true
-position = Vector2(200, 0)
-
-[node name="Sprite" type="Sprite2D" parent="ParaNear/Mothertree"]
-material = ExtResource("2_id8nr")
-position = Vector2(1051, -26)
-scale = Vector2(0.504066, 0.504066)
-texture = ExtResource("8_qvlch")
-
-[node name="Button" type="Button" parent="ParaNear/Mothertree"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 783.0
-offset_top = 346.0
-offset_right = 875.0
-offset_bottom = 377.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("9_tdteb")
-text = "Talk"
 
 [node name="ParaNearRain" type="Parallax2D" parent="."]
 visible = false
