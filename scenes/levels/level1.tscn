@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=20 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" path="res://scripts/splines/spline_walker_2d.gd" id="13_h8q8a"]
 [ext_resource type="Script" path="res://scripts/splines/bezier_2d.gd" id="14_mgy0d"]
 [ext_resource type="Script" path="res://scripts/wobbler.gd" id="15_deqiv"]
+[ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://sprites/moth/Moth.png" id="18_08lsp"]
+[ext_resource type="Script" path="res://scripts/floater.gd" id="19_oa7jp"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -27,102 +29,135 @@ position = Vector2(600.5, 569.772)
 scale = Vector2(0.248613, 0.248613)
 texture = ExtResource("3_w0hu8")
 
-[node name="ParaBack" type="Parallax2D" parent="."]
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ParaBack" type="Parallax2D" parent="Objects"]
 scroll_scale = Vector2(0.95, 0.95)
 
-[node name="Grass2" type="Sprite2D" parent="ParaBack"]
+[node name="Grass2" type="Sprite2D" parent="Objects/ParaBack"]
 position = Vector2(501, 285)
 scale = Vector2(0.364271, 0.364271)
 texture = ExtResource("4_s5fia")
 
-[node name="Grass3" type="Sprite2D" parent="ParaBack"]
+[node name="Grass3" type="Sprite2D" parent="Objects/ParaBack"]
 position = Vector2(815, 258)
 scale = Vector2(0.552817, 0.552817)
 texture = ExtResource("5_mm3du")
 
-[node name="Me" type="Sprite2D" parent="."]
+[node name="Me" type="Sprite2D" parent="Objects"]
 position = Vector2(583.313, 396.922)
 scale = Vector2(0.113533, 0.113533)
 texture = ExtResource("11_o8bqu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Objects"]
 position = Vector2(690, 382)
 scale = Vector2(0.153382, 0.153382)
 texture = ExtResource("7_8tdyu")
 
-[node name="ParaHereRain" type="Parallax2D" parent="."]
+[node name="ParaHereRain" type="Parallax2D" parent="Objects"]
 visible = false
 scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(2000, 1414)
 autoscroll = Vector2(450, 1200)
 repeat_times = 3
 
-[node name="Rain" type="Sprite2D" parent="ParaHereRain"]
+[node name="Rain" type="Sprite2D" parent="Objects/ParaHereRain"]
 texture = ExtResource("10_yf582")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Objects"]
 position = Vector2(594, 382)
 zoom = Vector2(3, 3)
 script = ExtResource("11_fvufo")
 
-[node name="Dirt8" type="Sprite2D" parent="."]
+[node name="Dirt8" type="Sprite2D" parent="Objects"]
 position = Vector2(493, 445)
 scale = Vector2(0.261194, 0.261194)
 texture = ExtResource("9_bue1i")
 
-[node name="BushBig1" type="Sprite2D" parent="."]
+[node name="BushBig1" type="Sprite2D" parent="Objects"]
 position = Vector2(365, 405)
 scale = Vector2(0.157744, 0.157744)
 texture = ExtResource("8_7wira")
 
-[node name="BugPath" type="Node2D" parent="."]
+[node name="BugPath" type="Node2D" parent="Objects"]
 position = Vector2(895, 420)
 script = ExtResource("12_42a6c")
 
-[node name="Node2D" type="Node2D" parent="BugPath"]
+[node name="Node2D" type="Node2D" parent="Objects/BugPath"]
 
-[node name="BugPath" type="Node2D" parent="BugPath"]
+[node name="BugPath" type="Node2D" parent="Objects/BugPath"]
 position = Vector2(-203, 0)
 
-[node name="Bug" type="Node2D" parent="."]
+[node name="Bug" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
 visible = false
 position = Vector2(692, 420)
 scale = Vector2(0.125, 0.125)
 
-[node name="Walker" type="Node" parent="Bug" node_paths=PackedStringArray("path")]
+[node name="Walker" type="Node" parent="Objects/Bug" node_paths=PackedStringArray("path")]
 script = ExtResource("13_h8q8a")
 path = NodePath("../../BugPath")
 
-[node name="Model" type="Node2D" parent="Bug"]
+[node name="Model" type="Node2D" parent="Objects/Bug"]
 metadata/_edit_lock_ = true
 
-[node name="BugBig1" type="Sprite2D" parent="Bug/Model"]
+[node name="BugBig1" type="Sprite2D" parent="Objects/Bug/Model"]
 position = Vector2(88, -504)
 texture = ExtResource("7_folfc")
 metadata/_edit_lock_ = true
 
-[node name="Wobbler" type="Node" parent="Bug/Model"]
+[node name="Wobbler" type="Node" parent="Objects/Bug/Model"]
 script = ExtResource("15_deqiv")
 
-[node name="ParaFront" type="Parallax2D" parent="."]
-scroll_scale = Vector2(1.4, 1.4)
+[node name="PathMoth" type="Node2D" parent="Objects"]
+position = Vector2(360, 255)
+script = ExtResource("14_mgy0d")
 
-[node name="Grass4" type="Sprite2D" parent="ParaFront"]
-position = Vector2(794, 486)
+[node name="Node2D" type="Node2D" parent="Objects/PathMoth"]
+metadata/_edit_lock_ = true
+
+[node name="Node2D2" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(72, 11)
+
+[node name="Node2D4" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(104, 182)
+
+[node name="Node2D3" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(132, 181)
+
+[node name="Node2D5" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(17, 442)
+
+[node name="Node2D6" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(81, 442)
+
+[node name="ParaFront" type="Parallax2D" parent="Objects"]
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(794, 486)
+
+[node name="Grass4" type="Sprite2D" parent="Objects/ParaFront"]
 scale = Vector2(-0.342, 0.342)
 texture = ExtResource("11_plnla")
 
-[node name="Bezier2" type="Node2D" parent="."]
+[node name="Moth" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
 visible = false
-position = Vector2(656, 346)
-script = ExtResource("14_mgy0d")
+position = Vector2(465, 437)
 
-[node name="Node2D2" type="Node2D" parent="Bezier2"]
-position = Vector2(23, -6)
+[node name="Model" type="Node2D" parent="Objects/Moth"]
 
-[node name="Node2D4" type="Node2D" parent="Bezier2"]
-position = Vector2(-3, -60)
+[node name="Sprite" type="Sprite2D" parent="Objects/Moth/Model"]
+position = Vector2(0, -93.975)
+rotation = 3.14159
+scale = Vector2(0.212, -0.212)
+texture = ExtResource("18_08lsp")
+metadata/_edit_lock_ = true
 
-[node name="Node2D3" type="Node2D" parent="Bezier2"]
-position = Vector2(17, -58)
+[node name="Floater" type="Node" parent="Objects/Moth/Model"]
+script = ExtResource("19_oa7jp")
+is_floating = true
+
+[node name="Walker" type="Node" parent="Objects/Moth" node_paths=PackedStringArray("path")]
+script = ExtResource("13_h8q8a")
+path = NodePath("../../PathMoth")

@@ -5,7 +5,7 @@ var conversation_agent: ConversationAgent
 
 func offer_test_dialogue():
 	var bug := %Bug as Node2D
-	var walker := get_node("%Bug/Walker") as SplineWalker
+	var walker := bug.get_node("Walker") as SplineWalker
 	var wobbler := bug.get_node("Model/Wobbler") as Wobbler
 
 	walker.position = 0
@@ -35,3 +35,53 @@ func dismiss_test_dialogue():
 	
 	#tween.tween_property(snake, "scale", Vector2(0.13, 0.13), 0.2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SPRING)
 	#tween.tween_property(snake, "visible", false, 0)
+
+func enter_moth_first():
+	var bug := %Moth as Node2D
+	var walker := bug.get_node("Walker") as SplineWalker
+
+	walker.position = 0
+	bug.rotation = 0
+	bug.scale.y = abs(bug.scale.y)
+	bug.visible = true
+	
+	var tween := create_tween()
+	tween.tween_property(walker, "position", 1, 2)
+	tween.play()
+	
+func leave_moth_first():
+	var bug := %Moth as Node2D
+	var walker := bug.get_node("Walker") as SplineWalker
+
+	bug.rotation = PI
+	bug.scale.y = -abs(bug.scale.y)
+	
+	var tween := create_tween()
+	tween.tween_property(walker, "position", 2, 2)
+	tween.play()
+	
+func enter_moth_second():
+	var bug := %Moth as Node2D
+	var walker := bug.get_node("Walker") as SplineWalker
+
+	walker.position = 2
+	bug.rotation = 0
+	bug.scale.y = abs(bug.scale.y)
+
+	bug.visible = true
+	
+	var tween := create_tween()
+	tween.tween_property(walker, "position", 1, 2)
+	tween.play()
+	
+func leave_moth_second():
+	var bug := %Moth as Node2D
+	var walker := bug.get_node("Walker") as SplineWalker
+
+	bug.rotation = PI
+	bug.scale.y = -abs(bug.scale.y)
+	
+	var tween := create_tween()
+	tween.tween_property(walker, "position", 0, 2)
+	tween.play()
+	

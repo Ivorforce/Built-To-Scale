@@ -52,7 +52,11 @@ func start_day(day: int):
 		
 		events_today = [
 			[8.5, level.offer_test_dialogue],
+			[9, level.enter_moth_first],
 			[10.0, level.dismiss_test_dialogue],
+			[10.5, level.leave_moth_first],
+			[11.0, level.enter_moth_second],
+			[12.5, level.leave_moth_second],
 			[20.5, end_day],
 		]
 	elif day == 1:
