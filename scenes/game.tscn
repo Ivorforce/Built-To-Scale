@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=33 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_2abxd"]
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
@@ -21,6 +21,7 @@
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
+[ext_resource type="AudioStream" uid="uid://c6hrxok1co2nm" path="res://sounds/sleep_jingle.mp3" id="21_k0j0s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_urs80"]
 shader = ExtResource("1_2abxd")
@@ -283,6 +284,12 @@ script = ExtResource("12_ibt8c")
 unique_name_in_owner = true
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
+
+[node name="Music" type="Node" parent="."]
+
+[node name="SleepJingle" type="AudioStreamPlayer" parent="Music"]
+unique_name_in_owner = true
+stream = ExtResource("21_k0j0s")
 
 [node name="Time" type="Node" parent="."]
 unique_name_in_owner = true

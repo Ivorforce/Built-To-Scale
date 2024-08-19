@@ -101,7 +101,10 @@ func end_night():
 	end_day_ui.visible = false
 	
 	var tween := create_tween().set_trans(Tween.TRANS_SINE)
+	tween.set_parallel(true)
 	tween.tween_property(time, "current_time_h", 21, 2).set_ease(Tween.EASE_IN)
+	tween.tween_callback(func(): (%SleepJingle as AudioStreamPlayer).play()).set_delay(1.2)
+	tween.set_parallel(false)
 	tween.tween_property(time, "current_time_h", 24, 0.5).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(func(): start_day(next_day))
 	tween.tween_property(time, "current_time_h", 7, 0.5).set_trans(Tween.TRANS_LINEAR)
