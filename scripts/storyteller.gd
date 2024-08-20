@@ -7,10 +7,22 @@ var events_today = []
 @export
 var season_icons: Array[CanvasItem] = []
 
-@onready
-var time: GameTime = %Time
-@onready
-var conversation_agent: ConversationAgent = %ConversationAgent
+@export
+var time: GameTime
+@export
+var conversation_agent: ConversationAgent
+
+@export
+var ambience: AudioStreamPlayer
+@export
+var sleep_jingle: AudioStreamPlayer
+
+@export
+var sky: GameSky
+
+@export
+var end_day_ui: Control
+
 @export
 var current_day := 0
 var current_year := 0
@@ -37,7 +49,6 @@ func start_day(day: int):
 	
 	time.seconds_per_hour = 1.0 / 14 * 60
 	
-	var sky := %Sky as GameSky
 	sky.day_start_h = 7
 	sky.day_duration_h = 14
 	
@@ -96,11 +107,9 @@ func end_day():
 		get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 	time.paused = true
-	var end_day_ui := get_node("%EndDayUI") as Control
 	end_day_ui.visible = true
 
 func end_night():
-	var end_day_ui := get_node("%EndDayUI") as Control
 	var next_day := current_day + 1
 	
 	end_day_ui.visible = false
@@ -108,7 +117,7 @@ func end_night():
 	var tween := create_tween().set_trans(Tween.TRANS_SINE)
 	tween.set_parallel(true)
 	tween.tween_property(time, "current_time_h", 21, 2).set_ease(Tween.EASE_IN)
-	tween.tween_callback(func(): (%SleepJingle as AudioStreamPlayer).play()).set_delay(1.2)
+	tween.tween_callback(func(): sleep_jingle.play()).set_delay(1.2)
 	tween.set_parallel(false)
 	tween.tween_property(time, "current_time_h", 24, 0.5).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(func(): start_day(next_day))

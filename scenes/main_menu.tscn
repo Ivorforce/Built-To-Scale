@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://7oexk3wicbe2"]
+[gd_scene load_steps=11 format=3 uid="uid://7oexk3wicbe2"]
 
 [ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/background/Blanco.png" id="1_b6du1"]
 [ext_resource type="Script" path="res://camera.gd" id="1_c2nkh"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="2_xp8yy"]
 [ext_resource type="Script" path="res://scripts/start_game_button.gd" id="2_y4yef"]
+[ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://sprites/button/Button_3.png" id="4_dx2la"]
+[ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://sprites/button/Button_1.png" id="5_lnwrn"]
+[ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://sprites/button/Button_2.png" id="6_rofh4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6857m"]
+texture = ExtResource("4_dx2la")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onl2j"]
+texture = ExtResource("5_lnwrn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r60he"]
+texture = ExtResource("6_rofh4")
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,11 +29,27 @@ script = ExtResource("1_c2nkh")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="HUD"]
-offset_left = 508.0
-offset_top = 309.0
-offset_right = 645.0
-offset_bottom = 340.0
+[node name="Start Button" type="Button" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 363.0
+offset_top = 203.0
+offset_right = 637.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
 theme = ExtResource("2_xp8yy")
-text = "Start Game"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+theme_override_styles/hover = SubResource("StyleBoxTexture_6857m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onl2j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_r60he")
+text = "Sprout"
 script = ExtResource("2_y4yef")

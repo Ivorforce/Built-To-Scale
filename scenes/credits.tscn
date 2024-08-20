@@ -45,7 +45,7 @@ theme = ExtResource("2_p83p0")
 theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
 theme_override_font_sizes/font_size = 20
 text = "Lukas Tenbrink:
-Programming, Animation, Writing, Sounds, Music"
+Programming, Animation, Sounds"
 
 [node name="Label4" type="Label" parent="HUD"]
 offset_left = 59.0
@@ -56,7 +56,7 @@ theme = ExtResource("2_p83p0")
 theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
 theme_override_font_sizes/font_size = 20
 text = "Corinna Kreft:
-Illustrations, Level Design, Writing, Sounds, Music"
+Illustrations, Level Design, Writing"
 
 [node name="Label5" type="Label" parent="HUD"]
 offset_left = 340.0

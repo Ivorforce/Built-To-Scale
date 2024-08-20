@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=82 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -61,6 +61,9 @@
 [ext_resource type="Texture2D" uid="uid://dmk7ulrru30ey" path="res://sprites/grass-instrument/Music_Grass_Right_NotPressed.png" id="46_5efhp"]
 [ext_resource type="Texture2D" uid="uid://12h3yuoeigix" path="res://sprites/grass-instrument/Music_Grass_Right_Pressed.png" id="47_otiwk"]
 [ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://sounds/fairy/fairy-ix.mp3" id="48_8jj2j"]
+[ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://sprites/button/Button_3.png" id="51_bms2n"]
+[ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://sprites/button/Button_1.png" id="52_3nr65"]
+[ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://sprites/button/Button_2.png" id="53_e7rt6"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_ahcuf"]
 action = &"play-7"
@@ -103,6 +106,15 @@ action = &"play-3"
 
 [sub_resource type="Shortcut" id="Shortcut_slyfe"]
 events = [SubResource("InputEventAction_2e1wk")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12iwp"]
+texture = ExtResource("51_bms2n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biqil"]
+texture = ExtResource("52_3nr65")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sh0pa"]
+texture = ExtResource("53_e7rt6")
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -499,16 +511,25 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -21.0
-offset_top = -3.99999
-offset_right = 71.0
-offset_bottom = 34.0
+offset_left = -31.0
+offset_top = -16.0
+offset_right = 243.0
+offset_bottom = 181.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
+focus_mode = 0
 theme = ExtResource("38_ex1tr")
-theme_override_font_sizes/font_size = 20
-text = "Talk"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_12iwp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_biqil")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sh0pa")
+text = " Talk"
 
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
@@ -547,15 +568,25 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -34.5
-offset_top = 37.77
-offset_right = 57.5
-offset_bottom = 75.77
+offset_left = -60.5
+offset_top = 8.77
+offset_right = 213.5
+offset_bottom = 205.77
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
 theme = ExtResource("38_ex1tr")
-theme_override_font_sizes/font_size = 20
-text = "Talk"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_12iwp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_biqil")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sh0pa")
+text = " Talk"
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.05, 1.05)

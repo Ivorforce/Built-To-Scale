@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=38 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_2abxd"]
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
@@ -26,6 +26,7 @@
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
 [ext_resource type="AudioStream" uid="uid://c6hrxok1co2nm" path="res://sounds/sleep_jingle.mp3" id="21_k0j0s"]
+[ext_resource type="AudioStream" uid="uid://d3kfes7fw0bwh" path="res://music/nature-ambience_cyprus_troodos_mountains_mount_olympus_omni_mics-19736.mp3" id="27_o0gb0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_urs80"]
 shader = ExtResource("1_2abxd")
@@ -80,18 +81,18 @@ variation_opentype = {
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 
-[node name="Sky" type="Sprite2D" parent="Parallax2D"]
-unique_name_in_owner = true
+[node name="Sky" type="Sprite2D" parent="Parallax2D" node_paths=PackedStringArray("time", "post_process")]
 material = SubResource("ShaderMaterial_urs80")
 position = Vector2(576, 408)
 scale = Vector2(0.411765, 0.411765)
 texture = ExtResource("2_g85yo")
 script = ExtResource("1_2wf5j")
+time = NodePath("../../Time")
 day_gradient = SubResource("Gradient_gdy4v")
 day_gradient_tint = SubResource("Gradient_ujufb")
+post_process = NodePath("../../PostProcess")
 
 [node name="PostProcess" type="Sprite2D" parent="."]
-unique_name_in_owner = true
 material = SubResource("ShaderMaterial_04sif")
 position = Vector2(586, 326)
 scale = Vector2(1528, 895)
@@ -197,7 +198,6 @@ stream = ExtResource("15_6whdp")
 pitch_scale = 0.2
 
 [node name="EndDayUI" type="Control" parent="HUD"]
-unique_name_in_owner = true
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -313,23 +313,32 @@ texture = ExtResource("14_emfl6")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="ConversationAgent" type="Node" parent="."]
-unique_name_in_owner = true
+[node name="ConversationAgent" type="Node" parent="." node_paths=PackedStringArray("time")]
 script = ExtResource("12_ibt8c")
+time = NodePath("../Time")
 
-[node name="Storyteller" type="Node" parent="." node_paths=PackedStringArray("season_icons")]
-unique_name_in_owner = true
+[node name="Storyteller" type="Node" parent="." node_paths=PackedStringArray("season_icons", "time", "conversation_agent", "ambience", "sleep_jingle", "sky", "end_day_ui")]
 script = ExtResource("13_f2ov4")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
+time = NodePath("../Time")
+conversation_agent = NodePath("../ConversationAgent")
+ambience = NodePath("../Music/Ambience")
+sleep_jingle = NodePath("../Music/SleepJingle")
+sky = NodePath("../Parallax2D/Sky")
+end_day_ui = NodePath("../HUD/EndDayUI")
 
 [node name="Music" type="Node" parent="."]
 
 [node name="SleepJingle" type="AudioStreamPlayer" parent="Music"]
-unique_name_in_owner = true
 stream = ExtResource("21_k0j0s")
 
+[node name="Ambience" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("27_o0gb0")
+volume_db = 11.0
+autoplay = true
+parameters/looping = true
+
 [node name="Time" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("14_blpt0")
 
 [connection signal="finished_typing" from="HUD/ConversationBox/ConversationLabel" to="ConversationAgent" method="_on_conversation_label_finished_typing"]

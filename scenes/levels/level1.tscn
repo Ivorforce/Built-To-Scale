@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=44 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -22,7 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://sprites/moth/Moth.png" id="18_08lsp"]
 [ext_resource type="Script" path="res://scripts/floater.gd" id="19_oa7jp"]
 [ext_resource type="Script" path="res://scripts/play_sound.gd" id="21_1acay"]
+[ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://sprites/button/Button_1.png" id="21_fyogl"]
+[ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://sprites/button/Button_2.png" id="21_hsc4r"]
 [ext_resource type="Texture2D" uid="uid://b0dnvtxpb020b" path="res://sprites/grass-instrument/Music_Grass_Left_Pressed.png" id="21_k6ddh"]
+[ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://sprites/button/Button_3.png" id="22_3j55m"]
 [ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://sounds/fairy/fairy-i.mp3" id="22_5tdg5"]
 [ext_resource type="Texture2D" uid="uid://bmu6rh2w4nfuf" path="res://sprites/grass-instrument/Music_Grass_Left_NotPressed.png" id="22_wcfu7"]
 [ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://sounds/fairy/fairy-v.mp3" id="23_buktn"]
@@ -49,6 +52,15 @@ action = &"play-3"
 
 [sub_resource type="Shortcut" id="Shortcut_fgtqa"]
 events = [SubResource("InputEventAction_2e1wk")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36qxj"]
+texture = ExtResource("22_3j55m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gqxwu"]
+texture = ExtResource("21_fyogl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ko5ps"]
+texture = ExtResource("21_hsc4r")
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -177,17 +189,25 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 560.0
-offset_top = 400.0
-offset_right = 652.0
-offset_bottom = 438.0
+offset_left = 542.0
+offset_top = 387.0
+offset_right = 816.0
+offset_bottom = 584.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
 theme = ExtResource("7_yufbh")
-theme_override_font_sizes/font_size = 20
-text = "Think
-"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_36qxj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gqxwu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ko5ps")
+text = "  Think..."
 
 [node name="Camera2D" type="Camera2D" parent="Objects"]
 position = Vector2(594, 382)
@@ -239,16 +259,25 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -32.0
-offset_right = -148.0
-offset_bottom = 6.00001
+offset_left = -352.0
+offset_top = -168.0
+offset_right = -78.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
+focus_mode = 0
 theme = ExtResource("7_yufbh")
-theme_override_font_sizes/font_size = 20
-text = "Talk"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_36qxj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gqxwu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ko5ps")
+text = " Talk"
 
 [node name="PathMoth" type="Node2D" parent="Objects"]
 position = Vector2(360, 255)
@@ -307,13 +336,22 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = -24.0
-offset_right = 106.0
-offset_bottom = 14.0
+offset_left = -1.0
+offset_top = -48.0
+offset_right = 273.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
 theme = ExtResource("7_yufbh")
-theme_override_font_sizes/font_size = 20
-text = "Talk"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_36qxj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gqxwu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ko5ps")
+text = " Talk"

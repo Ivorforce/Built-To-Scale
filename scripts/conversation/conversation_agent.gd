@@ -4,8 +4,8 @@ extends Node
 var current_dialogue: DialogueResource
 var next_line
 
-@onready
-var time := %Time as GameTime
+@export
+var time: GameTime
 
 @onready
 var conversation_box := %ConversationBox as ConversationBox
