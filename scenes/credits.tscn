@@ -11,6 +11,7 @@ position = Vector2(565, 328)
 texture = ExtResource("3_s3o5i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(576, 322)
 script = ExtResource("1_42t62")
 
@@ -59,11 +60,11 @@ text = "Corinna Kreft:
 Illustrations, Level Design, Writing"
 
 [node name="Label5" type="Label" parent="HUD"]
-offset_left = 340.0
-offset_top = 596.0
-offset_right = 832.0
-offset_bottom = 626.0
+offset_left = 211.0
+offset_top = 583.0
+offset_right = 943.0
+offset_bottom = 613.0
 theme = ExtResource("2_p83p0")
 theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
 theme_override_font_sizes/font_size = 20
-text = "Special Thanks: Eduardo Tunni (Merienda Font)"
+text = "We'll make an extended post-jam version soon. Follow our project on itch!"

@@ -1,5 +1,10 @@
 ~ think_morning
-Me2: Wow, I've grown so much!
+Me2: Maybe this was the darkness the moth spoke about. 
+Me2: That wasn't too bad~
+Me2: But it feels great to see the sun again!
+Me2: Oh! [wait=0.3]Seems like I've grown quite a bit~
+Me2: Let's see what the new day brings.
+Me2: I hope I meet lots of friends today.
 => END
 
 ~ snake_plant_1
@@ -27,9 +32,22 @@ Snake: Hopefully, yes.[wait=0.2]
 	Farewell then, little one.
 => END
 
-~ treehopper_plant_1
-Treehopper: ...
-Me2: ...
+~ hopper_plant_1
+Hopper: Woah, look at how you grew! You're [i]gigaaantic[/i] now!
+Me2: Hey there again! How have you been? 
+Me2: Do you think I am big enough to meet the birds yet?
+Hopper: [i]Haha~[/i], I don't think they would want to sit on your branches yet. But who knows, [wait=0.3] maybe they visit you either way.
+Me2: We'll see.[wait=0.3] I can wait~
+Me2: Did you get to the berry?
+Hopper: Berry? [wait=0.5]. [wait=0.5]. [wait=0.5]. [wait=0.5] Ah! Yes, [wait=0.3]the berry!
+Hopper: No, unfortunately not. [wait=0.3] Something [i]very big[/i] got to it first. I suspect [wait=0.7] the bird!!
+Hopper: But it's not so bad, there are plenty of berries in the sea.
+Me2: What is the sea?
+Hopper: Oh I don't know. [wait=0.3] It's just a phrase I think [wait=0.3]. [wait=0.3]. [wait=0.3].
+Hopper: I see an old friend over there! Gotta say hello. 
+Hopper: I'll send them over to you, they have always the [i]funniest[/i] [wait=0.3] things to say!
+Hopper: Bye then, biggo~
+Me2: Bye [wait=0.3], have fun!
 => END
 
 

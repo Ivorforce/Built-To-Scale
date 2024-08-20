@@ -123,7 +123,7 @@ script = ExtResource("9_w2mhu")
 [node name="Avatar" type="Node2D" parent="HUD/ConversationBox"]
 position = Vector2(161, -4)
 
-[node name="Treehopper" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+[node name="Hopper" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
 position = Vector2(86, -49)
 rotation = 3.14159
@@ -361,7 +361,6 @@ ambience = NodePath("../Music/Ambience")
 sleep_jingle = NodePath("../Music/SleepJingle")
 sky = NodePath("../Parallax2D/Sky")
 end_day_ui = NodePath("../HUD/EndDayUI")
-current_day = 1
 
 [node name="Music" type="Node" parent="."]
 

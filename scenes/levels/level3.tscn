@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbowq8x5uoapr"]
+[gd_scene load_steps=28 format=3 uid="uid://dbowq8x5uoapr"]
 
 [ext_resource type="Script" path="res://scenes/levels/level3.gd" id="1_32ohe"]
 [ext_resource type="Resource" uid="uid://be8ntiuj0fw5a" path="res://texts/level3.dialogue" id="2_0r73q"]
@@ -14,6 +14,25 @@
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_4guwb"]
 [ext_resource type="Texture2D" uid="uid://c13k4i0shqqog" path="res://sprites/me/Plant_4Leaf.png" id="11_ep41v"]
 [ext_resource type="Script" path="res://camera.gd" id="12_aqrc6"]
+[ext_resource type="Texture2D" uid="uid://04ikerytogdu" path="res://sprites/environment/Grass_5.png" id="14_o2msw"]
+[ext_resource type="Script" path="res://scripts/splines/spline_walker_2d.gd" id="14_uw7r7"]
+[ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://sprites/button/Button_3.png" id="15_khjr4"]
+[ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://sprites/button/Button_1.png" id="16_rdkym"]
+[ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://sprites/button/Button_2.png" id="17_en0o2"]
+[ext_resource type="Texture2D" uid="uid://ownn3y3b71am" path="res://sprites/grumpy_plant/GrumpyPlant_1.png" id="18_ucs3a"]
+[ext_resource type="Texture2D" uid="uid://cc76xyxr2232e" path="res://sprites/bush/Bush_1.png" id="19_nxpr7"]
+[ext_resource type="Texture2D" uid="uid://lijsdli2v8su" path="res://sprites/environment/Grass_6.png" id="21_2gmlo"]
+[ext_resource type="Texture2D" uid="uid://bq0wov1rfffu6" path="res://sprites/environment/Stone_9.png" id="21_oxmwn"]
+[ext_resource type="Script" path="res://scripts/splines/linear_2d.gd" id="23_g03ri"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7t0bw"]
+texture = ExtResource("15_khjr4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrcjl"]
+texture = ExtResource("16_rdkym")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cf23"]
+texture = ExtResource("17_en0o2")
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_32ohe")
@@ -104,8 +123,8 @@ position = Vector2(200, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Parallax2D/Mothertree"]
 material = ExtResource("2_id8nr")
-position = Vector2(1054, 65)
-scale = Vector2(0.504066, 0.504066)
+position = Vector2(1031.31, 97.0896)
+scale = Vector2(0.471976, 0.471976)
 texture = ExtResource("8_qvlch")
 
 [node name="Button" type="Button" parent="Parallax2D/Mothertree"]
@@ -294,11 +313,6 @@ repeat_times = 4
 [node name="Rain" type="Sprite2D" parent="ParaNearRain"]
 texture = ExtResource("10_4guwb")
 
-[node name="Me" type="Sprite2D" parent="."]
-position = Vector2(588, 503)
-scale = Vector2(0.113533, 0.113533)
-texture = ExtResource("11_ep41v")
-
 [node name="ParaHereRain" type="Parallax2D" parent="."]
 visible = false
 scale = Vector2(0.5, 0.5)
@@ -309,6 +323,85 @@ repeat_times = 3
 [node name="Rain" type="Sprite2D" parent="ParaHereRain"]
 texture = ExtResource("10_4guwb")
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(617.159, 544.625)
+scale = Vector2(0.0617283, 0.0617283)
+texture = ExtResource("14_o2msw")
+
+[node name="Me" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(588, 503)
+
+[node name="Model" type="Sprite2D" parent="Me"]
+position = Vector2(-21.6084, 42.2419)
+scale = Vector2(0.0649537, 0.0649537)
+texture = ExtResource("11_ep41v")
+
+[node name="Button" type="Button" parent="Me"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = 26.0
+offset_right = 186.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme = ExtResource("9_tdteb")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_7t0bw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vrcjl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8cf23")
+text = "  Think..."
+
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(575, 370)
 script = ExtResource("12_aqrc6")
+
+[node name="Walker" type="Node" parent="Camera2D" node_paths=PackedStringArray("path")]
+script = ExtResource("14_uw7r7")
+path = NodePath("../../CameraPath")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.1, 1.1)
+
+[node name="GrumpyPlant1" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(140, 459)
+rotation = 3.14159
+scale = Vector2(0.34505, -0.34505)
+texture = ExtResource("18_ucs3a")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(469.159, 536.625)
+scale = Vector2(0.0995575, 0.0995575)
+texture = ExtResource("19_nxpr7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(518.69, 598.794)
+scale = Vector2(0.0719133, 0.0719133)
+texture = ExtResource("21_oxmwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(485.597, 606.335)
+scale = Vector2(0.132003, 0.132003)
+texture = ExtResource("21_2gmlo")
+
+[node name="CameraPath" type="Node2D" parent="."]
+position = Vector2(575, 551)
+scale = Vector2(0.24, 0.24)
+script = ExtResource("23_g03ri")
+
+[node name="Node2D" type="Node2D" parent="CameraPath"]
+position = Vector2(0, -225)
+
+[node name="BugPath" type="Node2D" parent="CameraPath"]
+position = Vector2(0, -754.167)

@@ -63,8 +63,8 @@ func start_day(day: int):
 		events_today = [
 			[8.0, level.think.bind("hello_world")],
 			[10.0, level.dismiss_think],
-			[10.0, level.enter_bug.bind("treehopper_plant_1")],
-			[11.5, level.exit_bug],
+			[10.0, level.enter_bug.bind("hopper_plant_1")],
+			[11.0, level.exit_bug],
 			[11.5, level.enter_moth_top.bind("moth_plant_1")],
 			[12.5, level.exit_moth_bottom],
 			[15.0, level.enter_moth_bottom.bind("moth_plant_2")],
@@ -78,8 +78,7 @@ func start_day(day: int):
 		var level := _level as Level2
 
 		events_today = [
-			[8.5, level.enter_berry],
-			[9.5, level.bird_pick_berry],
+			[8.5, level.think.bind("think_morning")],
 			[10.0, level.enter_snake.bind("snake_plant_1")],
 			[12.5, level.exit_snake],
 			[12.5, level.enter_ants.bind("ant1")],
@@ -88,12 +87,14 @@ func start_day(day: int):
 			[13.5, level.dismiss_ants],
 			[13.5, level.enter_ants.bind("ant2")],
 			[14.0, level.dismiss_ants],
-			[13.0, level.enter_bug.bind("treehopper_plant_1")],
-			[14.5, level.exit_bug],
+			[14.0, level.enter_bug.bind("hopper_plant_1")],
+			[15.0, level.exit_bug],
 			[15.5, level.enter_snake.bind("snake_plant_2")],
+			[16.0, level.enter_berry],
+			[16.5, level.exit_snake],
 			[16.5, level.enter_ants.bind("ant3")],
 			[17.0, level.dismiss_ants],
-			[17.5, level.exit_snake],
+			[17.0, level.bird_pick_berry],
 			[18.0, level.enter_ants.bind("ant4")],
 			[18.5, level.dismiss_ants],
 			[18.5, level.enter_ants.bind("ant5")],
@@ -109,8 +110,10 @@ func start_day(day: int):
 		var level := _level as Level3
 
 		events_today = [
-			[8.5, level.offer_test_dialogue],
-			[12, level.dismiss_test_dialogue],
+			[8.5, level.think.bind("think_morning")],
+			[10, level.dismiss_think],
+			[10, level.zoom_out],
+			[13, func(): get_tree().change_scene_to_file("res://scenes/credits.tscn")],
 			[20.5, end_day],
 		]
 	else:
@@ -119,9 +122,6 @@ func start_day(day: int):
 	time.paused = false
 
 func end_day():
-	if current_day == 2:
-		get_tree().change_scene_to_file("res://scenes/credits.tscn")
-
 	time.paused = true
 	end_day_ui.visible = true
 

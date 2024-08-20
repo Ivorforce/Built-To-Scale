@@ -3,17 +3,34 @@
 #1. Szene 1. Text
 ~ hello_world
 Me1: Oh?
-Me1: What is this place?
+Me1: What is this place? 
 Me1: Everything is so big and bright!
-Me1: …
+Me1: . [wait=0.3]. [wait=0.3].
 Me1: It feels warm...
 Me1: How nice.
 => END
 
-#1. Szene: treehopper<>Plant, second meeting
-~ treehopper_plant_1
-Treehopper: ...
-Me1: ...
+~ hopper_plant_1
+Hopper: Wow, look at you! A brand new sprout!
+Hopper: How does it feel to be so fresh and green?
+Me1: Oh hello!
+Me1: I feel really great. Thank you~
+Me1: There are so many things I don't know about yet. I'm excited to learn about the world~
+Hopper: Oh there are [i]sooooo[wait=0.3]ooooooooo[/i] many things in the world!
+Hopper: Like colorful flowers and tall trees and gigantic mountains and looots of friendly creatures.
+Hopper: Oh! and tons of delicious food!
+Hopper: Maple syrup [wait=0.3], nectar [wait=0.3], berries - uhh, I love berries. [wait=0.5] They are [i]veeery[/i] big and round and sweet.
+Hopper: But you have to be careful about the birds!
+Me1: Birds?
+Hopper: Yeah! The birds! [wait=0.5] They like berries too and are[wait=0.5].[wait=0.5].[wait=0.5].[wait=0.5] well.. [wait=1]  a bit rough around the edges. 
+Hopper: They are [i]even bigger[/i] than the berries and [wait=0.3] oh booy~ [wait=0.7] can they travel far through the skies.
+Me1: Through the skies? How do they do that? [wait=0.5]
+Hopper:  They have wings made of feathers to carry them above the clouds!
+Hopper: Surely you will meet them some time, when you are bigger. [wait=0.3] They looove to sit on trees
+Me1: I can't wait to meet them sometime.
+Hopper: Oh!!! Berry spotted! Gotta go, see you, byee~
+Me1: I'll be here[wait=0.1]~
+Me1: What a nice fellow.
 => END
 
 #1. Szene: Moth<>Plant, first meeting
@@ -23,11 +40,14 @@ Me1: Hello!
 Me1: Everything is so new and exciting! You have such beautiful wings, did you travel far? What is the world like?
 Moth: More than just sunshine and gentle breezes, little plant. There is darkness and danger, and things you can't even imagine.
 Me1: That sounds intriguing! How do you handle it all?
-Moth: idk lol
+Moth: ...[wait=0.5] idk lol
 => END
 
 #1. Szene: Moth<>Plant, second meeting
 ~ moth_plant_2
-Moth: ...
-Me1: ...
+Me1: Hi!~ 
+Moth: .   [wait=0.3].   [wait=0.3].   
+Moth: Oh no, not you again [wait=0.3].   [wait=0.3].   [wait=0.3].   
+Me1: They have probably some important work to do.
+Me1: I wish them luck.
 => END
