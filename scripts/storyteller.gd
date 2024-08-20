@@ -51,13 +51,13 @@ func start_day(day: int):
 		
 		events_today = [
 			[8.0, level.think_hello_world],
-			[8.5, level.enter_bug],
-			[9.0, level.dismiss_think_hello_world],
-			[10.5, level.exit_bug],
-			[10.5, level.enter_moth_first],
-			[11.5, level.exit_moth_first],
-			[14.0, level.enter_moth_second],
-			[15.5, level.exit_moth_second],
+			[10.0, level.dismiss_think_hello_world],
+			[10.0, level.enter_bug],
+			[11.5, level.exit_bug],
+			[11.5, level.enter_moth_first],
+			[12.5, level.exit_moth_first],
+			[15.0, level.enter_moth_second],
+			[16.5, level.exit_moth_second],
 			[20.5, end_day],
 		]
 	elif day == 1:

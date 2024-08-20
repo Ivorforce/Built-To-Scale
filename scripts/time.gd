@@ -18,6 +18,9 @@ var is_talking := false
 var potential_talkmate_count := 0
 
 func _process(delta: float) -> void:
+	# Do this in any case, for example 
+	previous_time_h = current_time_h
+
 	if paused:
 		return
 	
@@ -28,5 +31,4 @@ func _process(delta: float) -> void:
 	elif potential_talkmate_count > 0:
 		time_delta = time_delta * 0.15
 	
-	previous_time_h = current_time_h
 	current_time_h = current_time_h + time_delta
