@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=31 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -20,6 +20,28 @@
 [ext_resource type="Script" path="res://scripts/wobbler.gd" id="15_deqiv"]
 [ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://sprites/moth/Moth.png" id="18_08lsp"]
 [ext_resource type="Script" path="res://scripts/floater.gd" id="19_oa7jp"]
+[ext_resource type="Script" path="res://scripts/play_sound.gd" id="21_1acay"]
+[ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://sounds/fairy/fairy-i.mp3" id="22_5tdg5"]
+[ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://sounds/fairy/fairy-v.mp3" id="23_buktn"]
+[ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://sounds/fairy/fairy-ix.mp3" id="24_oibnf"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_28tu1"]
+action = &"play-1"
+
+[sub_resource type="Shortcut" id="Shortcut_4i0i6"]
+events = [SubResource("InputEventAction_28tu1")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ahcuf"]
+action = &"play-2"
+
+[sub_resource type="Shortcut" id="Shortcut_k40k0"]
+events = [SubResource("InputEventAction_ahcuf")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_g06pu"]
+action = &"play-3"
+
+[sub_resource type="Shortcut" id="Shortcut_u30g4"]
+events = [SubResource("InputEventAction_g06pu")]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -182,3 +204,69 @@ is_floating = true
 [node name="Walker" type="Node" parent="Objects/Moth" node_paths=PackedStringArray("path")]
 script = ExtResource("13_h8q8a")
 path = NodePath("../../PathMoth")
+
+[node name="Sounds" type="Node2D" parent="Objects"]
+position = Vector2(566, 468)
+
+[node name="i" type="Button" parent="Objects/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = -164.0
+offset_right = 83.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+shortcut = SubResource("Shortcut_4i0i6")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Sounds/i"]
+stream = ExtResource("22_5tdg5")
+max_polyphony = 3
+
+[node name="v" type="Button" parent="Objects/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 85.0
+offset_top = -164.0
+offset_right = 105.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+shortcut = SubResource("Shortcut_k40k0")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Sounds/v"]
+stream = ExtResource("23_buktn")
+max_polyphony = 3
+
+[node name="ix" type="Button" parent="Objects/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = -164.0
+offset_right = 127.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+shortcut = SubResource("Shortcut_u30g4")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Sounds/ix"]
+stream = ExtResource("24_oibnf")
+max_polyphony = 3
