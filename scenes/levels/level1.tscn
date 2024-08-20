@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=43 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -21,9 +21,21 @@
 [ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://sprites/moth/Moth.png" id="18_08lsp"]
 [ext_resource type="Script" path="res://scripts/floater.gd" id="19_oa7jp"]
 [ext_resource type="Script" path="res://scripts/play_sound.gd" id="21_1acay"]
+[ext_resource type="Texture2D" uid="uid://b0dnvtxpb020b" path="res://sprites/grass-instrument/Music_Grass_Left_Pressed.png" id="21_k6ddh"]
 [ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://sounds/fairy/fairy-i.mp3" id="22_5tdg5"]
+[ext_resource type="Texture2D" uid="uid://bmu6rh2w4nfuf" path="res://sprites/grass-instrument/Music_Grass_Left_NotPressed.png" id="22_wcfu7"]
 [ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://sounds/fairy/fairy-v.mp3" id="23_buktn"]
 [ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://sounds/fairy/fairy-ix.mp3" id="24_oibnf"]
+[ext_resource type="Texture2D" uid="uid://bhxq0o36knuc2" path="res://sprites/grass-instrument/Music_Grass_Middle_Pressed.png" id="25_nafmb"]
+[ext_resource type="Texture2D" uid="uid://cthmllggoeb5f" path="res://sprites/grass-instrument/Music_Grass_Middle_NotPressed.png" id="26_bq5tp"]
+[ext_resource type="Texture2D" uid="uid://12h3yuoeigix" path="res://sprites/grass-instrument/Music_Grass_Right_Pressed.png" id="28_r2uxj"]
+[ext_resource type="Texture2D" uid="uid://dmk7ulrru30ey" path="res://sprites/grass-instrument/Music_Grass_Right_NotPressed.png" id="29_h3xeu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpjfy"]
+texture = ExtResource("22_wcfu7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4t23k"]
+texture = ExtResource("21_k6ddh")
 
 [sub_resource type="InputEventAction" id="InputEventAction_28tu1"]
 action = &"play-1"
@@ -31,11 +43,23 @@ action = &"play-1"
 [sub_resource type="Shortcut" id="Shortcut_4i0i6"]
 events = [SubResource("InputEventAction_28tu1")]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwo08"]
+texture = ExtResource("26_bq5tp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lf7i"]
+texture = ExtResource("25_nafmb")
+
 [sub_resource type="InputEventAction" id="InputEventAction_ahcuf"]
 action = &"play-2"
 
 [sub_resource type="Shortcut" id="Shortcut_k40k0"]
 events = [SubResource("InputEventAction_ahcuf")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkm4v"]
+texture = ExtResource("29_h3xeu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpjpu"]
+texture = ExtResource("28_r2uxj")
 
 [sub_resource type="InputEventAction" id="InputEventAction_g06pu"]
 action = &"play-3"
@@ -212,15 +236,18 @@ position = Vector2(566, 468)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -164.0
-offset_right = 83.0
+offset_left = 68.0
+offset_top = -171.0
+offset_right = 88.0
 offset_bottom = -144.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("7_yufbh")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxTexture_gpjfy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4t23k")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gpjfy")
 shortcut = SubResource("Shortcut_4i0i6")
 script = ExtResource("21_1acay")
 sound = NodePath("AudioStreamPlayer")
@@ -234,7 +261,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 85.0
-offset_top = -164.0
+offset_top = -180.0
 offset_right = 105.0
 offset_bottom = -144.0
 grow_horizontal = 2
@@ -242,6 +269,9 @@ grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("7_yufbh")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxTexture_rwo08")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7lf7i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rwo08")
 shortcut = SubResource("Shortcut_k40k0")
 script = ExtResource("21_1acay")
 sound = NodePath("AudioStreamPlayer")
@@ -254,15 +284,18 @@ max_polyphony = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 107.0
-offset_top = -164.0
-offset_right = 127.0
+offset_left = 104.0
+offset_top = -170.0
+offset_right = 124.0
 offset_bottom = -144.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("7_yufbh")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxTexture_xkm4v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vpjpu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xkm4v")
 shortcut = SubResource("Shortcut_u30g4")
 script = ExtResource("21_1acay")
 sound = NodePath("AudioStreamPlayer")
