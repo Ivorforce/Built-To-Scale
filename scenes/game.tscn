@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=37 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_2abxd"]
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
@@ -9,7 +9,9 @@
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="9_wvqg7"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/ui/textbox.png" id="10_7iuwl"]
+[ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://sprites/moth/Moth.png" id="10_wwj7v"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
+[ext_resource type="Texture2D" uid="uid://dbqe30mffc8d0" path="res://sprites/snake/Snake_1.png" id="11_iqveh"]
 [ext_resource type="Texture2D" uid="uid://d3it58jh0eseh" path="res://sprites/seasons/Seasons_Autumn1.png" id="11_qus42"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_agent.gd" id="12_ibt8c"]
 [ext_resource type="Texture2D" uid="uid://flxr5rwd8yo" path="res://sprites/seasons/Seasons_Spring1.png" id="12_swd05"]
@@ -115,24 +117,36 @@ script = ExtResource("9_w2mhu")
 [node name="Avatar" type="Node2D" parent="HUD/ConversationBox"]
 position = Vector2(161, -4)
 
-[node name="Mother" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+[node name="Bug" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
-position = Vector2(105, -49)
+position = Vector2(86, -49)
 rotation = 3.14159
 scale = Vector2(0.145255, -0.145255)
 texture = ExtResource("19_q0yf1")
 
 [node name="Me2" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
-position = Vector2(107, -62.1316)
+position = Vector2(95, -62)
 scale = Vector2(0.128655, 0.128655)
 texture = ExtResource("6_iich0")
 
 [node name="Me1" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
-position = Vector2(77, -47)
+position = Vector2(93, -47)
 scale = Vector2(0.207222, 0.207222)
 texture = ExtResource("9_wvqg7")
+
+[node name="Moth" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(93, -43)
+scale = Vector2(-0.207, 0.207)
+texture = ExtResource("10_wwj7v")
+
+[node name="Snake" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(93, -43)
+scale = Vector2(0.207, 0.207)
+texture = ExtResource("11_iqveh")
 
 [node name="Textbox" type="TextureRect" parent="HUD/ConversationBox"]
 material = ExtResource("1_r7ga6")

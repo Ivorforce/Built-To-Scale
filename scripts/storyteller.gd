@@ -46,18 +46,18 @@ func start_day(day: int):
 	if day == 0:
 		if not _level or _level is not Level1:
 			_level = change_level(load("res://scenes/levels/level1.tscn").instantiate())
-
+		
 		var level := _level as Level1
 		
 		events_today = [
-			[8.0, level.think_hello_world],
-			[10.0, level.dismiss_think_hello_world],
+			[8.0, level.think.bind("hello_world")],
+			[10.0, level.dismiss_think],
 			[10.0, level.enter_bug],
 			[11.5, level.exit_bug],
-			[11.5, level.enter_moth_first],
-			[12.5, level.exit_moth_first],
-			[15.0, level.enter_moth_second],
-			[16.5, level.exit_moth_second],
+			[11.5, level.enter_moth_top],
+			[12.5, level.exit_moth_bottom],
+			[15.0, level.enter_moth_bottom],
+			[16.5, level.exit_moth_top],
 			[20.5, end_day],
 		]
 	elif day == 1:

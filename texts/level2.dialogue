@@ -1,0 +1,59 @@
+~ snake_plant_1
+Snake: Greetings to you, under skies so blue,
+	May your days be bright, and your dreams come true~[wait=0.5]
+Me2: That was wonderful! Where did you learn to speak like that?
+Snake: Look into your heart[wait=0.1] and you know how to start.
+Me2: Ok! Everyone has the gift to be a [i]po~[wait=0.2]et[/i][wait=0.1], you just have to.. [i]do~[wait=0.2]et[/i][wait=0.1][/i].
+Me2: I think I'm getting the hang of it!
+=> END
+
+~ snake_plant_2
+Snake: Good day to you, youngling! [wait=0.3]I have another piece, if you please?
+Me2: Hello again! Oh, yes I'd be delighted~
+Snake: [i]ahem~[/i]
+Snake: A ship was [b]built[wait=0.1] to[/b] carry tales[wait=0.5]
+	Four days it sailed[wait=0.1] through dreamy dreams
+Snake: And finally, after one too many daunting streams[wait=0.5]
+	There she lay with gleaming [b]scales[/b]
+Snake: Ah yes..  [i]* sigh *[/i]
+	I miss her dearly, my darling Dame.
+Me2: I hope you find her soon.. this afternoon?[wait=0.3]
+	Thank you for your time! ... and the [i]rhyme[wait=0.1]~[/i]
+Snake: Hopefully, yes.[wait=0.2]
+	Farewell then, little one.
+=> END
+
+
+#>>ANTS
+
+#2. Szene: Plant<>verschiedene Ants (mit verschiedenen Talk Buttons?)
+
+~ ant1
+Me2: Wow, look at all these ants!
+=> END
+~ ant2
+Me2: Hello!
+Ant1: Hello.
+=> END
+~ ant3
+Me2: There are so many of them.
+=> END
+~ ant4
+Me2: Where are you going?
+Ant3: I don't know. I'm just following.
+=> END
+~ ant5
+Me2: Hi, who are you?
+Ant2: ...
+=> END
+~ ant6
+Me2: Hello?
+Ant4: Hi there! 
+Me2: Do you know where you're going?
+Ant4: Over the hills. Gotta go now, bye!
+Me2: What hills?
+Me2: Oh, bye then. Safe travels!
+=> END
+~ ant7
+Me2: I wonder what they are doing?
+=> END

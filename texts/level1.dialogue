@@ -3,31 +3,19 @@
 #1. Szene 1. Text
 ~ hello_world
 Me1: Oh?
-Me1: What is this place? 
+Me1: What is this place?
 Me1: Everything is so big and bright!
 Me1: …
 Me1: It feels warm...
 Me1: How nice.
-
 => END
 
-
-#>>SNEK
-
-#>> BUG
-
-
-
-
-
-
-#>> MOTH
-
-#1. Szene: Moth<>Plant
+#1. Szene: Moth<>Plant, first meeting
 ~ moth_plant_1
 Moth: Well, well, what do we have here? A little sprout fresh out of the ground, knowing nothing. How adorable.
 Me1: Hello! 
 Me1: Everything is so new and exciting! You have such beautiful wings, did you travel far? What is the world like?
 Moth: More than just sunshine and gentle breezes, little plant. There is darkness and danger, and things you can't even imagine.
 Me1: That sounds intriguing! How do you handle it all?
-Moth: 
+Moth: idk lol
+=> END
