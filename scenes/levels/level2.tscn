@@ -200,7 +200,6 @@ scale = Vector2(0.24, 0.24)
 script = ExtResource("9_j4rop")
 
 [node name="Node2D" type="Node2D" parent="BugWalk"]
-scale = Vector2(1, 1)
 
 [node name="BugPath" type="Node2D" parent="BugWalk"]
 position = Vector2(-1404.17, -170.833)
@@ -211,7 +210,6 @@ scale = Vector2(0.24, 0.24)
 script = ExtResource("10_d0dr0")
 
 [node name="Node2D" type="Node2D" parent="BugJump"]
-scale = Vector2(1, 1)
 
 [node name="BugPath" type="Node2D" parent="BugJump"]
 position = Vector2(-75.0001, -525)
