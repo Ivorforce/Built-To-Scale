@@ -52,11 +52,11 @@ func start_day(day: int):
 		events_today = [
 			[8.0, level.think.bind("hello_world")],
 			[10.0, level.dismiss_think],
-			[10.0, level.enter_bug],
+			[10.0, level.enter_bug.bind("treehopper_plant_1")],
 			[11.5, level.exit_bug],
-			[11.5, level.enter_moth_top],
+			[11.5, level.enter_moth_top.bind("moth_plant_1")],
 			[12.5, level.exit_moth_bottom],
-			[15.0, level.enter_moth_bottom],
+			[15.0, level.enter_moth_bottom.bind("moth_plant_2")],
 			[16.5, level.exit_moth_top],
 			[20.5, end_day],
 		]
@@ -67,8 +67,12 @@ func start_day(day: int):
 		var level := _level as Level2
 
 		events_today = [
-			[8.5, level.offer_test_dialogue],
-			[12.5, level.dismiss_test_dialogue],
+			[8.5, level.enter_snake.bind("snake_plant_1")],
+			[12.5, level.exit_snake],
+			[13.0, level.enter_bug.bind("treehopper_plant_1")],
+			[15.5, level.enter_snake.bind("snake_plant_2")],
+			[17.5, level.exit_bug],
+			[17.5, level.exit_snake],
 			[20.5, end_day],
 		]
 	elif day == 2:
@@ -93,8 +97,6 @@ func end_day():
 
 	time.paused = true
 	var end_day_ui := get_node("%EndDayUI") as Control
-		
-	(end_day_ui.get_node("Button") as Button).pressed.connect(end_night)
 	end_day_ui.visible = true
 
 func end_night():
@@ -138,3 +140,6 @@ func _process(delta: float) -> void:
 	while events_today.size() > 0 and time.current_time_h > events_today[0][0]:
 		events_today[0][1].call()
 		events_today.pop_front()
+
+func _on_end_night_button_pressed():
+	end_night()

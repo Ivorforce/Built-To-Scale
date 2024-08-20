@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=38 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
+[ext_resource type="Resource" uid="uid://cr6troynllv8p" path="res://texts/level1.dialogue" id="2_qmh3g"]
 [ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://sprites/background/Blanco.png" id="3_w0hu8"]
 [ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://sprites/environment/Grass_2.png" id="4_s5fia"]
 [ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://sprites/environment/Grass_3.png" id="5_mm3du"]
@@ -51,6 +52,7 @@ events = [SubResource("InputEventAction_2e1wk")]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
+dialogue = ExtResource("2_qmh3g")
 
 [node name="Floor" type="Sprite2D" parent="."]
 material = ExtResource("2_d640p")
@@ -232,6 +234,22 @@ metadata/_edit_lock_ = true
 [node name="Wobbler" type="Node" parent="Objects/Bug/Model"]
 script = ExtResource("15_deqiv")
 
+[node name="Button" type="Button" parent="Objects/Bug"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -32.0
+offset_right = -148.0
+offset_bottom = 6.00001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+text = "Talk"
+
 [node name="PathMoth" type="Node2D" parent="Objects"]
 position = Vector2(360, 255)
 script = ExtResource("14_mgy0d")
@@ -283,3 +301,19 @@ is_floating = true
 [node name="Walker" type="Node" parent="Objects/Moth" node_paths=PackedStringArray("path")]
 script = ExtResource("13_h8q8a")
 path = NodePath("../../PathMoth")
+
+[node name="Button" type="Button" parent="Objects/Moth"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -24.0
+offset_right = 106.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+text = "Talk"

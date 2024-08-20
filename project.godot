@@ -77,7 +77,7 @@ play-9={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://texts/test.dialogue", "res://texts/level1.dialogue", "res://texts/level2.dialogue")
+locale/translations_pot_files=PackedStringArray("res://texts/level1.dialogue", "res://texts/level2.dialogue", "res://texts/level3.dialogue")
 
 [rendering]
 

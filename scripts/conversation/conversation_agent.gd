@@ -26,16 +26,9 @@ func start_conversation(dialogue: DialogueResource, line_id: String):
 func _on_conversation_end():
 	time.is_talking = false
 
-func show_line(dialogue: DialogueResource, line_id):	
-	if not line_id or not dialogue:
-		conversation_box.set_line(null)
-		
-		current_dialogue = null
-		next_line = null
-		
-		_on_conversation_end()
-		
-		return
+func show_line(dialogue: DialogueResource, line_id):
+	assert(line_id)
+	assert(dialogue)
 
 	var line := await dialogue.get_next_dialogue_line(line_id)
 	
@@ -45,12 +38,17 @@ func show_line(dialogue: DialogueResource, line_id):
 	if line:
 		next_line = line.next_id
 	else:
+		current_dialogue = null
 		next_line = null
+		_on_conversation_end()
 
 func end_line():
 	show_line(current_dialogue, next_line)
 
 func proceed():
+	if not current_dialogue:
+		return
+	
 	if conversation_box.label.is_typing:
 		conversation_box.label.skip_typing()
 	else:

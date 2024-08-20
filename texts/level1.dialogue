@@ -10,6 +10,12 @@ Me1: It feels warm...
 Me1: How nice.
 => END
 
+#1. Szene: treehopper<>Plant, second meeting
+~ treehopper_plant_1
+Treehopper: ...
+Me1: ...
+=> END
+
 #1. Szene: Moth<>Plant, first meeting
 ~ moth_plant_1
 Moth: Well, well, what do we have here? A little sprout fresh out of the ground, knowing nothing. How adorable.
@@ -18,4 +24,10 @@ Me1: Everything is so new and exciting! You have such beautiful wings, did you t
 Moth: More than just sunshine and gentle breezes, little plant. There is darkness and danger, and things you can't even imagine.
 Me1: That sounds intriguing! How do you handle it all?
 Moth: idk lol
+=> END
+
+#1. Szene: Moth<>Plant, second meeting
+~ moth_plant_2
+Moth: ...
+Me1: ...
 => END

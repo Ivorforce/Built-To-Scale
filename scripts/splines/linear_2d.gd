@@ -17,7 +17,6 @@ func sample_multispline(p: float) -> Vector2:
 		(get_child(start_idx + 1) as Node2D).global_transform.origin,
 		fmod(p, 1)
 	)
-	self.rotation_degrees
 
 func get_control_point(idx: int) -> Vector2:
 	return (get_child(idx) as Node2D).global_transform.origin

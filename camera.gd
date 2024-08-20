@@ -10,7 +10,7 @@ var trauma_power := 2
 
 @onready
 var noise := FastNoiseLite.new()
-var noise_y := 0
+var noise_y := 0.0
 
 @export var decay := 0.8
 @export var max_offset := Vector2(100, 75)

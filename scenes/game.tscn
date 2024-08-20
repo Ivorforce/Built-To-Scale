@@ -117,7 +117,7 @@ script = ExtResource("9_w2mhu")
 [node name="Avatar" type="Node2D" parent="HUD/ConversationBox"]
 position = Vector2(161, -4)
 
-[node name="Bug" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+[node name="Treehopper" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
 position = Vector2(86, -49)
 rotation = 3.14159
@@ -334,3 +334,4 @@ script = ExtResource("14_blpt0")
 
 [connection signal="finished_typing" from="HUD/ConversationBox/ConversationLabel" to="ConversationAgent" method="_on_conversation_label_finished_typing"]
 [connection signal="spoke" from="HUD/ConversationBox/ConversationLabel" to="HUD/ConversationBox" method="_on_conversation_label_spoke"]
+[connection signal="pressed" from="HUD/EndDayUI/Button" to="Storyteller" method="_on_end_night_button_pressed"]
