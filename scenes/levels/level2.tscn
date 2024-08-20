@@ -65,6 +65,15 @@
 [ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://sprites/button/Button_1.png" id="52_3nr65"]
 [ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://sprites/button/Button_2.png" id="53_e7rt6"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12iwp"]
+texture = ExtResource("51_bms2n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biqil"]
+texture = ExtResource("52_3nr65")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sh0pa"]
+texture = ExtResource("53_e7rt6")
+
 [sub_resource type="InputEventAction" id="InputEventAction_ahcuf"]
 action = &"play-7"
 
@@ -106,15 +115,6 @@ action = &"play-3"
 
 [sub_resource type="Shortcut" id="Shortcut_slyfe"]
 events = [SubResource("InputEventAction_2e1wk")]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12iwp"]
-texture = ExtResource("51_bms2n")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biqil"]
-texture = ExtResource("52_3nr65")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sh0pa"]
-texture = ExtResource("53_e7rt6")
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_rqujc")
@@ -232,6 +232,32 @@ texture = ExtResource("7_g1u00")
 position = Vector2(2001, -6)
 scale = Vector2(0.17109, 0.17109)
 texture = ExtResource("9_y12ay")
+
+[node name="AntsTalkButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 497.0
+offset_top = 166.0
+offset_right = 771.0
+offset_bottom = 363.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
+theme = ExtResource("38_ex1tr")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_12iwp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_biqil")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sh0pa")
+text = " Talk"
 
 [node name="ParaNearRain" type="Parallax2D" parent="."]
 visible = false
@@ -450,11 +476,6 @@ position = Vector2(526, 423)
 scale = Vector2(0.12999, 0.12999)
 texture = ExtResource("6_yf6lp")
 
-[node name="Me" type="Sprite2D" parent="."]
-position = Vector2(611, 387)
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("10_1o1fq")
-
 [node name="BugWalk" type="Node2D" parent="."]
 position = Vector2(1100, 517)
 scale = Vector2(0.24, 0.24)
@@ -480,6 +501,39 @@ position = Vector2(-441.667, -620.833)
 
 [node name="BugPath3" type="Node2D" parent="BugJump"]
 position = Vector2(-333.333, -937.5)
+
+[node name="Me" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Me" type="Sprite2D" parent="Me"]
+position = Vector2(611, 387)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("10_1o1fq")
+
+[node name="Button" type="Button" parent="Me"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 513.0
+offset_top = 424.0
+offset_right = 787.0
+offset_bottom = 621.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme = ExtResource("38_ex1tr")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_12iwp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_biqil")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sh0pa")
+text = "  Think..."
 
 [node name="Bug" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -610,17 +664,58 @@ texture = ExtResource("15_iith1")
 [node name="Parallax2D7" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.1, 1.1)
 
-[node name="Berry" type="Sprite2D" parent="Parallax2D7"]
+[node name="BirdPath" type="Node2D" parent="Parallax2D7"]
+position = Vector2(1100, 517)
+scale = Vector2(0.24, 0.24)
+script = ExtResource("9_j4rop")
+
+[node name="Node2D" type="Node2D" parent="Parallax2D7/BirdPath"]
+position = Vector2(858.333, -2745.83)
+
+[node name="BugPath" type="Node2D" parent="Parallax2D7/BirdPath"]
+position = Vector2(-966.667, -141.667)
+
+[node name="BerryRoll" type="Node2D" parent="Parallax2D7"]
+position = Vector2(1218, 541)
+scale = Vector2(0.24, 0.24)
+script = ExtResource("9_j4rop")
+
+[node name="Node2D" type="Node2D" parent="Parallax2D7/BerryRoll"]
+position = Vector2(20.8333, -366.667)
+metadata/_edit_lock_ = true
+
+[node name="BugPath" type="Node2D" parent="Parallax2D7/BerryRoll"]
+position = Vector2(-1391.67, -158.333)
+
+[node name="Berry" type="Node2D" parent="Parallax2D7"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(884.498, 503.137)
+
+[node name="Model" type="Sprite2D" parent="Parallax2D7/Berry"]
+position = Vector2(0, -70.11)
 scale = Vector2(0.419116, 0.419115)
 texture = ExtResource("11_4gkva")
+metadata/_edit_lock_ = true
 
-[node name="Bird" type="Sprite2D" parent="Parallax2D7"]
+[node name="Walker" type="Node" parent="Parallax2D7/Berry" node_paths=PackedStringArray("path")]
+script = ExtResource("11_ypv0r")
+path = NodePath("../../BerryRoll")
+
+[node name="Bird" type="Node2D" parent="Parallax2D7"]
+unique_name_in_owner = true
 visible = false
-position = Vector2(986.498, 315.137)
+position = Vector2(867, 483)
+
+[node name="Model" type="Sprite2D" parent="Parallax2D7/Bird"]
+position = Vector2(128.502, -245.137)
 scale = Vector2(0.411117, 0.411116)
 texture = ExtResource("12_7gu5x")
+metadata/_edit_lock_ = true
+
+[node name="Walker" type="Node" parent="Parallax2D7/Bird" node_paths=PackedStringArray("path")]
+script = ExtResource("11_ypv0r")
+path = NodePath("../../BirdPath")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.15, 1.15)
@@ -638,6 +733,7 @@ texture = ExtResource("7_538dw")
 [node name="Parallax2D6" type="Parallax2D" parent="."]
 scale = Vector2(-0.9, 0.9)
 scroll_scale = Vector2(1.25, 1.25)
+scroll_offset = Vector2(76, 26)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D6"]
 position = Vector2(-232.222, 717.778)

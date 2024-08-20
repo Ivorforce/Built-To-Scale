@@ -38,6 +38,8 @@ func dismiss_think():
 	dismiss_conversation(%Me/Button)
 
 func enter_bug(line_id: String):
+	time.potential_talkmate_count += 1
+	
 	var parent := %Bug as Node2D
 	var walker := parent.get_node("Walker") as SplineWalker
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler
@@ -55,6 +57,8 @@ func enter_bug(line_id: String):
 	tween.play()
 	
 func exit_bug():
+	time.potential_talkmate_count -= 1
+	
 	var parent := %Bug as Node2D
 	var walker := parent.get_node("Walker") as SplineWalker
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler

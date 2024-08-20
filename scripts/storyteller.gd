@@ -78,12 +78,28 @@ func start_day(day: int):
 		var level := _level as Level2
 
 		events_today = [
-			[8.5, level.enter_snake.bind("snake_plant_1")],
+			[8.5, level.enter_berry],
+			[9.5, level.bird_pick_berry],
+			[10.0, level.enter_snake.bind("snake_plant_1")],
 			[12.5, level.exit_snake],
+			[12.5, level.enter_ants.bind("ant1")],
+			[13.0, level.dismiss_ants],
+			[13.0, level.enter_ants.bind("ant7")],
+			[13.5, level.dismiss_ants],
+			[13.5, level.enter_ants.bind("ant2")],
+			[14.0, level.dismiss_ants],
 			[13.0, level.enter_bug.bind("treehopper_plant_1")],
+			[14.5, level.exit_bug],
 			[15.5, level.enter_snake.bind("snake_plant_2")],
-			[17.5, level.exit_bug],
+			[16.5, level.enter_ants.bind("ant3")],
+			[17.0, level.dismiss_ants],
 			[17.5, level.exit_snake],
+			[18.0, level.enter_ants.bind("ant4")],
+			[18.5, level.dismiss_ants],
+			[18.5, level.enter_ants.bind("ant5")],
+			[19.0, level.dismiss_ants],
+			[19.5, level.enter_ants.bind("ant6")],
+			[20.0, level.dismiss_ants],
 			[20.5, end_day],
 		]
 	elif day == 2:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://x8tw3ruhxxdr"]
+[gd_scene load_steps=43 format=3 uid="uid://x8tw3ruhxxdr"]
 
 [ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_2abxd"]
 [ext_resource type="Script" path="res://scripts/sky.gd" id="1_2wf5j"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="1_r7ga6"]
 [ext_resource type="Texture2D" uid="uid://3fav5bc4h3j6" path="res://sprites/background/Sky_1.png" id="2_g85yo"]
 [ext_resource type="Texture2D" uid="uid://c13k4i0shqqog" path="res://sprites/me/Plant_4Leaf.png" id="6_iich0"]
+[ext_resource type="Texture2D" uid="uid://dsenl008ao2e6" path="res://sprites/me/Plant_2Leaf.png" id="8_08i31"]
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="9_wvqg7"]
@@ -17,11 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://flxr5rwd8yo" path="res://sprites/seasons/Seasons_Spring1.png" id="12_swd05"]
 [ext_resource type="Script" path="res://scripts/storyteller.gd" id="13_f2ov4"]
 [ext_resource type="Texture2D" uid="uid://pm70t6akno0t" path="res://sprites/seasons/Seasons_Summer1.png" id="13_fssvu"]
+[ext_resource type="Texture2D" uid="uid://otk1sfbrqlp4" path="res://sprites/ants/Ant_12.png" id="13_q5hc4"]
+[ext_resource type="Texture2D" uid="uid://c6sp0lyghy72l" path="res://sprites/ants/Ant_11.png" id="14_34wyu"]
 [ext_resource type="Script" path="res://scripts/time.gd" id="14_blpt0"]
 [ext_resource type="Texture2D" uid="uid://bh3qva76jrekb" path="res://sprites/seasons/Seasons_Winter1.png" id="14_emfl6"]
 [ext_resource type="Script" path="res://scripts/post_process.gd" id="14_foru3"]
 [ext_resource type="Texture2D" uid="uid://bw51iowkyl8r8" path="res://sprites/ui/Seasons_Circle.png" id="15_5drdt"]
 [ext_resource type="AudioStream" uid="uid://ph0tbiinr0" path="res://sounds/talk_default.mp3" id="15_6whdp"]
+[ext_resource type="Texture2D" uid="uid://ccg5kp1n3lu1i" path="res://sprites/ants/Ant_9.png" id="15_pod3t"]
+[ext_resource type="Texture2D" uid="uid://bs8fgv82snpr8" path="res://sprites/ants/Ant_6.png" id="16_4rlox"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
@@ -127,6 +132,12 @@ texture = ExtResource("19_q0yf1")
 
 [node name="Me2" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
 visible = false
+position = Vector2(101, -50)
+scale = Vector2(0.182905, 0.182905)
+texture = ExtResource("8_08i31")
+
+[node name="Me3" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
 position = Vector2(95, -62)
 scale = Vector2(0.128655, 0.128655)
 texture = ExtResource("6_iich0")
@@ -148,6 +159,30 @@ visible = false
 position = Vector2(93, -43)
 scale = Vector2(0.207, 0.207)
 texture = ExtResource("11_iqveh")
+
+[node name="Ant1" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(70, -7.99999)
+scale = Vector2(-0.672, 0.672)
+texture = ExtResource("13_q5hc4")
+
+[node name="Ant2" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(70, -7.99999)
+scale = Vector2(-0.672, 0.672)
+texture = ExtResource("14_34wyu")
+
+[node name="Ant3" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(70, -7.99999)
+scale = Vector2(-0.672, 0.672)
+texture = ExtResource("15_pod3t")
+
+[node name="Ant4" type="Sprite2D" parent="HUD/ConversationBox/Avatar"]
+visible = false
+position = Vector2(70, -7.99999)
+scale = Vector2(-0.672, 0.672)
+texture = ExtResource("16_4rlox")
 
 [node name="Textbox" type="TextureRect" parent="HUD/ConversationBox"]
 material = ExtResource("1_r7ga6")
@@ -326,6 +361,7 @@ ambience = NodePath("../Music/Ambience")
 sleep_jingle = NodePath("../Music/SleepJingle")
 sky = NodePath("../Parallax2D/Sky")
 end_day_ui = NodePath("../HUD/EndDayUI")
+current_day = 1
 
 [node name="Music" type="Node" parent="."]
 
