@@ -8,7 +8,6 @@
 [ext_resource type="Shader" path="res://shaders/post_process.gdshader" id="8_73ca4"]
 [ext_resource type="Script" path="res://scripts/conversation/conversation_box.gd" id="9_w2mhu"]
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://sprites/me/PlantSprout_2.png" id="9_wvqg7"]
-[ext_resource type="AudioStream" uid="uid://h11jo1k5uw1b" path="res://sounds/click.wav" id="10_5uvrh"]
 [ext_resource type="Texture2D" uid="uid://s5dof464rg4f" path="res://sprites/ui/textbox.png" id="10_7iuwl"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_d47m2"]
 [ext_resource type="Texture2D" uid="uid://d3it58jh0eseh" path="res://sprites/seasons/Seasons_Autumn1.png" id="11_qus42"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bh3qva76jrekb" path="res://sprites/seasons/Seasons_Winter1.png" id="14_emfl6"]
 [ext_resource type="Script" path="res://scripts/post_process.gd" id="14_foru3"]
 [ext_resource type="Texture2D" uid="uid://bw51iowkyl8r8" path="res://sprites/ui/Seasons_Circle.png" id="15_5drdt"]
+[ext_resource type="AudioStream" uid="uid://ph0tbiinr0" path="res://sounds/talk_default.mp3" id="15_6whdp"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="17_6wtrd"]
 [ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="17_87k6o"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="19_q0yf1"]
@@ -179,7 +179,7 @@ script = ExtResource("11_d47m2")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="HUD/ConversationBox"]
-stream = ExtResource("10_5uvrh")
+stream = ExtResource("15_6whdp")
 pitch_scale = 0.2
 
 [node name="EndDayUI" type="Control" parent="HUD"]

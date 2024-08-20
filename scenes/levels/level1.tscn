@@ -87,6 +87,88 @@ position = Vector2(501, 285)
 scale = Vector2(0.364271, 0.364271)
 texture = ExtResource("4_s5fia")
 
+[node name="Sounds" type="Node2D" parent="Objects/ParaBack"]
+position = Vector2(652, 342)
+scale = Vector2(0.6, 0.6)
+
+[node name="i" type="Button" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.9999
+offset_top = -52.6667
+offset_right = -31.9999
+offset_bottom = -18.6667
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxTexture_gpjfy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4t23k")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gpjfy")
+shortcut = SubResource("Shortcut_4i0i6")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/i"]
+stream = ExtResource("22_5tdg5")
+max_polyphony = 3
+
+[node name="v" type="Button" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.9999
+offset_top = -66.6667
+offset_right = 8.39233e-05
+offset_bottom = -26.6667
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxTexture_rwo08")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7lf7i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rwo08")
+shortcut = SubResource("Shortcut_k40k0")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/v"]
+stream = ExtResource("23_buktn")
+max_polyphony = 3
+
+[node name="ix" type="Button" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0001
+offset_top = -60.6667
+offset_right = 43.0001
+offset_bottom = -22.6667
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxTexture_xkm4v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vpjpu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xkm4v")
+shortcut = SubResource("Shortcut_u30g4")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/ix"]
+stream = ExtResource("24_oibnf")
+max_polyphony = 3
+
 [node name="Grass3" type="Sprite2D" parent="Objects/ParaBack"]
 position = Vector2(815, 258)
 scale = Vector2(0.552817, 0.552817)
@@ -228,78 +310,3 @@ is_floating = true
 [node name="Walker" type="Node" parent="Objects/Moth" node_paths=PackedStringArray("path")]
 script = ExtResource("13_h8q8a")
 path = NodePath("../../PathMoth")
-
-[node name="Sounds" type="Node2D" parent="Objects"]
-position = Vector2(566, 468)
-
-[node name="i" type="Button" parent="Objects/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 68.0
-offset_top = -171.0
-offset_right = 88.0
-offset_bottom = -144.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("7_yufbh")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxTexture_gpjfy")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_4t23k")
-theme_override_styles/normal = SubResource("StyleBoxTexture_gpjfy")
-shortcut = SubResource("Shortcut_4i0i6")
-script = ExtResource("21_1acay")
-sound = NodePath("AudioStreamPlayer")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Sounds/i"]
-stream = ExtResource("22_5tdg5")
-max_polyphony = 3
-
-[node name="v" type="Button" parent="Objects/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 85.0
-offset_top = -180.0
-offset_right = 105.0
-offset_bottom = -144.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("7_yufbh")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxTexture_rwo08")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_7lf7i")
-theme_override_styles/normal = SubResource("StyleBoxTexture_rwo08")
-shortcut = SubResource("Shortcut_k40k0")
-script = ExtResource("21_1acay")
-sound = NodePath("AudioStreamPlayer")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Sounds/v"]
-stream = ExtResource("23_buktn")
-max_polyphony = 3
-
-[node name="ix" type="Button" parent="Objects/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 104.0
-offset_top = -170.0
-offset_right = 124.0
-offset_bottom = -144.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("7_yufbh")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxTexture_xkm4v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vpjpu")
-theme_override_styles/normal = SubResource("StyleBoxTexture_xkm4v")
-shortcut = SubResource("Shortcut_u30g4")
-script = ExtResource("21_1acay")
-sound = NodePath("AudioStreamPlayer")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Sounds/ix"]
-stream = ExtResource("24_oibnf")
-max_polyphony = 3

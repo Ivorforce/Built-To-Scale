@@ -32,4 +32,4 @@ func _on_conversation_label_spoke(letter: String, letter_index: int, speed: floa
 	talk_sound.play()
 	# Workaround for https://github.com/godotengine/godot/issues/95850
 	#  i.e. pitch must be set after play for now.
-	talk_sound.pitch_scale = randf_range(0.15, 0.23)
+	talk_sound.pitch_scale = 1 + randf_range(-1, 1) * randf_range(-1, 1) * 0.1
