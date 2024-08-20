@@ -4,7 +4,26 @@ extends Node2D
 var conversation_agent: ConversationAgent
 var time: GameTime
 
-func offer_test_dialogue():
+@onready
+var dialogue := preload("res://texts/level1.dialogue")
+
+func start_conversation(button: Button, dialogue: DialogueResource, start_line_id: String):
+	if conversation_agent.start_conversation_if_idle(dialogue, start_line_id):
+		button.visible = false
+		time.potential_talkmate_count -= 1
+
+func think_hello_world():
+	var button := %Me/Button
+	button.pressed.connect(func(): start_conversation(button, dialogue, "hello_world"))
+	button.visible = true
+	time.potential_talkmate_count += 1
+
+func dismiss_think_hello_world():
+	var button := %Me/Button
+	button.visible = false
+	time.potential_talkmate_count -= 1
+
+func enter_bug():
 	var bug := %Bug as Node2D
 	var walker := bug.get_node("Walker") as SplineWalker
 	var wobbler := bug.get_node("Model/Wobbler") as Wobbler
@@ -21,7 +40,7 @@ func offer_test_dialogue():
 
 	#tween.tween_property(snake, "scale", Vector2(0.125, 0.125), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
 	
-func dismiss_test_dialogue():
+func exit_bug():
 	var bug := %Bug as Node2D
 	var walker := bug.get_node("Walker") as SplineWalker
 	var wobbler := bug.get_node("Model/Wobbler") as Wobbler
@@ -50,7 +69,7 @@ func enter_moth_first():
 	tween.tween_property(walker, "position", 1, 2)
 	tween.play()
 	
-func leave_moth_first():
+func exit_moth_first():
 	var bug := %Moth as Node2D
 	var walker := bug.get_node("Walker") as SplineWalker
 
@@ -75,7 +94,7 @@ func enter_moth_second():
 	tween.tween_property(walker, "position", 1, 2)
 	tween.play()
 	
-func leave_moth_second():
+func exit_moth_second():
 	var bug := %Moth as Node2D
 	var walker := bug.get_node("Walker") as SplineWalker
 

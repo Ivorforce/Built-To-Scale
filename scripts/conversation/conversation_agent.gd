@@ -10,6 +10,8 @@ var time := %Time as GameTime
 @onready
 var conversation_box := %ConversationBox as ConversationBox
 
+var ticks_since_autoend_msec := -1
+
 func start_conversation_if_idle(dialogue: DialogueResource, line_id: String):
 	if current_dialogue:
 		return false
@@ -57,4 +59,11 @@ func proceed():
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and not event.pressed:
+			if Time.get_ticks_msec() < ticks_since_autoend_msec + 200:
+				# Debounce clicks to avoid accidental skips
+				return
+			
 			proceed()
+
+func _on_conversation_label_finished_typing() -> void:
+	ticks_since_autoend_msec = Time.get_ticks_msec()

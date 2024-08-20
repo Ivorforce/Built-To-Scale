@@ -50,12 +50,14 @@ func start_day(day: int):
 		var level := _level as Level1
 		
 		events_today = [
-			[8.5, level.offer_test_dialogue],
-			[9, level.enter_moth_first],
-			[10.0, level.dismiss_test_dialogue],
-			[10.5, level.leave_moth_first],
-			[11.0, level.enter_moth_second],
-			[12.5, level.leave_moth_second],
+			[8.0, level.think_hello_world],
+			[8.5, level.enter_bug],
+			[9.0, level.dismiss_think_hello_world],
+			[10.5, level.exit_bug],
+			[10.5, level.enter_moth_first],
+			[11.5, level.exit_moth_first],
+			[14.0, level.enter_moth_second],
+			[15.5, level.exit_moth_second],
 			[20.5, end_day],
 		]
 	elif day == 1:

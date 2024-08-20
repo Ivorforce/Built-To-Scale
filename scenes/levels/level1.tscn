@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=21 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://shaders/sprite_paper.tres" id="2_d640p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://sprites/environment/Grass_3.png" id="5_mm3du"]
 [ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://sprites/environment/Stone_5.png" id="7_8tdyu"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://sprites/bug/BugBig_1.png" id="7_folfc"]
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://theme.tres" id="7_yufbh"]
 [ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://sprites/bush/BushBig_1.png" id="8_7wira"]
 [ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://sprites/environment/Stone_7.png" id="9_bue1i"]
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://sprites/rain.png" id="10_yf582"]
@@ -45,11 +46,6 @@ position = Vector2(815, 258)
 scale = Vector2(0.552817, 0.552817)
 texture = ExtResource("5_mm3du")
 
-[node name="Me" type="Sprite2D" parent="Objects"]
-position = Vector2(583.313, 396.922)
-scale = Vector2(0.113533, 0.113533)
-texture = ExtResource("11_o8bqu")
-
 [node name="Sprite2D" type="Sprite2D" parent="Objects"]
 position = Vector2(690, 382)
 scale = Vector2(0.153382, 0.153382)
@@ -64,6 +60,31 @@ repeat_times = 3
 
 [node name="Rain" type="Sprite2D" parent="Objects/ParaHereRain"]
 texture = ExtResource("10_yf582")
+
+[node name="Me" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="Sprite" type="Sprite2D" parent="Objects/Me"]
+position = Vector2(583.313, 396.922)
+scale = Vector2(0.113533, 0.113533)
+texture = ExtResource("11_o8bqu")
+
+[node name="Button" type="Button" parent="Objects/Me"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 560.0
+offset_top = 400.0
+offset_right = 652.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("7_yufbh")
+theme_override_font_sizes/font_size = 20
+text = "Think
+"
 
 [node name="Camera2D" type="Camera2D" parent="Objects"]
 position = Vector2(594, 382)
