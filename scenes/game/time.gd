@@ -21,14 +21,12 @@ func _process(delta: float) -> void:
 	# Do this in any case, for example 
 	previous_time_h = current_time_h
 
-	if paused:
+	if paused or is_talking:
 		return
 	
 	var time_delta := delta / seconds_per_hour
 	
-	if is_talking:
-		time_delta = time_delta * 0.05
-	elif potential_talkmate_count > 0:
+	if potential_talkmate_count > 0:
 		time_delta = time_delta * 0.15
 	
 	current_time_h = current_time_h + time_delta
