@@ -12,7 +12,8 @@ Snake: Greetings to you, under skies so blue,
 	May your days be bright, and your dreams come true~[wait=0.5]
 Me2: That was wonderful! Where did you learn to speak like that?
 Snake: Look into your heart[wait=0.1] and you know how to start.
-Me2: Ok! Everyone has the gift to be a [i]po~[wait=0.2]et[/i][wait=0.1], you just have to.. [i]do~[wait=0.2]et[/i][wait=0.1].
+Me2: Ok!
+Me2: Everyone has the gift to be a [i]po~[wait=0.2]et[/i][wait=0.1], you just have to.. [i]do~[wait=0.2]et[/i][wait=0.1].
 Me2: I think I'm getting the hang of it!
 => END
 
@@ -46,7 +47,7 @@ Me2: What is the sea?
 Hopper: Oh I don't know. [wait=0.3] It's just a phrase I think [wait=0.3]. [wait=0.3]. [wait=0.3].
 Hopper: I see an old friend over there! Gotta say hello. 
 Hopper: I'll send them over to you, they have always the [i]funniest[/i] [wait=0.3] things to say!
-Hopper: Bye then, biggo~
+Hopper: Bye then, tall fella~
 Me2: Bye [wait=0.3], have fun!
 => END
 

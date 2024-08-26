@@ -65,10 +65,10 @@ func start_day(day: int):
 			[10.0, level.dismiss_think],
 			[10.0, level.enter_bug.bind("hopper_plant_1")],
 			[11.0, level.exit_bug],
-			[11.5, level.enter_moth_top.bind("moth_plant_1")],
-			[12.5, level.exit_moth_bottom],
-			[15.0, level.enter_moth_bottom.bind("moth_plant_2")],
-			[16.5, level.exit_moth_top],
+			[12.5, level.enter_moth_top.bind("moth_plant_1")],
+			[13.5, level.exit_moth_bottom],
+			[16.0, level.enter_moth_bottom.bind("moth_plant_2")],
+			[17.0, level.exit_moth_top],
 			[20.5, end_day],
 		]
 	elif day == 1:
@@ -110,10 +110,10 @@ func start_day(day: int):
 		var level := _level as Level3
 
 		events_today = [
-			[8.5, level.think.bind("think_morning")],
+			[9.5, level.think.bind("think_morning")],
 			[10, level.dismiss_think],
-			[10, level.zoom_out],
-			[13, func(): get_tree().change_scene_to_file("res://scenes/credits.tscn")],
+			[10.5, func(): get_tree().change_scene_to_file("res://scenes/credits.tscn")],
+			#[10, level.zoom_out],
 			[20.5, end_day],
 		]
 	else:
