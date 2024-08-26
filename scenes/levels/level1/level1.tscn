@@ -161,7 +161,7 @@ position = Vector2(815, 258)
 scale = Vector2(0.552817, 0.552817)
 texture = ExtResource("5_mm3du")
 
-[node name="Sprite2D" type="Sprite2D" parent="Objects"]
+[node name="Rock" type="Sprite2D" parent="Objects"]
 position = Vector2(690, 382)
 scale = Vector2(0.153382, 0.153382)
 texture = ExtResource("7_8tdyu")

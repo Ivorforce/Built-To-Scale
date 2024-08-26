@@ -133,9 +133,7 @@ func end_night():
 	tween.tween_property(time, "current_time_h", 7.5, 2).set_ease(Tween.EASE_OUT)
 	tween.play()
 
-func change_level(level: Node2D):
-	var game := get_node("..") as Node2D
-	
+func change_level(level: Node2D):	
 	for prev_scene in scene_parent.get_children():
 		prev_scene.queue_free()
 	
