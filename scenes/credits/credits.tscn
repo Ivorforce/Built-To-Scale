@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcric5j8qffnm"]
+
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://objects/background/Blanco.png" id="1_3qawc"]
+[ext_resource type="Script" path="res://scenes/game/camera.gd" id="2_3171b"]
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://util/theme.tres" id="3_3nsx5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Blanco" type="Sprite2D" parent="."]
+position = Vector2(565, 328)
+texture = ExtResource("1_3qawc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 322)
+script = ExtResource("2_3171b")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 283.0
+offset_top = 139.0
+offset_right = 865.0
+offset_bottom = 357.0
+theme = ExtResource("3_3nsx5")
+theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
+theme_override_font_sizes/font_size = 150
+text = "The End"
+
+[node name="Label2" type="Label" parent="HUD"]
+offset_left = 612.0
+offset_top = 327.0
+offset_right = 877.0
+offset_bottom = 406.0
+theme = ExtResource("3_3nsx5")
+theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
+theme_override_font_sizes/font_size = 50
+text = "... for now"
+
+[node name="Label3" type="Label" parent="HUD"]
+offset_left = 612.0
+offset_top = 487.0
+offset_right = 1098.0
+offset_bottom = 566.0
+theme = ExtResource("3_3nsx5")
+theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
+theme_override_font_sizes/font_size = 20
+text = "Lukas Tenbrink:
+Programming, Animation, Sounds"
+
+[node name="Label4" type="Label" parent="HUD"]
+offset_left = 59.0
+offset_top = 487.0
+offset_right = 551.0
+offset_bottom = 566.0
+theme = ExtResource("3_3nsx5")
+theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
+theme_override_font_sizes/font_size = 20
+text = "Corinna Kreft:
+Illustrations, Level Design, Writing"
+
+[node name="Label5" type="Label" parent="HUD"]
+offset_left = 211.0
+offset_top = 583.0
+offset_right = 943.0
+offset_bottom = 613.0
+theme = ExtResource("3_3nsx5")
+theme_override_colors/font_color = Color(0.171039, 0.171039, 0.171039, 1)
+theme_override_font_sizes/font_size = 20
+text = "We'll make an extended post-jam version soon. Follow our project on itch!"

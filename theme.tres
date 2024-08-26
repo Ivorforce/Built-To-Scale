@@ -1,6 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c2qcgjte35rmi"]
-
-[ext_resource type="FontFile" uid="uid://wxikehov2yqs" path="res://fonts/Merienda-VariableFont_wght.ttf" id="1_eu0xo"]
-
-[resource]
-default_font = ExtResource("1_eu0xo")

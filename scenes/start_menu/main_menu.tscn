@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://7oexk3wicbe2"]
+
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://objects/background/Blanco.png" id="1_fbyro"]
+[ext_resource type="Script" path="res://scenes/game/camera.gd" id="2_rr5f6"]
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://util/theme.tres" id="3_nuu84"]
+[ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://objects/button/Button_3.png" id="4_rguci"]
+[ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://objects/button/Button_1.png" id="5_i57e8"]
+[ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://objects/button/Button_2.png" id="6_biget"]
+[ext_resource type="Script" path="res://scenes/start_menu/start_game_button.gd" id="7_fypfq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6857m"]
+texture = ExtResource("4_rguci")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onl2j"]
+texture = ExtResource("5_i57e8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r60he"]
+texture = ExtResource("6_biget")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Blanco" type="Sprite2D" parent="."]
+position = Vector2(565, 328)
+texture = ExtResource("1_fbyro")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 322)
+script = ExtResource("2_rr5f6")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Start Button" type="Button" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 363.0
+offset_top = 203.0
+offset_right = 637.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
+theme = ExtResource("3_nuu84")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 140
+theme_override_styles/hover = SubResource("StyleBoxTexture_6857m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onl2j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_r60he")
+text = "  Sprout"
+script = ExtResource("7_fypfq")
+metadata/_edit_use_anchors_ = true

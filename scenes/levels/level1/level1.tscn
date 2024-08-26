@@ -1,0 +1,357 @@
+[gd_scene load_steps=44 format=3 uid="uid://dkn75kpirof5y"]
+
+[ext_resource type="Script" path="res://scenes/levels/level1/level1.gd" id="1_rqujc"]
+[ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://scenes/game/sprite_paper.tres" id="2_d640p"]
+[ext_resource type="Resource" uid="uid://cr6troynllv8p" path="res://scenes/levels/level1/level1.dialogue" id="2_qmh3g"]
+[ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://objects/background/Blanco.png" id="3_w0hu8"]
+[ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://objects/environment/Grass_2.png" id="4_s5fia"]
+[ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://objects/environment/Grass_3.png" id="5_mm3du"]
+[ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://objects/environment/Stone_5.png" id="7_8tdyu"]
+[ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://objects/bug/BugBig_1.png" id="7_folfc"]
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://util/theme.tres" id="7_yufbh"]
+[ext_resource type="Texture2D" uid="uid://3th2bw3rovks" path="res://objects/bush/BushBig_1.png" id="8_7wira"]
+[ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://objects/environment/Stone_7.png" id="9_bue1i"]
+[ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://objects/rain/rain.png" id="10_yf582"]
+[ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://objects/me/PlantSprout_2.png" id="11_o8bqu"]
+[ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://objects/environment/Grass_4.png" id="11_plnla"]
+[ext_resource type="Script" path="res://util/splines/linear_2d.gd" id="12_42a6c"]
+[ext_resource type="Script" path="res://util/splines/spline_walker_2d.gd" id="13_h8q8a"]
+[ext_resource type="Script" path="res://util/splines/bezier_2d.gd" id="14_mgy0d"]
+[ext_resource type="Script" path="res://util/wobbler.gd" id="15_deqiv"]
+[ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://objects/moth/Moth.png" id="18_08lsp"]
+[ext_resource type="Script" path="res://util/floater.gd" id="19_oa7jp"]
+[ext_resource type="Script" path="res://util/play_sound.gd" id="21_1acay"]
+[ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://objects/button/Button_1.png" id="21_fyogl"]
+[ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://objects/button/Button_2.png" id="21_hsc4r"]
+[ext_resource type="Texture2D" uid="uid://b0dnvtxpb020b" path="res://objects/grass-instrument/Music_Grass_Left_Pressed.png" id="21_k6ddh"]
+[ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://objects/button/Button_3.png" id="22_3j55m"]
+[ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://objects/grass-instrument/fairy-i.mp3" id="22_5tdg5"]
+[ext_resource type="Texture2D" uid="uid://bmu6rh2w4nfuf" path="res://objects/grass-instrument/Music_Grass_Left_NotPressed.png" id="22_wcfu7"]
+[ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://objects/grass-instrument/fairy-v.mp3" id="23_buktn"]
+[ext_resource type="Script" path="res://scenes/game/camera.gd" id="24_m8x3r"]
+[ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://objects/grass-instrument/fairy-ix.mp3" id="24_oibnf"]
+[ext_resource type="Texture2D" uid="uid://bhxq0o36knuc2" path="res://objects/grass-instrument/Music_Grass_Middle_Pressed.png" id="25_nafmb"]
+[ext_resource type="Texture2D" uid="uid://cthmllggoeb5f" path="res://objects/grass-instrument/Music_Grass_Middle_NotPressed.png" id="26_bq5tp"]
+[ext_resource type="Texture2D" uid="uid://12h3yuoeigix" path="res://objects/grass-instrument/Music_Grass_Right_Pressed.png" id="28_r2uxj"]
+[ext_resource type="Texture2D" uid="uid://dmk7ulrru30ey" path="res://objects/grass-instrument/Music_Grass_Right_NotPressed.png" id="29_h3xeu"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_hwigb"]
+action = &"play-1"
+
+[sub_resource type="Shortcut" id="Shortcut_5u1r7"]
+events = [SubResource("InputEventAction_hwigb")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q5ib4"]
+action = &"play-2"
+
+[sub_resource type="Shortcut" id="Shortcut_chwe8"]
+events = [SubResource("InputEventAction_q5ib4")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2e1wk"]
+action = &"play-3"
+
+[sub_resource type="Shortcut" id="Shortcut_fgtqa"]
+events = [SubResource("InputEventAction_2e1wk")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36qxj"]
+texture = ExtResource("22_3j55m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gqxwu"]
+texture = ExtResource("21_fyogl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ko5ps"]
+texture = ExtResource("21_hsc4r")
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_rqujc")
+dialogue = ExtResource("2_qmh3g")
+
+[node name="Floor" type="Sprite2D" parent="."]
+material = ExtResource("2_d640p")
+position = Vector2(600.5, 569.772)
+scale = Vector2(0.248613, 0.248613)
+texture = ExtResource("3_w0hu8")
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ParaBack" type="Parallax2D" parent="Objects"]
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="Grass2" type="Sprite2D" parent="Objects/ParaBack"]
+position = Vector2(501, 285)
+scale = Vector2(0.364271, 0.364271)
+texture = ExtResource("4_s5fia")
+
+[node name="Sounds" type="Node2D" parent="Objects/ParaBack"]
+position = Vector2(665, 342)
+scale = Vector2(0.06, 0.06)
+
+[node name="i" type="TextureButton" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -610.0
+offset_top = -500.0
+offset_right = -117.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+shortcut = SubResource("Shortcut_5u1r7")
+texture_normal = ExtResource("22_wcfu7")
+texture_pressed = ExtResource("21_k6ddh")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/i"]
+stream = ExtResource("22_5tdg5")
+max_polyphony = 3
+
+[node name="v" type="TextureButton" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -820.0
+offset_right = 199.0
+offset_bottom = 91.9998
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+shortcut = SubResource("Shortcut_chwe8")
+texture_normal = ExtResource("26_bq5tp")
+texture_pressed = ExtResource("25_nafmb")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/v"]
+stream = ExtResource("23_buktn")
+max_polyphony = 3
+
+[node name="ix" type="TextureButton" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = -540.0
+offset_right = 551.0
+offset_bottom = 94.9998
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+shortcut = SubResource("Shortcut_fgtqa")
+texture_normal = ExtResource("29_h3xeu")
+texture_pressed = ExtResource("28_r2uxj")
+script = ExtResource("21_1acay")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/ix"]
+stream = ExtResource("24_oibnf")
+max_polyphony = 3
+
+[node name="Grass3" type="Sprite2D" parent="Objects/ParaBack"]
+position = Vector2(815, 258)
+scale = Vector2(0.552817, 0.552817)
+texture = ExtResource("5_mm3du")
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects"]
+position = Vector2(690, 382)
+scale = Vector2(0.153382, 0.153382)
+texture = ExtResource("7_8tdyu")
+
+[node name="ParaHereRain" type="Parallax2D" parent="Objects"]
+visible = false
+scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(2000, 1414)
+autoscroll = Vector2(450, 1200)
+repeat_times = 3
+
+[node name="Rain" type="Sprite2D" parent="Objects/ParaHereRain"]
+texture = ExtResource("10_yf582")
+
+[node name="Me" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="Sprite" type="Sprite2D" parent="Objects/Me"]
+position = Vector2(583.313, 396.922)
+scale = Vector2(0.113533, 0.113533)
+texture = ExtResource("11_o8bqu")
+
+[node name="Button" type="Button" parent="Objects/Me"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 542.0
+offset_top = 387.0
+offset_right = 816.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_36qxj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gqxwu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ko5ps")
+text = "  Think..."
+
+[node name="Camera2D" type="Camera2D" parent="Objects"]
+position = Vector2(594, 382)
+zoom = Vector2(3, 3)
+script = ExtResource("24_m8x3r")
+
+[node name="Dirt8" type="Sprite2D" parent="Objects"]
+position = Vector2(493, 445)
+scale = Vector2(0.261194, 0.261194)
+texture = ExtResource("9_bue1i")
+
+[node name="BushBig1" type="Sprite2D" parent="Objects"]
+position = Vector2(365, 405)
+scale = Vector2(0.157744, 0.157744)
+texture = ExtResource("8_7wira")
+
+[node name="BugPath" type="Node2D" parent="Objects"]
+position = Vector2(895, 420)
+script = ExtResource("12_42a6c")
+
+[node name="Node2D" type="Node2D" parent="Objects/BugPath"]
+
+[node name="BugPath" type="Node2D" parent="Objects/BugPath"]
+position = Vector2(-203, 0)
+
+[node name="Bug" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(692, 420)
+scale = Vector2(0.125, 0.125)
+
+[node name="Walker" type="Node" parent="Objects/Bug" node_paths=PackedStringArray("path")]
+script = ExtResource("13_h8q8a")
+path = NodePath("../../BugPath")
+
+[node name="Model" type="Node2D" parent="Objects/Bug"]
+metadata/_edit_lock_ = true
+
+[node name="BugBig1" type="Sprite2D" parent="Objects/Bug/Model"]
+position = Vector2(88, -504)
+texture = ExtResource("7_folfc")
+metadata/_edit_lock_ = true
+
+[node name="Wobbler" type="Node" parent="Objects/Bug/Model"]
+script = ExtResource("15_deqiv")
+
+[node name="Button" type="Button" parent="Objects/Bug"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -168.0
+offset_right = -78.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_36qxj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gqxwu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ko5ps")
+text = " Talk"
+
+[node name="PathMoth" type="Node2D" parent="Objects"]
+position = Vector2(360, 255)
+script = ExtResource("14_mgy0d")
+
+[node name="Node2D" type="Node2D" parent="Objects/PathMoth"]
+metadata/_edit_lock_ = true
+
+[node name="Node2D2" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(72, 11)
+
+[node name="Node2D4" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(104, 182)
+
+[node name="Node2D3" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(132, 181)
+
+[node name="Node2D5" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(17, 442)
+
+[node name="Node2D6" type="Node2D" parent="Objects/PathMoth"]
+position = Vector2(81, 442)
+
+[node name="ParaFront" type="Parallax2D" parent="Objects"]
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(794, 486)
+
+[node name="Grass4" type="Sprite2D" parent="Objects/ParaFront"]
+scale = Vector2(-0.342, 0.342)
+texture = ExtResource("11_plnla")
+
+[node name="Moth" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(465, 437)
+
+[node name="Model" type="Node2D" parent="Objects/Moth"]
+
+[node name="Sprite" type="Sprite2D" parent="Objects/Moth/Model"]
+position = Vector2(0, -93.975)
+rotation = 3.14159
+scale = Vector2(0.212, -0.212)
+texture = ExtResource("18_08lsp")
+metadata/_edit_lock_ = true
+
+[node name="Floater" type="Node" parent="Objects/Moth/Model"]
+script = ExtResource("19_oa7jp")
+is_floating = true
+
+[node name="Walker" type="Node" parent="Objects/Moth" node_paths=PackedStringArray("path")]
+script = ExtResource("13_h8q8a")
+path = NodePath("../../PathMoth")
+
+[node name="Button" type="Button" parent="Objects/Moth"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -48.0
+offset_right = 273.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
+theme = ExtResource("7_yufbh")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_36qxj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gqxwu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ko5ps")
+text = " Talk"
