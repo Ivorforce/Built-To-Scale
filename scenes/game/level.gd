@@ -6,6 +6,9 @@ var time: GameTime
 @export
 var dialogue: DialogueResource
 
+func set_position_along_multispline(position: float, node: Node2D, path: MultiSpline):
+	node.global_transform.origin = path.sample_multispline(position)
+
 func reconnect(signal_: Signal, callable: Callable):
 	for connection in signal_.get_connections():
 		signal_.disconnect(connection["callable"])

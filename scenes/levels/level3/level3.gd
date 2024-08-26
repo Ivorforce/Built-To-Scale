@@ -9,7 +9,6 @@ func dismiss_think():
 
 func zoom_out():
 	var camera := %Camera2D as Camera2D
-	var walker := camera.get_node("Walker") as SplineWalker
 	
 	# Broken!
 	#var tween := create_tween()

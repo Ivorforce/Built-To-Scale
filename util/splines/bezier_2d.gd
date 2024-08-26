@@ -1,8 +1,8 @@
 class_name BezierMultiSpline2D
-extends Node2D
+extends MultiSpline
 
 func sample_multispline(p: float) -> Vector2:
-	var length := get_length()
+	var length := get_multispline_length()
 	assert(length > 0)
 	
 	if p <= 0:
@@ -35,5 +35,5 @@ func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float)
 func get_control_point(idx: int) -> Vector2:
 	return (get_child(idx) as Node2D).global_transform.origin
 
-func get_length() -> int:
+func get_multispline_length() -> int:
 	return max(0, (get_child_count() / 2) - 1)

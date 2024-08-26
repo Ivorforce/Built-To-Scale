@@ -1,8 +1,8 @@
 class_name LinearMultiSpline2D
-extends Node2D
+extends MultiSpline
 
 func sample_multispline(p: float) -> Vector2:
-	var length := get_length()
+	var length := get_multispline_length()
 	assert(length > 0)
 	
 	if p <= 0:
@@ -21,5 +21,5 @@ func sample_multispline(p: float) -> Vector2:
 func get_control_point(idx: int) -> Vector2:
 	return (get_child(idx) as Node2D).global_transform.origin
 
-func get_length() -> int:
+func get_multispline_length() -> int:
 	return get_child_count() - 1

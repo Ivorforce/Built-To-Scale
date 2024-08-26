@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=43 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://scenes/game/sprite_paper.tres" id="2_d640p"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c6ra8afeg5fon" path="res://objects/me/PlantSprout_2.png" id="11_o8bqu"]
 [ext_resource type="Texture2D" uid="uid://yifayos1xahr" path="res://objects/environment/Grass_4.png" id="11_plnla"]
 [ext_resource type="Script" path="res://util/splines/linear_2d.gd" id="12_42a6c"]
-[ext_resource type="Script" path="res://util/splines/spline_walker_2d.gd" id="13_h8q8a"]
 [ext_resource type="Script" path="res://util/splines/bezier_2d.gd" id="14_mgy0d"]
 [ext_resource type="Script" path="res://util/wobbler.gd" id="15_deqiv"]
 [ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://objects/moth/Moth.png" id="18_08lsp"]
@@ -62,8 +61,13 @@ texture = ExtResource("21_fyogl")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ko5ps"]
 texture = ExtResource("21_hsc4r")
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path", "moth", "moth_path")]
 script = ExtResource("1_rqujc")
+me = NodePath("Objects/Me")
+bug = NodePath("Objects/Bug")
+bug_path = NodePath("Objects/BugPath")
+moth = NodePath("Objects/Moth")
+moth_path = NodePath("Objects/PathMoth")
 dialogue = ExtResource("2_qmh3g")
 
 [node name="Floor" type="Sprite2D" parent="."]
@@ -177,7 +181,6 @@ repeat_times = 3
 texture = ExtResource("10_yf582")
 
 [node name="Me" type="Node2D" parent="Objects"]
-unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="Objects/Me"]
 position = Vector2(583.313, 396.922)
@@ -234,14 +237,9 @@ script = ExtResource("12_42a6c")
 position = Vector2(-203, 0)
 
 [node name="Bug" type="Node2D" parent="Objects"]
-unique_name_in_owner = true
 visible = false
 position = Vector2(692, 420)
 scale = Vector2(0.125, 0.125)
-
-[node name="Walker" type="Node" parent="Objects/Bug" node_paths=PackedStringArray("path")]
-script = ExtResource("13_h8q8a")
-path = NodePath("../../BugPath")
 
 [node name="Model" type="Node2D" parent="Objects/Bug"]
 metadata/_edit_lock_ = true
@@ -310,7 +308,6 @@ scale = Vector2(-0.342, 0.342)
 texture = ExtResource("11_plnla")
 
 [node name="Moth" type="Node2D" parent="Objects"]
-unique_name_in_owner = true
 visible = false
 position = Vector2(465, 437)
 
@@ -326,10 +323,6 @@ metadata/_edit_lock_ = true
 [node name="Floater" type="Node" parent="Objects/Moth/Model"]
 script = ExtResource("19_oa7jp")
 is_floating = true
-
-[node name="Walker" type="Node" parent="Objects/Moth" node_paths=PackedStringArray("path")]
-script = ExtResource("13_h8q8a")
-path = NodePath("../../PathMoth")
 
 [node name="Button" type="Button" parent="Objects/Moth"]
 visible = false

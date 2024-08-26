@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=81 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://scenes/game/sprite_paper.tres" id="2_d640p"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://objects/rain/rain.png" id="10_yf582"]
 [ext_resource type="Texture2D" uid="uid://hyrltc3vj2m3" path="res://objects/bird/Berry_2.png" id="11_4gkva"]
 [ext_resource type="Texture2D" uid="uid://ccg5kp1n3lu1i" path="res://objects/ants/Ant_9.png" id="11_76j5t"]
-[ext_resource type="Script" path="res://util/splines/spline_walker_2d.gd" id="11_ypv0r"]
 [ext_resource type="Texture2D" uid="uid://dntjy8r305lh5" path="res://objects/ants/Ant_10.png" id="12_2t3p8"]
 [ext_resource type="Texture2D" uid="uid://g4qhe63lgr0d" path="res://objects/bird/BirdBig_1.png" id="12_7gu5x"]
 [ext_resource type="Script" path="res://util/wobbler.gd" id="13_51obf"]
@@ -116,8 +115,14 @@ action = &"play-3"
 [sub_resource type="Shortcut" id="Shortcut_slyfe"]
 events = [SubResource("InputEventAction_2e1wk")]
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path_walk", "bug_path_jump", "berry_path", "bird_path")]
 script = ExtResource("1_rqujc")
+me = NodePath("Me")
+bug = NodePath("Bug")
+bug_path_walk = NodePath("BugWalk")
+bug_path_jump = NodePath("BugJump")
+berry_path = NodePath("Parallax2D7/BerryRoll")
+bird_path = NodePath("Parallax2D7/BirdPath")
 dialogue = ExtResource("2_f8oia")
 
 [node name="Floor" type="Sprite2D" parent="."]
@@ -540,14 +545,6 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(658, 332)
 
-[node name="WalkerPath" type="Node" parent="Bug" node_paths=PackedStringArray("path")]
-script = ExtResource("11_ypv0r")
-path = NodePath("../../BugWalk")
-
-[node name="WalkerJump" type="Node" parent="Bug" node_paths=PackedStringArray("path")]
-script = ExtResource("11_ypv0r")
-path = NodePath("../../BugJump")
-
 [node name="Model" type="Node2D" parent="Bug"]
 metadata/_edit_lock_ = true
 
@@ -698,10 +695,6 @@ scale = Vector2(0.419116, 0.419115)
 texture = ExtResource("11_4gkva")
 metadata/_edit_lock_ = true
 
-[node name="Walker" type="Node" parent="Parallax2D7/Berry" node_paths=PackedStringArray("path")]
-script = ExtResource("11_ypv0r")
-path = NodePath("../../BerryRoll")
-
 [node name="Bird" type="Node2D" parent="Parallax2D7"]
 unique_name_in_owner = true
 visible = false
@@ -712,10 +705,6 @@ position = Vector2(128.502, -245.137)
 scale = Vector2(0.411117, 0.411116)
 texture = ExtResource("12_7gu5x")
 metadata/_edit_lock_ = true
-
-[node name="Walker" type="Node" parent="Parallax2D7/Bird" node_paths=PackedStringArray("path")]
-script = ExtResource("11_ypv0r")
-path = NodePath("../../BirdPath")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.15, 1.15)

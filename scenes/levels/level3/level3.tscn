@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbowq8x5uoapr"]
+[gd_scene load_steps=27 format=3 uid="uid://dbowq8x5uoapr"]
 
 [ext_resource type="Script" path="res://scenes/levels/level3/level3.gd" id="1_32ohe"]
 [ext_resource type="Resource" uid="uid://be8ntiuj0fw5a" path="res://scenes/levels/level3/level3.dialogue" id="2_0r73q"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c35wuqmh34smd" path="res://objects/rain/rain.png" id="10_4guwb"]
 [ext_resource type="Texture2D" uid="uid://c13k4i0shqqog" path="res://objects/me/Plant_4Leaf.png" id="11_ep41v"]
 [ext_resource type="Texture2D" uid="uid://04ikerytogdu" path="res://objects/environment/Grass_5.png" id="14_o2msw"]
-[ext_resource type="Script" path="res://util/splines/spline_walker_2d.gd" id="14_uw7r7"]
 [ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://objects/button/Button_3.png" id="15_khjr4"]
 [ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://objects/button/Button_1.png" id="16_rdkym"]
 [ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://objects/button/Button_2.png" id="17_en0o2"]
@@ -366,10 +365,6 @@ text = "  Think..."
 unique_name_in_owner = true
 position = Vector2(575, 370)
 script = ExtResource("18_vuch8")
-
-[node name="Walker" type="Node" parent="Camera2D" node_paths=PackedStringArray("path")]
-script = ExtResource("14_uw7r7")
-path = NodePath("../../CameraPath")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.1, 1.1)
