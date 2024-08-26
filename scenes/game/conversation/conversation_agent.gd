@@ -46,6 +46,10 @@ func end_line():
 	show_line(current_dialogue, next_line)
 
 func proceed():
+	if Time.get_ticks_msec() < ticks_since_autoend_msec + 200:
+		# Debounce clicks to avoid accidental skips
+		return
+
 	if not current_dialogue:
 		return
 	
@@ -56,12 +60,11 @@ func proceed():
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == 1 and not event.pressed:
-			if Time.get_ticks_msec() < ticks_since_autoend_msec + 200:
-				# Debounce clicks to avoid accidental skips
-				return
-			
+		if event.button_index == 1 and not event.pressed:			
 			proceed()
+	
+	if event.is_action_released("proceed"):
+		proceed()
 
 func _on_conversation_label_finished_typing() -> void:
 	ticks_since_autoend_msec = Time.get_ticks_msec()
