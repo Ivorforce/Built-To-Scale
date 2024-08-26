@@ -116,7 +116,7 @@ action = &"play-3"
 [sub_resource type="Shortcut" id="Shortcut_slyfe"]
 events = [SubResource("InputEventAction_2e1wk")]
 
-[node name="Scene" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_rqujc")
 dialogue = ExtResource("2_f8oia")
 

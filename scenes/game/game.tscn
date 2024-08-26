@@ -97,6 +97,8 @@ day_gradient = SubResource("Gradient_gdy4v")
 day_gradient_tint = SubResource("Gradient_ujufb")
 post_process = NodePath("../../PostProcess")
 
+[node name="Scene" type="Node2D" parent="."]
+
 [node name="PostProcess" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_04sif")
 position = Vector2(586, 326)
@@ -352,8 +354,9 @@ metadata/_edit_lock_ = true
 script = ExtResource("28_uy7va")
 time = NodePath("../Time")
 
-[node name="Storyteller" type="Node" parent="." node_paths=PackedStringArray("season_icons", "time", "conversation_agent", "ambience", "sleep_jingle", "sky", "end_day_ui")]
+[node name="Storyteller" type="Node" parent="." node_paths=PackedStringArray("scene_parent", "season_icons", "time", "conversation_agent", "ambience", "sleep_jingle", "sky", "end_day_ui")]
 script = ExtResource("29_kugf0")
+scene_parent = NodePath("../Scene")
 season_icons = [NodePath("../HUD/SeasonsIcon/Spring"), NodePath("../HUD/SeasonsIcon/Summer"), NodePath("../HUD/SeasonsIcon/Autumn"), NodePath("../HUD/SeasonsIcon/Winter")]
 time = NodePath("../Time")
 conversation_agent = NodePath("../ConversationAgent")

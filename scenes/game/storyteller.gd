@@ -5,6 +5,9 @@ extends Node
 var events_today = []
 
 @export
+var scene_parent: Node2D
+
+@export
 var season_icons: Array[CanvasItem] = []
 
 @export
@@ -51,14 +54,9 @@ func start_day(day: int):
 	
 	sky.day_start_h = 7
 	sky.day_duration_h = 14
-	
-	var _level := get_node_or_null("%Level")
-	
-	if day == 0:
-		if not _level or _level is not Level1:
-			_level = change_level(load("res://scenes/levels/level1/level1.tscn").instantiate())
 		
-		var level := _level as Level1
+	if day == 0:
+		var level: Level1 = change_level(load("res://scenes/levels/level1/level1.tscn").instantiate())
 		
 		events_today = [
 			[8.0, level.think.bind("hello_world")],
@@ -72,11 +70,8 @@ func start_day(day: int):
 			[20.5, end_day],
 		]
 	elif day == 1:
-		if not _level or _level is not Level2:
-			_level = change_level(load("res://scenes/levels/level2/level2.tscn").instantiate())
+		var level: Level2 = change_level(load("res://scenes/levels/level2/level2.tscn").instantiate())
 		
-		var level := _level as Level2
-
 		events_today = [
 			[8.5, level.think.bind("think_morning")],
 			[10.0, level.enter_snake.bind("snake_plant_1")],
@@ -104,11 +99,8 @@ func start_day(day: int):
 			[20.5, end_day],
 		]
 	elif day == 2:
-		if not _level or _level is not Level1:
-			_level = change_level(load("res://scenes/levels/level3/level3.tscn").instantiate())
+		var level: Level3 = change_level(load("res://scenes/levels/level3/level3.tscn").instantiate())
 		
-		var level := _level as Level3
-
 		events_today = [
 			[9.5, level.think.bind("think_morning")],
 			[10, level.dismiss_think],
@@ -144,21 +136,13 @@ func end_night():
 func change_level(level: Node2D):
 	var game := get_node("..") as Node2D
 	
-	var prev_level := get_node_or_null("%Level")
-	if prev_level:
-		prev_level.unique_name_in_owner = false
-		prev_level.name = "PrevLevel"
-		prev_level.queue_free()
-	
-	level.name = "Level"
-	game.add_child(level)
-	game.move_child(level, 1)
-	level.owner = game
-	level.unique_name_in_owner = true
+	for prev_scene in scene_parent.get_children():
+		prev_scene.queue_free()
 	
 	level.conversation_agent = conversation_agent
 	level.time = time
-
+	scene_parent.add_child(level)
+	
 	return level
 
 func _process(delta: float) -> void:

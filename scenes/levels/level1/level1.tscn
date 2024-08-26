@@ -62,7 +62,7 @@ texture = ExtResource("21_fyogl")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ko5ps"]
 texture = ExtResource("21_hsc4r")
 
-[node name="Scene" type="Node2D"]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_rqujc")
 dialogue = ExtResource("2_qmh3g")
 
