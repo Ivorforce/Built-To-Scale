@@ -56,7 +56,7 @@ func enter_bug(line_id: String):
 	var button := parent.get_node("Button")
 
 	set_position_along_multispline(0, parent, bug_path)
-	parent.scale.x = abs(parent.scale.x)
+	set_is_x_flipped(parent, false)
 	parent.visible = true
 	wobbler.is_wobbling = true
 	
@@ -73,7 +73,7 @@ func exit_bug():
 	var button := parent.get_node("Button")
 
 	dismiss_conversation(button)
-	parent.scale.x = -abs(parent.scale.x)
+	set_is_x_flipped(parent, true)
 	
 	var tween := create_tween()
 	tween.tween_method(set_position_along_multispline.bind(parent, bug_path), 2.0, 1.0, 0.35).set_delay(0.8)

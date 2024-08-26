@@ -21,7 +21,7 @@ func enter_bug(line_id: String):
 	var button := parent.get_node("Button")
 
 	set_position_along_multispline(0, parent, bug_path)
-	parent.scale.x = abs(parent.scale.x)
+	set_is_x_flipped(parent, false)
 	parent.visible = true
 	wobbler.is_wobbling = true
 	
@@ -37,7 +37,7 @@ func exit_bug():
 	var button := parent.get_node("Button")
 
 	dismiss_conversation(button)
-	parent.scale.x = -abs(parent.scale.x)
+	set_is_x_flipped(parent, true)
 	wobbler.is_wobbling = true
 	
 	var tween := create_tween()
@@ -53,8 +53,7 @@ func enter_moth_top(line_id: String):
 	var button := parent.get_node("Button")
 
 	set_position_along_multispline(0, parent, moth_path)
-	parent.rotation = 0
-	parent.scale.y = abs(parent.scale.y)
+	set_is_x_flipped(parent, false)
 	parent.visible = true
 	
 	var tween := create_tween()
@@ -67,8 +66,7 @@ func exit_moth_bottom():
 	var button := parent.get_node("Button")
 
 	dismiss_conversation(button)
-	parent.rotation = PI
-	parent.scale.y = -abs(parent.scale.y)
+	set_is_x_flipped(parent, true)
 	
 	var tween := create_tween()
 	tween.tween_method(set_position_along_multispline.bind(parent, moth_path), 1.0, 2, 2)
@@ -82,8 +80,7 @@ func enter_moth_bottom(line_id: String):
 	var button := parent.get_node("Button")
 
 	set_position_along_multispline(2, parent, moth_path)
-	parent.rotation = 0
-	parent.scale.y = abs(parent.scale.y)
+	set_is_x_flipped(parent, false)
 
 	parent.visible = true
 	
@@ -97,8 +94,7 @@ func exit_moth_top():
 	var button := parent.get_node("Button")
 
 	dismiss_conversation(button)
-	parent.rotation = PI
-	parent.scale.y = -abs(parent.scale.y)
+	set_is_x_flipped(parent, true)
 	
 	var tween := create_tween()
 	tween.tween_method(set_position_along_multispline.bind(parent, moth_path), 1.0, 0, 2)

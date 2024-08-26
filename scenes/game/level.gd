@@ -9,6 +9,14 @@ var dialogue: DialogueResource
 func set_position_along_multispline(position: float, node: Node2D, path: MultiSpline):
 	node.global_transform.origin = path.sample_multispline(position)
 
+func set_is_x_flipped(node: Node2D, is_x_flipped: bool):
+	if is_x_flipped:
+		node.rotation = PI
+		node.scale.y = -abs(node.scale.y)
+	else:
+		node.rotation = 0
+		node.scale.y = abs(node.scale.y)
+
 func reconnect(signal_: Signal, callable: Callable):
 	for connection in signal_.get_connections():
 		signal_.disconnect(connection["callable"])
