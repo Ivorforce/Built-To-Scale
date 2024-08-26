@@ -3,8 +3,7 @@ extends Level
 
 @export var me: Node2D
 @export var bug: Node2D
-@export var bug_path_walk: MultiSpline
-@export var bug_path_jump: MultiSpline
+@export var bug_path: MultiSpline
 
 @export var snake: Node2D
 
@@ -56,15 +55,15 @@ func enter_bug(line_id: String):
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler
 	var button := parent.get_node("Button")
 
-	set_position_along_multispline(0, parent, bug_path_walk)
+	set_position_along_multispline(0, parent, bug_path)
 	parent.scale.x = abs(parent.scale.x)
 	parent.visible = true
 	wobbler.is_wobbling = true
 	
 	var tween := create_tween()
-	tween.tween_method(set_position_along_multispline.bind(parent, bug_path_walk), 0.0, 1, 5)
+	tween.tween_method(set_position_along_multispline.bind(parent, bug_path), 0.0, 1.0, 5)
 	tween.tween_property(wobbler, "is_wobbling", false, 0)
-	tween.tween_method(set_position_along_multispline.bind(parent, bug_path_jump), 0.0, 1, 0.35).set_delay(1)
+	tween.tween_method(set_position_along_multispline.bind(parent, bug_path), 1.0, 2.0, 0.35).set_delay(1)
 	tween.tween_callback(offer_conversation.bind(button, line_id))
 	tween.play()
 	
@@ -77,9 +76,9 @@ func exit_bug():
 	parent.scale.x = -abs(parent.scale.x)
 	
 	var tween := create_tween()
-	tween.tween_method(set_position_along_multispline.bind(parent, bug_path_jump), 1.0, 0, 0.35).set_delay(0.8)
+	tween.tween_method(set_position_along_multispline.bind(parent, bug_path), 2.0, 1.0, 0.35).set_delay(0.8)
 	tween.tween_property(wobbler, "is_wobbling", true, 0).set_delay(1)
-	tween.tween_method(set_position_along_multispline.bind(parent, bug_path_walk), 1.0, 0, 5)
+	tween.tween_method(set_position_along_multispline.bind(parent, bug_path), 1.0, 0.0, 5)
 	tween.tween_property(wobbler, "is_wobbling", false, 0)
 	tween.tween_callback(func(): Events.event_ended.emit("see-bug"))
 	tween.play()

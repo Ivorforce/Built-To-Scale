@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=82 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://scenes/game/sprite_paper.tres" id="2_d640p"]
@@ -63,6 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://objects/button/Button_1.png" id="52_3nr65"]
 [ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://objects/button/Button_2.png" id="53_e7rt6"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="54_rb8ax"]
+[ext_resource type="Script" path="res://util/splines/composite.gd" id="63_cgo3h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12iwp"]
 texture = ExtResource("51_bms2n")
@@ -115,12 +116,11 @@ action = &"play-3"
 [sub_resource type="Shortcut" id="Shortcut_slyfe"]
 events = [SubResource("InputEventAction_2e1wk")]
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path_walk", "bug_path_jump", "snake", "ants_talk_button", "berry", "berry_path", "bird", "bird_path")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path", "snake", "ants_talk_button", "berry", "berry_path", "bird", "bird_path")]
 script = ExtResource("1_rqujc")
 me = NodePath("Me")
 bug = NodePath("Bug")
-bug_path_walk = NodePath("BugWalk")
-bug_path_jump = NodePath("BugJump")
+bug_path = NodePath("BugPath")
 snake = NodePath("Snake")
 ants_talk_button = NodePath("AntsTalkButton")
 berry = NodePath("Parallax2D7/Berry")
@@ -484,32 +484,6 @@ position = Vector2(526, 423)
 scale = Vector2(0.12999, 0.12999)
 texture = ExtResource("6_yf6lp")
 
-[node name="BugWalk" type="Node2D" parent="."]
-position = Vector2(1100, 517)
-scale = Vector2(0.24, 0.24)
-script = ExtResource("9_j4rop")
-
-[node name="Node2D" type="Node2D" parent="BugWalk"]
-
-[node name="BugPath" type="Node2D" parent="BugWalk"]
-position = Vector2(-1404.17, -170.833)
-
-[node name="BugJump" type="Node2D" parent="."]
-position = Vector2(763, 476)
-scale = Vector2(0.24, 0.24)
-script = ExtResource("10_d0dr0")
-
-[node name="Node2D" type="Node2D" parent="BugJump"]
-
-[node name="BugPath" type="Node2D" parent="BugJump"]
-position = Vector2(-75.0001, -525)
-
-[node name="BugPath2" type="Node2D" parent="BugJump"]
-position = Vector2(-441.667, -620.833)
-
-[node name="BugPath3" type="Node2D" parent="BugJump"]
-position = Vector2(-333.333, -937.5)
-
 [node name="Me" type="Node2D" parent="."]
 
 [node name="Me" type="Sprite2D" parent="Me"]
@@ -725,3 +699,32 @@ scroll_offset = Vector2(76, 26)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D6"]
 position = Vector2(-232.222, 717.778)
 texture = ExtResource("18_spjtd")
+
+[node name="BugPath" type="Node2D" parent="."]
+script = ExtResource("63_cgo3h")
+
+[node name="BugWalk" type="Node2D" parent="BugPath"]
+position = Vector2(1100, 517)
+scale = Vector2(0.24, 0.24)
+script = ExtResource("9_j4rop")
+
+[node name="Node2D" type="Node2D" parent="BugPath/BugWalk"]
+
+[node name="BugPath" type="Node2D" parent="BugPath/BugWalk"]
+position = Vector2(-1404.17, -170.833)
+
+[node name="BugJump" type="Node2D" parent="BugPath"]
+position = Vector2(763, 476)
+scale = Vector2(0.24, 0.24)
+script = ExtResource("10_d0dr0")
+
+[node name="Node2D" type="Node2D" parent="BugPath/BugJump"]
+
+[node name="BugPath" type="Node2D" parent="BugPath/BugJump"]
+position = Vector2(-75.0001, -525)
+
+[node name="BugPath2" type="Node2D" parent="BugPath/BugJump"]
+position = Vector2(-441.667, -620.833)
+
+[node name="BugPath3" type="Node2D" parent="BugPath/BugJump"]
+position = Vector2(-333.333, -937.5)

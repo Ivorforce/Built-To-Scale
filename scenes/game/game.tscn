@@ -364,6 +364,7 @@ ambience = NodePath("../Music/Ambience")
 sleep_jingle = NodePath("../Music/SleepJingle")
 sky = NodePath("../Parallax2D/Sky")
 end_day_ui = NodePath("../HUD/EndDayUI")
+current_day = 1
 
 [node name="Music" type="Node" parent="."]
 
