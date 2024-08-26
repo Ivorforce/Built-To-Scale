@@ -1,6 +1,11 @@
 class_name StoryTeller
 extends Node
 
+const level1 = preload("res://scenes/levels/level1/level1.tscn")
+const level2 = preload("res://scenes/levels/level2/level2.tscn")
+const level3 = preload("res://scenes/levels/level3/level3.tscn")
+const credits = preload("res://scenes/credits/credits.tscn")
+
 # tuples [time, callback]
 var events_today = []
 
@@ -56,7 +61,7 @@ func start_day(day: int):
 	sky.day_duration_h = 14
 		
 	if day == 0:
-		var level: Level1 = change_level(load("res://scenes/levels/level1/level1.tscn").instantiate())
+		var level: Level1 = change_level(level1.instantiate())
 		
 		events_today = [
 			[8.0, level.think.bind("hello_world")],
@@ -70,7 +75,7 @@ func start_day(day: int):
 			[20.5, end_day],
 		]
 	elif day == 1:
-		var level: Level2 = change_level(load("res://scenes/levels/level2/level2.tscn").instantiate())
+		var level: Level2 = change_level(level2.instantiate())
 		
 		events_today = [
 			[8.5, level.think.bind("think_morning")],
@@ -99,12 +104,12 @@ func start_day(day: int):
 			[20.5, end_day],
 		]
 	elif day == 2:
-		var level: Level3 = change_level(load("res://scenes/levels/level3/level3.tscn").instantiate())
+		var level: Level3 = change_level(level3.instantiate())
 		
 		events_today = [
 			[9.5, level.think.bind("think_morning")],
 			[10, level.dismiss_think],
-			[10.5, func(): get_tree().change_scene_to_file("res://scenes/credits.tscn")],
+			[10.5, func(): get_tree().change_scene_to_packed(credits)],
 			#[10, level.zoom_out],
 			[20.5, end_day],
 		]
