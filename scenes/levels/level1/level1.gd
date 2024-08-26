@@ -14,7 +14,7 @@ func dismiss_think():
 	dismiss_conversation(me.get_node("Button"))
 
 func enter_bug(line_id: String):
-	time.potential_talkmate_count += 1
+	Events.event_started.emit("see-bug")
 	
 	var parent := bug
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler
@@ -32,8 +32,6 @@ func enter_bug(line_id: String):
 	tween.play()
 	
 func exit_bug():
-	time.potential_talkmate_count -= 1
-	
 	var parent := bug
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler
 	var button := parent.get_node("Button")
@@ -45,9 +43,12 @@ func exit_bug():
 	var tween := create_tween()
 	tween.tween_method(set_position_along_multispline.bind(parent, bug_path), 1.0, 0, 3)
 	tween.tween_property(wobbler, "is_wobbling", false, 0)
+	tween.tween_callback(func(): Events.event_ended.emit("see-bug"))
 	tween.play()
 	
 func enter_moth_top(line_id: String):
+	Events.event_started.emit("see-moth")
+	
 	var parent := moth
 	var button := parent.get_node("Button")
 
@@ -71,9 +72,12 @@ func exit_moth_bottom():
 	
 	var tween := create_tween()
 	tween.tween_method(set_position_along_multispline.bind(parent, moth_path), 1.0, 2, 2)
+	tween.tween_callback(func(): Events.event_ended.emit("see-moth"))
 	tween.play()
 	
 func enter_moth_bottom(line_id: String):
+	Events.event_started.emit("see-moth")
+	
 	var parent := moth
 	var button := parent.get_node("Button")
 
@@ -98,5 +102,6 @@ func exit_moth_top():
 	
 	var tween := create_tween()
 	tween.tween_method(set_position_along_multispline.bind(parent, moth_path), 1.0, 0, 2)
+	tween.tween_callback(func(): Events.event_ended.emit("see-moth"))
 	tween.play()
 	

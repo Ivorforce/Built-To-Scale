@@ -15,7 +15,11 @@ var paused := true
 @export
 var is_talking := false
 @export
-var potential_talkmate_count := 0
+var watched_events := Dictionary()
+
+func _ready():
+	Events.event_started.connect(func(key): self.watched_events[key] = null)
+	Events.event_ended.connect(func(key): self.watched_events.erase(key))
 
 func _process(delta: float) -> void:
 	# Do this in any case, for example 
@@ -26,7 +30,7 @@ func _process(delta: float) -> void:
 	
 	var time_delta := delta / seconds_per_hour
 	
-	if potential_talkmate_count > 0:
+	if not watched_events.is_empty():
 		time_delta = time_delta * 0.15
 	
 	current_time_h = current_time_h + time_delta

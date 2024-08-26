@@ -115,13 +115,17 @@ action = &"play-3"
 [sub_resource type="Shortcut" id="Shortcut_slyfe"]
 events = [SubResource("InputEventAction_2e1wk")]
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path_walk", "bug_path_jump", "berry_path", "bird_path")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path_walk", "bug_path_jump", "snake", "ants_talk_button", "berry", "berry_path", "bird", "bird_path")]
 script = ExtResource("1_rqujc")
 me = NodePath("Me")
 bug = NodePath("Bug")
 bug_path_walk = NodePath("BugWalk")
 bug_path_jump = NodePath("BugJump")
+snake = NodePath("Snake")
+ants_talk_button = NodePath("AntsTalkButton")
+berry = NodePath("Parallax2D7/Berry")
 berry_path = NodePath("Parallax2D7/BerryRoll")
+bird = NodePath("Parallax2D7/Bird")
 bird_path = NodePath("Parallax2D7/BirdPath")
 dialogue = ExtResource("2_f8oia")
 
@@ -239,7 +243,6 @@ scale = Vector2(0.17109, 0.17109)
 texture = ExtResource("9_y12ay")
 
 [node name="AntsTalkButton" type="Button" parent="."]
-unique_name_in_owner = true
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -508,7 +511,6 @@ position = Vector2(-441.667, -620.833)
 position = Vector2(-333.333, -937.5)
 
 [node name="Me" type="Node2D" parent="."]
-unique_name_in_owner = true
 
 [node name="Me" type="Sprite2D" parent="Me"]
 position = Vector2(611, 387)
@@ -541,7 +543,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_sh0pa")
 text = "  Think..."
 
 [node name="Bug" type="Node2D" parent="."]
-unique_name_in_owner = true
 visible = false
 position = Vector2(658, 332)
 
@@ -603,7 +604,6 @@ scale = Vector2(0.230974, 0.230974)
 texture = ExtResource("9_6ao2t")
 
 [node name="Snake" type="Node2D" parent="."]
-unique_name_in_owner = true
 visible = false
 position = Vector2(302.5, 325.23)
 
@@ -685,7 +685,6 @@ metadata/_edit_lock_ = true
 position = Vector2(-1391.67, -158.333)
 
 [node name="Berry" type="Node2D" parent="Parallax2D7"]
-unique_name_in_owner = true
 visible = false
 position = Vector2(884.498, 503.137)
 
@@ -696,7 +695,6 @@ texture = ExtResource("11_4gkva")
 metadata/_edit_lock_ = true
 
 [node name="Bird" type="Node2D" parent="Parallax2D7"]
-unique_name_in_owner = true
 visible = false
 position = Vector2(867, 483)
 

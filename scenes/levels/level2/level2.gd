@@ -6,17 +6,25 @@ extends Level
 @export var bug_path_walk: MultiSpline
 @export var bug_path_jump: MultiSpline
 
+@export var snake: Node2D
+
+@export var ants_talk_button: BaseButton
+
+@export var berry: Node2D
 @export var berry_path: MultiSpline
+@export var bird: Node2D
 @export var bird_path: MultiSpline
 
 func think(line_id: String):
-	offer_conversation(%Me/Button, line_id)
+	offer_conversation(me.get_node("Button"), line_id)
 
 func dismiss_think():
-	dismiss_conversation(%Me/Button)
+	dismiss_conversation(me.get_node("Button"))
 
 func enter_snake(line_id: String):
-	var parent := %Snake as Node2D
+	Events.event_started.emit("see-snake")
+	
+	var parent := snake
 	var model := parent.get_node("Model")
 	var button := parent.get_node("Button")
 
@@ -29,7 +37,7 @@ func enter_snake(line_id: String):
 	tween.play()
 
 func exit_snake():
-	var parent := %Snake as Node2D
+	var parent := snake
 	var model := parent.get_node("Model")
 	var button := parent.get_node("Button")
 
@@ -38,12 +46,13 @@ func exit_snake():
 	var tween := create_tween()
 	tween.tween_property(model, "scale", Vector2(0.95, 0.95), 0.2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(parent, "visible", false, 0)
+	tween.tween_callback(func(): Events.event_ended.emit("see-snake"))
 	tween.play()
 
 func enter_bug(line_id: String):
-	time.potential_talkmate_count += 1
+	Events.event_started.emit("see-bug")
 	
-	var parent := %Bug as Node2D
+	var parent := bug
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler
 	var button := parent.get_node("Button")
 
@@ -60,9 +69,7 @@ func enter_bug(line_id: String):
 	tween.play()
 	
 func exit_bug():
-	time.potential_talkmate_count -= 1
-	
-	var parent := %Bug as Node2D
+	var parent := bug
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler
 	var button := parent.get_node("Button")
 
@@ -74,16 +81,17 @@ func exit_bug():
 	tween.tween_property(wobbler, "is_wobbling", true, 0).set_delay(1)
 	tween.tween_method(set_position_along_multispline.bind(parent, bug_path_walk), 1.0, 0, 5)
 	tween.tween_property(wobbler, "is_wobbling", false, 0)
+	tween.tween_callback(func(): Events.event_ended.emit("see-bug"))
 	tween.play()
 
 func enter_ants(line_id: String):
-	offer_conversation(%AntsTalkButton, line_id)
+	offer_conversation(ants_talk_button, line_id)
 
 func dismiss_ants():
-	dismiss_conversation(%AntsTalkButton)
+	dismiss_conversation(ants_talk_button)
 
 func enter_berry():
-	var parent := %Berry as Node2D
+	var parent := berry
 	var model := parent.get_node("Model") as Node2D
 	
 	set_position_along_multispline(0, parent, berry_path)
@@ -96,8 +104,8 @@ func enter_berry():
 	tween.play()
 
 func bird_pick_berry():
-	var parent := %Bird as Node2D
-	var berry := %Berry as Node2D
+	var parent := bird
+	var berry := berry
 
 	set_position_along_multispline(0, parent, bird_path)
 	parent.visible = true

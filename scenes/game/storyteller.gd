@@ -7,7 +7,7 @@ const level3 = preload("res://scenes/levels/level3/level3.tscn")
 const credits = preload("res://scenes/credits/credits.tscn")
 
 # tuples [time, callback]
-var events_today = []
+var events_today := []
 
 @export
 var scene_parent: Node2D
@@ -143,7 +143,6 @@ func change_level(level: Node2D):
 		prev_scene.queue_free()
 	
 	level.conversation_agent = conversation_agent
-	level.time = time
 	scene_parent.add_child(level)
 	
 	return level
