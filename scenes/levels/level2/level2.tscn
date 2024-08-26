@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://du3atg2babqy3"]
+[gd_scene load_steps=44 format=3 uid="uid://du3atg2babqy3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level2/level2.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://scenes/game/sprite_paper.tres" id="2_d640p"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://baboueiva8kko" path="res://objects/bug/BugSmol_1.png" id="6_5qfn3"]
 [ext_resource type="Texture2D" uid="uid://04ikerytogdu" path="res://objects/environment/Grass_5.png" id="6_8v5p1"]
 [ext_resource type="Texture2D" uid="uid://dqwlxjhk4nptj" path="res://objects/ants/Ant_3.png" id="6_8wrtd"]
-[ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://objects/environment/Grass_2.png" id="6_yf6lp"]
 [ext_resource type="Texture2D" uid="uid://bq0wov1rfffu6" path="res://objects/environment/Stone_9.png" id="7_538dw"]
 [ext_resource type="Texture2D" uid="uid://bq3qp8vowismo" path="res://objects/ants/Ant_4.png" id="7_g1u00"]
 [ext_resource type="Texture2D" uid="uid://bqskhobqys7bk" path="res://objects/ants/Ant_5.png" id="8_14i7o"]
@@ -31,34 +30,11 @@
 [ext_resource type="Script" path="res://util/wobbler.gd" id="13_51obf"]
 [ext_resource type="Texture2D" uid="uid://c6sp0lyghy72l" path="res://objects/ants/Ant_11.png" id="13_ci5j7"]
 [ext_resource type="Texture2D" uid="uid://dq3c2ctag0p6f" path="res://objects/ants/Ant_1.png" id="14_ob55i"]
-[ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://objects/environment/Stone_5.png" id="14_xdd0p"]
-[ext_resource type="Texture2D" uid="uid://bc0w87oiwcj1" path="res://objects/environment/Stone_7.png" id="15_iith1"]
 [ext_resource type="Texture2D" uid="uid://lijsdli2v8su" path="res://objects/environment/Grass_6.png" id="18_spjtd"]
 [ext_resource type="Texture2D" uid="uid://brj1fwctr56pa" path="res://objects/environment/Dirt_3.png" id="20_a1ip4"]
-[ext_resource type="Texture2D" uid="uid://cjum28qytvw52" path="res://objects/drop-instrument/Music_Drop_1_NP.png" id="20_ey3od"]
-[ext_resource type="Texture2D" uid="uid://bo8m78v0cpno4" path="res://objects/drop-instrument/Music_Drop_1_P.png" id="21_3c4js"]
-[ext_resource type="AudioStream" uid="uid://gkyw62jr8wid" path="res://objects/drop-instrument/drop-a.mp3" id="23_2c277"]
 [ext_resource type="Texture2D" uid="uid://by16g0dkl43vg" path="res://objects/environment/Grass_8.png" id="23_mgury"]
-[ext_resource type="Texture2D" uid="uid://d2mpqfknaaxim" path="res://objects/drop-instrument/Music_Drop_2_NP.png" id="24_x55lb"]
-[ext_resource type="Texture2D" uid="uid://dpi851rddusku" path="res://objects/drop-instrument/Music_Drop_2_P.png" id="25_1w3ls"]
-[ext_resource type="AudioStream" uid="uid://u7gbrim6qpfb" path="res://objects/drop-instrument/drop-g.mp3" id="26_5ttkk"]
-[ext_resource type="Texture2D" uid="uid://ddcxp6jidprb" path="res://objects/drop-instrument/Music_Drop_4_NP.png" id="27_34qf2"]
-[ext_resource type="Texture2D" uid="uid://b6csg4w4oaldo" path="res://objects/drop-instrument/Music_Drop_3_NP.png" id="27_wwxjt"]
-[ext_resource type="Texture2D" uid="uid://ct7w1v7byuqgh" path="res://objects/drop-instrument/Music_Drop_4_P.png" id="28_4xv5k"]
-[ext_resource type="Texture2D" uid="uid://dgwkqu44eci8c" path="res://objects/drop-instrument/Music_Drop_3_P.png" id="28_s3mw5"]
-[ext_resource type="AudioStream" uid="uid://djadwydvhtg48" path="res://objects/drop-instrument/drop-b.mp3" id="29_qishj"]
-[ext_resource type="AudioStream" uid="uid://cmkvyvisrgx4p" path="res://objects/drop-instrument/drop-d.mp3" id="32_m0dqn"]
+[ext_resource type="PackedScene" uid="uid://bu0b1278i6uwa" path="res://objects/drop-instrument/droplet_instrument.tscn" id="24_sj1mj"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://util/theme.tres" id="38_ex1tr"]
-[ext_resource type="Texture2D" uid="uid://bmu6rh2w4nfuf" path="res://objects/grass-instrument/Music_Grass_Left_NotPressed.png" id="39_nr2i0"]
-[ext_resource type="Texture2D" uid="uid://b0dnvtxpb020b" path="res://objects/grass-instrument/Music_Grass_Left_Pressed.png" id="40_q17kl"]
-[ext_resource type="Script" path="res://util/play_sound.gd" id="41_6weuy"]
-[ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://objects/grass-instrument/fairy-i.mp3" id="42_iwoid"]
-[ext_resource type="Texture2D" uid="uid://cthmllggoeb5f" path="res://objects/grass-instrument/Music_Grass_Middle_NotPressed.png" id="43_8vugq"]
-[ext_resource type="Texture2D" uid="uid://bhxq0o36knuc2" path="res://objects/grass-instrument/Music_Grass_Middle_Pressed.png" id="44_fdhoe"]
-[ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://objects/grass-instrument/fairy-v.mp3" id="45_6u0n6"]
-[ext_resource type="Texture2D" uid="uid://dmk7ulrru30ey" path="res://objects/grass-instrument/Music_Grass_Right_NotPressed.png" id="46_5efhp"]
-[ext_resource type="Texture2D" uid="uid://12h3yuoeigix" path="res://objects/grass-instrument/Music_Grass_Right_Pressed.png" id="47_otiwk"]
-[ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://objects/grass-instrument/fairy-ix.mp3" id="48_8jj2j"]
 [ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://objects/button/Button_3.png" id="51_bms2n"]
 [ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://objects/button/Button_1.png" id="52_3nr65"]
 [ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://objects/button/Button_2.png" id="53_e7rt6"]
@@ -73,48 +49,6 @@ texture = ExtResource("52_3nr65")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sh0pa"]
 texture = ExtResource("53_e7rt6")
-
-[sub_resource type="InputEventAction" id="InputEventAction_ahcuf"]
-action = &"play-7"
-
-[sub_resource type="Shortcut" id="Shortcut_74b2m"]
-events = [SubResource("InputEventAction_ahcuf")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_28tu1"]
-action = &"play-6"
-
-[sub_resource type="Shortcut" id="Shortcut_env24"]
-events = [SubResource("InputEventAction_28tu1")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_g06pu"]
-action = &"play-8"
-
-[sub_resource type="Shortcut" id="Shortcut_ahw7r"]
-events = [SubResource("InputEventAction_g06pu")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_4ww2d"]
-action = &"play-9"
-
-[sub_resource type="Shortcut" id="Shortcut_hkkep"]
-events = [SubResource("InputEventAction_4ww2d")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_hwigb"]
-action = &"play-1"
-
-[sub_resource type="Shortcut" id="Shortcut_k5u0o"]
-events = [SubResource("InputEventAction_hwigb")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_q5ib4"]
-action = &"play-2"
-
-[sub_resource type="Shortcut" id="Shortcut_fvk76"]
-events = [SubResource("InputEventAction_q5ib4")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_2e1wk"]
-action = &"play-3"
-
-[sub_resource type="Shortcut" id="Shortcut_slyfe"]
-events = [SubResource("InputEventAction_2e1wk")]
 
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("me", "bug", "bug_path", "snake", "ants_talk_button", "berry", "berry_path", "bird", "bird_path")]
 script = ExtResource("1_rqujc")
@@ -295,105 +229,7 @@ texture = ExtResource("6_8v5p1")
 [node name="Parallax2D8" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.89, 0.89)
 
-[node name="Sounds2" type="Node2D" parent="Parallax2D8"]
-position = Vector2(451, 348)
-scale = Vector2(0.12, 0.12)
-
-[node name="ii" type="TextureButton" parent="Parallax2D8/Sounds2" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -540.0
-offset_right = 70.0
-offset_bottom = -81.0001
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_74b2m")
-texture_normal = ExtResource("24_x55lb")
-texture_pressed = ExtResource("25_1w3ls")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D8/Sounds2/ii"]
-stream = ExtResource("23_2c277")
-volume_db = -4.0
-max_polyphony = 3
-
-[node name="i" type="TextureButton" parent="Parallax2D8/Sounds2" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -656.0
-offset_top = -316.0
-offset_right = -123.0
-offset_bottom = 230.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_env24")
-texture_normal = ExtResource("20_ey3od")
-texture_pressed = ExtResource("21_3c4js")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D8/Sounds2/i"]
-stream = ExtResource("26_5ttkk")
-volume_db = -4.0
-max_polyphony = 3
-
-[node name="iii" type="TextureButton" parent="Parallax2D8/Sounds2" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 80.0001
-offset_top = -510.0
-offset_right = 427.0
-offset_bottom = -1.99994
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_ahw7r")
-texture_normal = ExtResource("27_wwxjt")
-texture_pressed = ExtResource("28_s3mw5")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D8/Sounds2/iii"]
-stream = ExtResource("29_qishj")
-volume_db = -4.0
-max_polyphony = 3
-
-[node name="iv" type="TextureButton" parent="Parallax2D8/Sounds2" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 260.0
-offset_top = -300.0
-offset_right = 608.0
-offset_bottom = 229.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_hkkep")
-texture_normal = ExtResource("27_34qf2")
-texture_pressed = ExtResource("28_4xv5k")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D8/Sounds2/iv"]
-stream = ExtResource("32_m0dqn")
-volume_db = -4.0
-max_polyphony = 3
+[node name="DropletInstrument" parent="Parallax2D8" instance=ExtResource("24_sj1mj")]
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.93, 0.93)
@@ -403,86 +239,8 @@ position = Vector2(754, 380)
 scale = Vector2(0.192195, 0.192195)
 texture = ExtResource("4_14nt0")
 
-[node name="Sounds" type="Node2D" parent="Parallax2D3"]
-position = Vector2(645, 435)
-scale = Vector2(0.04, 0.04)
-
-[node name="i" type="TextureButton" parent="Parallax2D3/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -610.0
-offset_top = -500.0
-offset_right = -117.0
-offset_bottom = 106.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_k5u0o")
-texture_normal = ExtResource("39_nr2i0")
-texture_pressed = ExtResource("40_q17kl")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D3/Sounds/i"]
-stream = ExtResource("42_iwoid")
-max_polyphony = 3
-
-[node name="v" type="TextureButton" parent="Parallax2D3/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -370.0
-offset_top = -820.0
-offset_right = 199.0
-offset_bottom = 91.9998
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_fvk76")
-texture_normal = ExtResource("43_8vugq")
-texture_pressed = ExtResource("44_fdhoe")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D3/Sounds/v"]
-stream = ExtResource("45_6u0n6")
-max_polyphony = 3
-
-[node name="ix" type="TextureButton" parent="Parallax2D3/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 150.0
-offset_top = -540.0
-offset_right = 551.0
-offset_bottom = 94.9998
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("38_ex1tr")
-shortcut = SubResource("Shortcut_slyfe")
-texture_normal = ExtResource("46_5efhp")
-texture_pressed = ExtResource("47_otiwk")
-script = ExtResource("41_6weuy")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parallax2D3/Sounds/ix"]
-stream = ExtResource("48_8jj2j")
-max_polyphony = 3
-
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.96, 0.96)
-
-[node name="Grass2" type="Sprite2D" parent="Parallax2D5"]
-position = Vector2(526, 423)
-scale = Vector2(0.12999, 0.12999)
-texture = ExtResource("6_yf6lp")
 
 [node name="Me" type="Node2D" parent="."]
 
@@ -621,16 +379,6 @@ position = Vector2(734, 508)
 rotation = 3.14159
 scale = Vector2(0.245053, -0.245053)
 texture = ExtResource("9_wn5ch")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(659, 450)
-scale = Vector2(0.062198, 0.062198)
-texture = ExtResource("14_xdd0p")
-
-[node name="Dirt8" type="Sprite2D" parent="."]
-position = Vector2(515, 496)
-scale = Vector2(0.105621, 0.105621)
-texture = ExtResource("15_iith1")
 
 [node name="Parallax2D7" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.1, 1.1)

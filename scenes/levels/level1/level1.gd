@@ -30,7 +30,7 @@ func enter_bug(line_id: String):
 	tween.tween_property(wobbler, "is_wobbling", false, 0)
 	tween.tween_callback(offer_conversation.bind(button, line_id)).set_delay(1.0)
 	tween.play()
-	
+
 func exit_bug():
 	var parent := bug
 	var wobbler := parent.get_node("Model/Wobbler") as Wobbler

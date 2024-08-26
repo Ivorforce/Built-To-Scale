@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dkn75kpirof5y"]
+[gd_scene load_steps=28 format=3 uid="uid://dkn75kpirof5y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level1/level1.gd" id="1_rqujc"]
 [ext_resource type="Material" uid="uid://bq50a162ysybs" path="res://scenes/game/sprite_paper.tres" id="2_d640p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bu1bwf8e2qe8q" path="res://objects/background/Blanco.png" id="3_w0hu8"]
 [ext_resource type="Texture2D" uid="uid://jw2s5ld0jngx" path="res://objects/environment/Grass_2.png" id="4_s5fia"]
 [ext_resource type="Texture2D" uid="uid://cmshddnbkoxys" path="res://objects/environment/Grass_3.png" id="5_mm3du"]
+[ext_resource type="PackedScene" uid="uid://boeqdgchsvuce" path="res://objects/grass-instrument/grass-instrument.tscn" id="6_c3omi"]
 [ext_resource type="Texture2D" uid="uid://cmyyxevri5iog" path="res://objects/environment/Stone_5.png" id="7_8tdyu"]
 [ext_resource type="Texture2D" uid="uid://biydo1rgrg4t6" path="res://objects/bug/BugBig_1.png" id="7_folfc"]
 [ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://util/theme.tres" id="7_yufbh"]
@@ -19,38 +20,10 @@
 [ext_resource type="Script" path="res://util/wobbler.gd" id="15_deqiv"]
 [ext_resource type="Texture2D" uid="uid://dji0dkc1mx31t" path="res://objects/moth/Moth.png" id="18_08lsp"]
 [ext_resource type="Script" path="res://util/floater.gd" id="19_oa7jp"]
-[ext_resource type="Script" path="res://util/play_sound.gd" id="21_1acay"]
 [ext_resource type="Texture2D" uid="uid://w5c8qxjj57ey" path="res://objects/button/Button_1.png" id="21_fyogl"]
 [ext_resource type="Texture2D" uid="uid://uviisixexrwp" path="res://objects/button/Button_2.png" id="21_hsc4r"]
-[ext_resource type="Texture2D" uid="uid://b0dnvtxpb020b" path="res://objects/grass-instrument/Music_Grass_Left_Pressed.png" id="21_k6ddh"]
 [ext_resource type="Texture2D" uid="uid://cq33hvmyyjbpw" path="res://objects/button/Button_3.png" id="22_3j55m"]
-[ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://objects/grass-instrument/fairy-i.mp3" id="22_5tdg5"]
-[ext_resource type="Texture2D" uid="uid://bmu6rh2w4nfuf" path="res://objects/grass-instrument/Music_Grass_Left_NotPressed.png" id="22_wcfu7"]
-[ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://objects/grass-instrument/fairy-v.mp3" id="23_buktn"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="24_m8x3r"]
-[ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://objects/grass-instrument/fairy-ix.mp3" id="24_oibnf"]
-[ext_resource type="Texture2D" uid="uid://bhxq0o36knuc2" path="res://objects/grass-instrument/Music_Grass_Middle_Pressed.png" id="25_nafmb"]
-[ext_resource type="Texture2D" uid="uid://cthmllggoeb5f" path="res://objects/grass-instrument/Music_Grass_Middle_NotPressed.png" id="26_bq5tp"]
-[ext_resource type="Texture2D" uid="uid://12h3yuoeigix" path="res://objects/grass-instrument/Music_Grass_Right_Pressed.png" id="28_r2uxj"]
-[ext_resource type="Texture2D" uid="uid://dmk7ulrru30ey" path="res://objects/grass-instrument/Music_Grass_Right_NotPressed.png" id="29_h3xeu"]
-
-[sub_resource type="InputEventAction" id="InputEventAction_hwigb"]
-action = &"play-1"
-
-[sub_resource type="Shortcut" id="Shortcut_5u1r7"]
-events = [SubResource("InputEventAction_hwigb")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_q5ib4"]
-action = &"play-2"
-
-[sub_resource type="Shortcut" id="Shortcut_chwe8"]
-events = [SubResource("InputEventAction_q5ib4")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_2e1wk"]
-action = &"play-3"
-
-[sub_resource type="Shortcut" id="Shortcut_fgtqa"]
-events = [SubResource("InputEventAction_2e1wk")]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36qxj"]
 texture = ExtResource("22_3j55m")
@@ -87,78 +60,7 @@ position = Vector2(501, 285)
 scale = Vector2(0.364271, 0.364271)
 texture = ExtResource("4_s5fia")
 
-[node name="Sounds" type="Node2D" parent="Objects/ParaBack"]
-position = Vector2(665, 342)
-scale = Vector2(0.06, 0.06)
-
-[node name="i" type="TextureButton" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -610.0
-offset_top = -500.0
-offset_right = -117.0
-offset_bottom = 106.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("7_yufbh")
-shortcut = SubResource("Shortcut_5u1r7")
-texture_normal = ExtResource("22_wcfu7")
-texture_pressed = ExtResource("21_k6ddh")
-script = ExtResource("21_1acay")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/i"]
-stream = ExtResource("22_5tdg5")
-max_polyphony = 3
-
-[node name="v" type="TextureButton" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -370.0
-offset_top = -820.0
-offset_right = 199.0
-offset_bottom = 91.9998
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("7_yufbh")
-shortcut = SubResource("Shortcut_chwe8")
-texture_normal = ExtResource("26_bq5tp")
-texture_pressed = ExtResource("25_nafmb")
-script = ExtResource("21_1acay")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/v"]
-stream = ExtResource("23_buktn")
-max_polyphony = 3
-
-[node name="ix" type="TextureButton" parent="Objects/ParaBack/Sounds" node_paths=PackedStringArray("sound")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 150.0
-offset_top = -540.0
-offset_right = 551.0
-offset_bottom = 94.9998
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("7_yufbh")
-shortcut = SubResource("Shortcut_fgtqa")
-texture_normal = ExtResource("29_h3xeu")
-texture_pressed = ExtResource("28_r2uxj")
-script = ExtResource("21_1acay")
-sound = NodePath("AudioStreamPlayer")
-metadata/_edit_lock_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/ParaBack/Sounds/ix"]
-stream = ExtResource("24_oibnf")
-max_polyphony = 3
+[node name="GrassInstrument" parent="Objects/ParaBack" instance=ExtResource("6_c3omi")]
 
 [node name="Grass3" type="Sprite2D" parent="Objects/ParaBack"]
 position = Vector2(815, 258)

@@ -1,0 +1,102 @@
+[gd_scene load_steps=18 format=3 uid="uid://boeqdgchsvuce"]
+
+[ext_resource type="Theme" uid="uid://c2qcgjte35rmi" path="res://util/theme.tres" id="1_mdqx0"]
+[ext_resource type="Texture2D" uid="uid://bmu6rh2w4nfuf" path="res://objects/grass-instrument/Music_Grass_Left_NotPressed.png" id="2_i00r7"]
+[ext_resource type="Texture2D" uid="uid://b0dnvtxpb020b" path="res://objects/grass-instrument/Music_Grass_Left_Pressed.png" id="3_f24ec"]
+[ext_resource type="Script" path="res://util/play_sound.gd" id="4_pghya"]
+[ext_resource type="AudioStream" uid="uid://csu61rqqgnv3b" path="res://objects/grass-instrument/fairy-i.mp3" id="5_vac33"]
+[ext_resource type="Texture2D" uid="uid://cthmllggoeb5f" path="res://objects/grass-instrument/Music_Grass_Middle_NotPressed.png" id="6_w5co8"]
+[ext_resource type="Texture2D" uid="uid://bhxq0o36knuc2" path="res://objects/grass-instrument/Music_Grass_Middle_Pressed.png" id="7_m013n"]
+[ext_resource type="AudioStream" uid="uid://680xtwmfoi3d" path="res://objects/grass-instrument/fairy-v.mp3" id="8_m2t7b"]
+[ext_resource type="Texture2D" uid="uid://dmk7ulrru30ey" path="res://objects/grass-instrument/Music_Grass_Right_NotPressed.png" id="9_754u2"]
+[ext_resource type="Texture2D" uid="uid://12h3yuoeigix" path="res://objects/grass-instrument/Music_Grass_Right_Pressed.png" id="10_wd3eb"]
+[ext_resource type="AudioStream" uid="uid://yf44h4mbpe3j" path="res://objects/grass-instrument/fairy-ix.mp3" id="11_owwww"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_hwigb"]
+action = &"play-1"
+
+[sub_resource type="Shortcut" id="Shortcut_5u1r7"]
+events = [SubResource("InputEventAction_hwigb")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q5ib4"]
+action = &"play-2"
+
+[sub_resource type="Shortcut" id="Shortcut_chwe8"]
+events = [SubResource("InputEventAction_q5ib4")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2e1wk"]
+action = &"play-3"
+
+[sub_resource type="Shortcut" id="Shortcut_fgtqa"]
+events = [SubResource("InputEventAction_2e1wk")]
+
+[node name="GrassInstrument" type="Node2D"]
+position = Vector2(665, 342)
+scale = Vector2(0.06, 0.06)
+metadata/_edit_group_ = true
+
+[node name="i" type="TextureButton" parent="." node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -610.0
+offset_top = -500.0
+offset_right = -117.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("1_mdqx0")
+shortcut = SubResource("Shortcut_5u1r7")
+texture_normal = ExtResource("2_i00r7")
+texture_pressed = ExtResource("3_f24ec")
+script = ExtResource("4_pghya")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="i"]
+stream = ExtResource("5_vac33")
+max_polyphony = 3
+
+[node name="v" type="TextureButton" parent="." node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -820.0
+offset_right = 199.0
+offset_bottom = 91.9998
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("1_mdqx0")
+shortcut = SubResource("Shortcut_chwe8")
+texture_normal = ExtResource("6_w5co8")
+texture_pressed = ExtResource("7_m013n")
+script = ExtResource("4_pghya")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="v"]
+stream = ExtResource("8_m2t7b")
+max_polyphony = 3
+
+[node name="ix" type="TextureButton" parent="." node_paths=PackedStringArray("sound")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = -540.0
+offset_right = 551.0
+offset_bottom = 94.9998
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("1_mdqx0")
+shortcut = SubResource("Shortcut_fgtqa")
+texture_normal = ExtResource("9_754u2")
+texture_pressed = ExtResource("10_wd3eb")
+script = ExtResource("4_pghya")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ix"]
+stream = ExtResource("11_owwww")
+max_polyphony = 3
